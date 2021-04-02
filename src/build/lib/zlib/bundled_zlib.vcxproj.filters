@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\lib\zlib\adler32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\lib\zlib\compress.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\lib\zlib\crc32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\lib\zlib\deflate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\lib\zlib\gzclose.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\lib\zlib\gzlib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\lib\zlib\gzread.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\lib\zlib\gzwrite.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\lib\zlib\infback.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\lib\zlib\inffast.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\lib\zlib\inflate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\lib\zlib\inftrees.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\lib\zlib\trees.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\lib\zlib\uncompr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\lib\zlib\zutil.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\lib\zlib\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{7545AF3B-B105-333F-9FFF-A97D3779BC8E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

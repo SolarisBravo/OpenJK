@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\G2_API.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\G2_bolts.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\G2_bones.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\G2_misc.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\G2_surfaces.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_arb.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_backend.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_bsp.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_cmds.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_curve.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_decals.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_ghoul2.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_image.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_init.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_light.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_main.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_marks.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_mesh.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_model.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_quicksprite.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_scene.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_shade.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_shade_calc.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_shader.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_shadows.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_skin.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_sky.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_subs.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_surface.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_surfacesprites.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_world.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_WorldEffects.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\ghoul2\G2_gore.cpp">
+      <Filter>ghoul2</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-common\tr_font.cpp">
+      <Filter>rd-common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-common\tr_image_load.cpp">
+      <Filter>rd-common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-common\tr_image_jpg.cpp">
+      <Filter>rd-common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-common\tr_image_tga.cpp">
+      <Filter>rd-common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-common\tr_image_png.cpp">
+      <Filter>rd-common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-common\tr_noise.cpp">
+      <Filter>rd-common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\qcommon\matcomp.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\qcommon\q_shared.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\q_color.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\q_math.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\q_string.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\safe\string.cpp">
+      <Filter>common\safe</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\glext.h">
+      <Filter>renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\qgl.h">
+      <Filter>renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_local.h">
+      <Filter>renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_quicksprite.h">
+      <Filter>renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-vanilla\tr_WorldEffects.h">
+      <Filter>renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\ghoul2\g2_local.h">
+      <Filter>ghoul2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\ghoul2\ghoul2_shared.h">
+      <Filter>ghoul2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\ghoul2\G2_gore.h">
+      <Filter>ghoul2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-common\mdx_format.h">
+      <Filter>rd-common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-common\tr_common.h">
+      <Filter>rd-common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-common\tr_font.h">
+      <Filter>rd-common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-common\tr_public.h">
+      <Filter>rd-common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\rd-common\tr_types.h">
+      <Filter>rd-common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\q_color.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\q_math.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\q_string.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\q_platform.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\build\shared\qcommon\q_version.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\safe\gsl.h">
+      <Filter>common\safe</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\safe\string.h">
+      <Filter>common\safe</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\safe\sscanf.h">
+      <Filter>common\safe</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\safe\limited_vector.h">
+      <Filter>common\safe</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="common">
+      <UniqueIdentifier>{D32B3C4E-041E-3ADD-A2B4-95693690AF1F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\safe">
+      <UniqueIdentifier>{9D79B468-2F81-34A7-AFB2-86DA535442AB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ghoul2">
+      <UniqueIdentifier>{5E9F345A-C30D-3E00-83BA-DD53A741AC57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rd-common">
+      <UniqueIdentifier>{47737245-EDD8-318A-8C93-C74F3991664E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="renderer">
+      <UniqueIdentifier>{3D471C83-BE9D-3368-9332-808278531A16}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

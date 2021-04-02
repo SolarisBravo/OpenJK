@@ -1,0 +1,20 @@
+﻿  bg_misc.c
+  bg_saberLoad.c
+  bg_saga.c
+  bg_vehicleLoad.c
+  bg_weapons.c
+  q_shared.c
+  q_color.c
+  q_math.c
+  q_string.c
+  ui_atoms.c
+  ui_cvar.c
+  ui_force.c
+  ui_gameinfo.c
+  ui_main.c
+  ui_saber.c
+  ui_shared.c
+  ui_syscalls.c
+  string.cpp
+     Creating library C:/Users/elitk/Documents/Projects/Code/Game Modifications/OpenJK/src/build/codemp/ui/Release/uix86.lib and object C:/Users/elitk/Documents/Projects/Code/Game Modifications/OpenJK/src/build/codemp/ui/Release/uix86.exp
+  uix86.vcxproj -> C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\build\Release\uix86.dll
