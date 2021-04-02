@@ -2370,22 +2370,9 @@ void CL_InitRef( void ) {
 
 	Com_Printf( "----- Initializing Renderer ----\n" );
 
-	cl_renderer = Cvar_Get( "cl_renderer", DEFAULT_RENDER_LIBRARY, CVAR_ARCHIVE|CVAR_LATCH|CVAR_PROTECTED, "Which renderer library to use" );
+	rendererLib = Sys_LoadDll(DEFAULT_RENDER_LIBRARY, qfalse);
 
-	Com_sprintf( dllName, sizeof( dllName ), "%s_" ARCH_STRING DLL_EXT, cl_renderer->string );
-
-	if( !(rendererLib = Sys_LoadDll( dllName, qfalse )) && strcmp( cl_renderer->string, cl_renderer->resetString ) )
-	{
-		Com_Printf( "failed: trying to load fallback renderer\n" );
-		Cvar_ForceReset( "cl_renderer" );
-
-		Com_sprintf( dllName, sizeof( dllName ), DEFAULT_RENDER_LIBRARY "_" ARCH_STRING DLL_EXT );
-		rendererLib = Sys_LoadDll( dllName, qfalse );
-	}
-
-	if ( !rendererLib ) {
-		Com_Error( ERR_FATAL, "Failed to load renderer\n" );
-	}
+	Com_Printf( "----- Renderer initialized ----\n" );
 
 	memset( &ri, 0, sizeof( ri ) );
 
