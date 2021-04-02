@@ -1,2 +1,6 @@
 /game/
 /src/build/.vs/
+*.log
+*.tlog
+/src/build/*.obj
+/src/build/*.dll
