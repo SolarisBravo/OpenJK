@@ -66,7 +66,7 @@
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)..\game\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">build</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">build\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">jamp</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
@@ -431,7 +431,7 @@
     <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\Ratl\bits_vs.h" />
     <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\Ratl\ratl_common.h" />
     <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\Ratl\vector_vs.h" />
-    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\Ravl\CVec.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\Ratl\CVec.h" />
     <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\mp3code\cdct.c" />
     <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\mp3code\config.h" />
     <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\mp3code\csbt.c" />
