@@ -2366,7 +2366,6 @@ void CL_InitRef( void ) {
 	static refimport_t ri;
 	refexport_t	*ret;
 	GetRefAPI_t	GetRefAPI;
-	char		dllName[MAX_OSPATH];
 
 	Com_Printf( "----- Initializing Renderer ----\n" );
 

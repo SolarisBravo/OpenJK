@@ -543,9 +543,6 @@
     <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\Ratl\vector_vs.h">
       <Filter>ratl</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\Ravl\CVec.h">
-      <Filter>ravl</Filter>
-    </ClInclude>
     <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\mp3code\config.h">
       <Filter>mp3code</Filter>
     </ClInclude>
@@ -591,6 +588,7 @@
     <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\sys\con_local.h">
       <Filter>sys</Filter>
     </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\Ratl\CVec.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\codemp\win32\icon.ico">
