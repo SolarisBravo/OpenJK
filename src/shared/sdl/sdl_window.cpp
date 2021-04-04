@@ -30,7 +30,6 @@ enum rserr_t
 {
 	RSERR_OK,
 
-	RSERR_INVALID_FULLSCREEN,
 	RSERR_INVALID_MODE,
 
 	RSERR_UNKNOWN
@@ -45,7 +44,6 @@ cvar_t *r_allowSoftwareGL;
 
 // Window cvars
 cvar_t	*r_fullscreen = 0;
-cvar_t	*r_noborder;
 cvar_t	*r_centerWindow;
 cvar_t	*r_customwidth;
 cvar_t	*r_customheight;
@@ -156,39 +154,6 @@ void WIN_Present( window_t *window )
 				Com_DPrintf( "SDL_GL_SetSwapInterval failed: %s\n", SDL_GetError() );
 			}
 		}
-	}
-
-	if ( r_fullscreen->modified )
-	{
-		bool	fullscreen;
-		bool	needToToggle;
-		bool	sdlToggled = qfalse;
-
-		// Find out the current state
-		fullscreen = (SDL_GetWindowFlags( screen ) & SDL_WINDOW_FULLSCREEN) != 0;
-
-		if ( r_fullscreen->integer && Cvar_VariableIntegerValue( "in_nograb" ) )
-		{
-			Com_Printf( "Fullscreen not allowed with in_nograb 1\n" );
-			Cvar_Set( "r_fullscreen", "0" );
-			r_fullscreen->modified = qfalse;
-		}
-
-		// Is the state we want different from the current state?
-		needToToggle = !!r_fullscreen->integer != fullscreen;
-
-		if ( needToToggle )
-		{
-			sdlToggled = SDL_SetWindowFullscreen( screen, r_fullscreen->integer ) >= 0;
-
-			// SDL_WM_ToggleFullScreen didn't work, so do it the slow way
-			if ( !sdlToggled )
-				Cbuf_AddText( "vid_restart\n" );
-
-			IN_Restart();
-		}
-
-		r_fullscreen->modified = qfalse;
 	}
 }
 
@@ -315,7 +280,7 @@ static bool GLimp_DetectAvailableModes(void)
 GLimp_SetMode
 ===============
 */
-static rserr_t GLimp_SetMode(glconfig_t *glConfig, const windowDesc_t *windowDesc, const char *windowTitle, int mode, qboolean fullscreen, qboolean noborder)
+static rserr_t GLimp_SetMode(glconfig_t *glConfig, const windowDesc_t *windowDesc, const char *windowTitle, int mode, qboolean fullscreen)
 {
 	int perChannelColorBits;
 	int colorBits, depthBits, stencilBits;
@@ -386,10 +351,8 @@ static rserr_t GLimp_SetMode(glconfig_t *glConfig, const windowDesc_t *windowDes
 			glConfig->vidHeight = 480;
 			Com_Printf( "Cannot determine display resolution, assuming 640x480\n" );
 		}
-
-		//glConfig.windowAspect = (float)glConfig.vidWidth / (float)glConfig.vidHeight;
 	}
-	else if ( !R_GetModeInfo( &glConfig->vidWidth, &glConfig->vidHeight, /*&glConfig.windowAspect,*/ mode ) )
+	else if ( !R_GetModeInfo( &glConfig->vidWidth, &glConfig->vidHeight, mode ) )
 	{
 		Com_Printf( " invalid mode\n" );
 		SDL_FreeSurface( icon );
@@ -397,11 +360,18 @@ static rserr_t GLimp_SetMode(glconfig_t *glConfig, const windowDesc_t *windowDes
 	}
 	Com_Printf( " %d %d\n", glConfig->vidWidth, glConfig->vidHeight);
 
-	// Center window
+	//Center windowed
 	if( r_centerWindow->integer && !fullscreen )
 	{
 		x = ( desktopMode.w / 2 ) - ( glConfig->vidWidth / 2 );
 		y = ( desktopMode.h / 2 ) - ( glConfig->vidHeight / 2 );
+	}
+
+	//Center fullscreen
+	if(fullscreen)
+	{
+		x = 0;
+		y = 0;
 	}
 
 	// Destroy existing state if it exists
@@ -419,16 +389,14 @@ static rserr_t GLimp_SetMode(glconfig_t *glConfig, const windowDesc_t *windowDes
 		screen = NULL;
 	}
 
+	//Fullscreen is always borderless
 	if( fullscreen )
 	{
-		flags |= SDL_WINDOW_FULLSCREEN;
-		glConfig->isFullscreen = qtrue;
+		flags |= SDL_WINDOW_BORDERLESS;
+		glConfig->isFullscreen = qfalse;
 	}
 	else
 	{
-		if( noborder )
-			flags |= SDL_WINDOW_BORDERLESS;
-
 		glConfig->isFullscreen = qfalse;
 	}
 
@@ -574,32 +542,7 @@ static rserr_t GLimp_SetMode(glconfig_t *glConfig, const windowDesc_t *windowDes
 				continue;
 			}
 
-#ifndef MACOS_X
 			SDL_SetWindowIcon( screen, icon );
-#endif
-
-			if( fullscreen )
-			{
-				SDL_DisplayMode mode;
-
-				switch( testColorBits )
-				{
-					case 16: mode.format = SDL_PIXELFORMAT_RGB565; break;
-					case 24: mode.format = SDL_PIXELFORMAT_RGB24;  break;
-					default: Com_DPrintf( "testColorBits is %d, can't fullscreen\n", testColorBits ); continue;
-				}
-
-				mode.w = glConfig->vidWidth;
-				mode.h = glConfig->vidHeight;
-				mode.refresh_rate = glConfig->displayFrequency = r_displayRefresh->integer;
-				mode.driverdata = NULL;
-
-				if( SDL_SetWindowDisplayMode( screen, &mode ) < 0 )
-				{
-					Com_DPrintf( "SDL_SetWindowDisplayMode failed: %s\n", SDL_GetError( ) );
-					continue;
-				}
-			}
 
 			if( ( opengl_context = SDL_GL_CreateContext( screen ) ) == NULL )
 			{
@@ -629,27 +572,17 @@ static rserr_t GLimp_SetMode(glconfig_t *glConfig, const windowDesc_t *windowDes
 	else
 	{
 		// Just create a regular window
-		if( ( screen = SDL_CreateWindow( windowTitle, x, y,
-				glConfig->vidWidth, glConfig->vidHeight, flags ) ) == NULL )
+		if((screen = SDL_CreateWindow( windowTitle, x, y, glConfig->vidWidth, glConfig->vidHeight, flags)) == NULL )
 		{
 			Com_DPrintf( "SDL_CreateWindow failed: %s\n", SDL_GetError( ) );
 		}
 		else
 		{
-#ifndef MACOS_X
-			SDL_SetWindowIcon( screen, icon );
-#endif
-			if( fullscreen )
-			{
-				if( SDL_SetWindowDisplayMode( screen, NULL ) < 0 )
-				{
-					Com_DPrintf( "SDL_SetWindowDisplayMode failed: %s\n", SDL_GetError( ) );
-				}
-			}
+			SDL_SetWindowIcon(screen, icon);
 		}
 	}
 
-	SDL_FreeSurface( icon );
+	SDL_FreeSurface(icon);
 
 	if (!GLimp_DetectAvailableModes())
 	{
@@ -664,7 +597,7 @@ static rserr_t GLimp_SetMode(glconfig_t *glConfig, const windowDesc_t *windowDes
 GLimp_StartDriverAndSetMode
 ===============
 */
-static qboolean GLimp_StartDriverAndSetMode(glconfig_t *glConfig, const windowDesc_t *windowDesc, int mode, qboolean fullscreen, qboolean noborder)
+static qboolean GLimp_StartDriverAndSetMode(glconfig_t *glConfig, const windowDesc_t *windowDesc, int mode, qboolean fullscreen)
 {
 	rserr_t err;
 
@@ -695,21 +628,10 @@ static qboolean GLimp_StartDriverAndSetMode(glconfig_t *glConfig, const windowDe
 		Com_Error( ERR_FATAL, "SDL_GetNumVideoDisplays() FAILED (%s)", SDL_GetError() );
 	}
 
-	if (fullscreen && Cvar_VariableIntegerValue( "in_nograb" ) )
-	{
-		Com_Printf( "Fullscreen not allowed with in_nograb 1\n");
-		Cvar_Set( "r_fullscreen", "0" );
-		r_fullscreen->modified = qfalse;
-		fullscreen = qfalse;
-	}
-
-	err = GLimp_SetMode(glConfig, windowDesc, CLIENT_WINDOW_TITLE, mode, fullscreen, noborder);
+	err = GLimp_SetMode(glConfig, windowDesc, CLIENT_WINDOW_TITLE, mode, fullscreen);
 
 	switch ( err )
 	{
-		case RSERR_INVALID_FULLSCREEN:
-			Com_Printf( "...WARNING: fullscreen unavailable in this mode\n" );
-			return qfalse;
 		case RSERR_INVALID_MODE:
 			Com_Printf( "...WARNING: could not set the given mode (%d)\n", mode );
 			return qfalse;
@@ -733,7 +655,6 @@ window_t WIN_Init( const windowDesc_t *windowDesc, glconfig_t *glConfig )
 
 	// Window cvars
 	r_fullscreen		= Cvar_Get( "r_fullscreen",			"0",		CVAR_ARCHIVE|CVAR_LATCH );
-	r_noborder			= Cvar_Get( "r_noborder",			"0",		CVAR_ARCHIVE|CVAR_LATCH );
 	r_centerWindow		= Cvar_Get( "r_centerWindow",		"0",		CVAR_ARCHIVE|CVAR_LATCH );
 	r_customwidth		= Cvar_Get( "r_customwidth",		"1600",		CVAR_ARCHIVE|CVAR_LATCH );
 	r_customheight		= Cvar_Get( "r_customheight",		"1024",		CVAR_ARCHIVE|CVAR_LATCH );
@@ -752,14 +673,13 @@ window_t WIN_Init( const windowDesc_t *windowDesc, glconfig_t *glConfig )
 	Cvar_Get( "r_availableModes", "", CVAR_ROM );
 
 	// Create the window and set up the context
-	if(!GLimp_StartDriverAndSetMode( glConfig, windowDesc, r_mode->integer,
-										(qboolean)r_fullscreen->integer, (qboolean)r_noborder->integer ))
+	if(!GLimp_StartDriverAndSetMode( glConfig, windowDesc, r_mode->integer, (qboolean)r_fullscreen->integer))
 	{
 		if( r_mode->integer != R_MODE_FALLBACK )
 		{
 			Com_Printf( "Setting r_mode %d failed, falling back on r_mode %d\n", r_mode->integer, R_MODE_FALLBACK );
 
-			if (!GLimp_StartDriverAndSetMode( glConfig, windowDesc, R_MODE_FALLBACK, qfalse, qfalse ))
+			if (!GLimp_StartDriverAndSetMode( glConfig, windowDesc, R_MODE_FALLBACK, qfalse ))
 			{
 				// Nothing worked, give up
 				Com_Error( ERR_FATAL, "GLimp_Init() - could not load OpenGL subsystem" );

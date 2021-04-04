@@ -1402,11 +1402,6 @@ void GfxInfo_f( void )
 		"windowed",
 		"fullscreen"
 	};
-	const char *noborderstrings[] =
-	{
-		"",
-		"noborder "
-	};
 
 	const char *tc_table[] =
 	{
@@ -1416,7 +1411,6 @@ void GfxInfo_f( void )
 	};
 
 	int fullscreen = ri.Cvar_VariableIntegerValue("r_fullscreen");
-	int noborder = ri.Cvar_VariableIntegerValue("r_noborder");
 
 	ri.Printf( PRINT_ALL, "\nGL_VENDOR: %s\n", glConfig.vendor_string );
 	ri.Printf( PRINT_ALL, "GL_RENDERER: %s\n", glConfig.renderer_string );
@@ -1426,11 +1420,6 @@ void GfxInfo_f( void )
 	ri.Printf( PRINT_ALL, "GL_MAX_TEXTURE_SIZE: %d\n", glConfig.maxTextureSize );
 	ri.Printf( PRINT_ALL, "GL_MAX_TEXTURE_UNITS_ARB: %d\n", glConfig.maxActiveTextures );
 	ri.Printf( PRINT_ALL, "\nPIXELFORMAT: color(%d-bits) Z(%d-bit) stencil(%d-bits)\n", glConfig.colorBits, glConfig.depthBits, glConfig.stencilBits );
-	ri.Printf( PRINT_ALL, "MODE: %d, %d x %d %s%s hz:",
-				ri.Cvar_VariableIntegerValue("r_mode"),
-				glConfig.vidWidth, glConfig.vidHeight,
-				fullscreen == 0 ? noborderstrings[noborder == 1] : noborderstrings[0],
-				fsstrings[fullscreen == 1] );
 	if ( glConfig.displayFrequency )
 	{
 		ri.Printf( PRINT_ALL, "%d\n", glConfig.displayFrequency );
