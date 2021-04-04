@@ -1,6 +1,13 @@
 /game/
-/src/build/.vs/
+/src/.vs/
 *.log
 *.tlog
 /src/build/*.obj
 /src/build/*.dll
+/src/build/codemp/botlib.dir/Release
+/src/build/codemp/build
+/src/build/codemp/cgame/build
+/src/build/codemp/rd-vanilla/build
+/src/build/codemp/ui/build
+/src/build/lib/jpeg-9a/bundled_libjpeg.dir/Release
+/src/build/lib/zlib/bundled_zlib.dir/Release
