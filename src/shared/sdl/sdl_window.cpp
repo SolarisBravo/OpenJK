@@ -49,7 +49,6 @@ cvar_t	*r_customwidth;
 cvar_t	*r_customheight;
 cvar_t	*r_swapInterval;
 cvar_t	*r_stereo;
-cvar_t	*r_mode;
 cvar_t	*r_displayRefresh;
 
 // Window surface cvars
@@ -83,49 +82,12 @@ const vidmode_t r_vidModes[] = {
     { "Mode 11: 856x480 (wide)", 856,	 480 },
     { "Mode 12: 2400x600(surround)",2400,600 }
 };
-static const int	s_numVidModes = ARRAY_LEN( r_vidModes );
-
-#define R_MODE_FALLBACK (4) // 640x480
 
 qboolean R_GetModeInfo( int *width, int *height, int mode ) {
-	const vidmode_t	*vm;
 
-    if ( mode < -1 ) {
-        return qfalse;
-	}
-	if ( mode >= s_numVidModes ) {
-		return qfalse;
-	}
-
-	if ( mode == -1 ) {
-		*width = r_customwidth->integer;
-		*height = r_customheight->integer;
-		return qtrue;
-	}
-
-	vm = &r_vidModes[mode];
-
-    *width  = vm->width;
-    *height = vm->height;
-
-    return qtrue;
-}
-
-/*
-** R_ModeList_f
-*/
-static void R_ModeList_f( void )
-{
-	int i;
-
-	Com_Printf( "\n" );
-	Com_Printf( "Mode -2: Use desktop resolution\n" );
-	Com_Printf( "Mode -1: Use r_customWidth and r_customHeight variables\n" );
-	for ( i = 0; i < s_numVidModes; i++ )
-	{
-		Com_Printf( "%s\n", r_vidModes[i].description );
-	}
-	Com_Printf( "\n" );
+	*width = r_customwidth->integer;
+	*height = r_customheight->integer;
+	return qtrue;
 }
 
 /*
@@ -647,7 +609,6 @@ static qboolean GLimp_StartDriverAndSetMode(glconfig_t *glConfig, const windowDe
 
 window_t WIN_Init( const windowDesc_t *windowDesc, glconfig_t *glConfig )
 {
-	Cmd_AddCommand("modelist", R_ModeList_f);
 	Cmd_AddCommand("minimize", GLimp_Minimize);
 
 	r_sdlDriver			= Cvar_Get( "r_sdlDriver",			"",			CVAR_ROM );
@@ -660,7 +621,6 @@ window_t WIN_Init( const windowDesc_t *windowDesc, glconfig_t *glConfig )
 	r_customheight		= Cvar_Get( "r_customheight",		"1024",		CVAR_ARCHIVE|CVAR_LATCH );
 	r_swapInterval		= Cvar_Get( "r_swapInterval",		"0",		CVAR_ARCHIVE_ND );
 	r_stereo			= Cvar_Get( "r_stereo",				"0",		CVAR_ARCHIVE_ND|CVAR_LATCH );
-	r_mode				= Cvar_Get( "r_mode",				"4",		CVAR_ARCHIVE|CVAR_LATCH );
 	r_displayRefresh	= Cvar_Get( "r_displayRefresh",		"0",		CVAR_LATCH );
 	Cvar_CheckRange( r_displayRefresh, 0, 240, qtrue );
 
@@ -673,18 +633,9 @@ window_t WIN_Init( const windowDesc_t *windowDesc, glconfig_t *glConfig )
 	Cvar_Get( "r_availableModes", "", CVAR_ROM );
 
 	// Create the window and set up the context
-	if(!GLimp_StartDriverAndSetMode( glConfig, windowDesc, r_mode->integer, (qboolean)r_fullscreen->integer))
+	if(!GLimp_StartDriverAndSetMode( glConfig, windowDesc, -1, (qboolean)r_fullscreen->integer))
 	{
-		if( r_mode->integer != R_MODE_FALLBACK )
-		{
-			Com_Printf( "Setting r_mode %d failed, falling back on r_mode %d\n", r_mode->integer, R_MODE_FALLBACK );
-
-			if (!GLimp_StartDriverAndSetMode( glConfig, windowDesc, R_MODE_FALLBACK, qfalse ))
-			{
-				// Nothing worked, give up
-				Com_Error( ERR_FATAL, "GLimp_Init() - could not load OpenGL subsystem" );
-			}
-		}
+		Com_Error( ERR_FATAL, "GLimp_Init() - could not load OpenGL subsystem" );
 	}
 
 	glConfig->deviceSupportsGamma =
