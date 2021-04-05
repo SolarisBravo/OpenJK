@@ -288,9 +288,6 @@ static void CG_CalcIdealThirdPersonViewTarget(void)
 	cameraFocusLoc[2] += cg.snap->ps.viewheight;
 
 	// Add in a vertical offset from the viewpoint, which puts the actual target above the head, regardless of angle.
-//	VectorMA(cameraFocusLoc, thirdPersonVertOffset, cameraup, cameraIdealTarget);
-
-	// Add in a vertical offset from the viewpoint, which puts the actual target above the head, regardless of angle.
 	VectorCopy( cameraFocusLoc, cameraIdealTarget );
 
 	{
@@ -1499,28 +1496,11 @@ static int CG_CalcViewValues( void ) {
 
 	memset( &cg.refdef, 0, sizeof( cg.refdef ) );
 
-	// strings for in game rendering
-	// Q_strncpyz( cg.refdef.text[0], "Park Ranger", sizeof(cg.refdef.text[0]) );
-	// Q_strncpyz( cg.refdef.text[1], "19", sizeof(cg.refdef.text[1]) );
-
 	// calculate size of 3D view
 	CG_CalcVrect();
 
 	ps = &cg.predictedPlayerState;
-/*
-	if (cg.cameraMode) {
-		vec3_t origin, angles;
-		if (trap->getCameraInfo(cg.time, &origin, &angles)) {
-			VectorCopy(origin, cg.refdef.vieworg);
-			angles[ROLL] = 0;
-			VectorCopy(angles, cg.refdef.viewangles);
-			AnglesToAxis( cg.refdef.viewangles, cg.refdef.viewaxis );
-			return CG_CalcFov();
-		} else {
-			cg.cameraMode = qfalse;
-		}
-	}
-*/
+
 	// intermission view
 	if ( ps->pm_type == PM_INTERMISSION ) {
 		VectorCopy( ps->origin, cg.refdef.vieworg );
@@ -1543,42 +1523,21 @@ static int CG_CalcViewValues( void ) {
 	if ( !manningTurret )
 	{//not manning a turret on a vehicle
 		VectorCopy( ps->origin, cg.refdef.vieworg );
-#ifdef VEH_CONTROL_SCHEME_4
-		if ( cg.predictedPlayerState.m_iVehicleNum )//in a vehicle
+		if (cg.predictedPlayerState.m_iVehicleNum && BG_UnrestrainedPitchRoll(&cg.predictedPlayerState, cg_entities[cg.predictedPlayerState.m_iVehicleNum].m_pVehicle))//vehicles can roll/pitch without restriction
 		{
-			Vehicle_t *pVeh = cg_entities[cg.predictedPlayerState.m_iVehicleNum].m_pVehicle;
-			if ( BG_UnrestrainedPitchRoll( &cg.predictedPlayerState, pVeh ) )//can roll/pitch without restriction
-			{//use the vehicle's viewangles to render view!
-				VectorCopy( cg.predictedVehicleState.viewangles, cg.refdef.viewangles );
-			}
-			else if ( pVeh //valid vehicle data pointer
-				&& pVeh->m_pVehicleInfo//valid vehicle info
-				&& pVeh->m_pVehicleInfo->type == VH_FIGHTER )//fighter
-			{
-				VectorCopy( cg.predictedVehicleState.viewangles, cg.refdef.viewangles );
-				cg.refdef.viewangles[PITCH] = AngleNormalize180( cg.refdef.viewangles[PITCH] );
-			}
-			else
-			{
-				VectorCopy( ps->viewangles, cg.refdef.viewangles );
-			}
+			VectorCopy(cg.predictedVehicleState.viewangles, cg.refdef.viewangles); //use the vehicle's viewangles to render view
 		}
-#else// VEH_CONTROL_SCHEME_4
-		if ( cg.predictedPlayerState.m_iVehicleNum //in a vehicle
-			&& BG_UnrestrainedPitchRoll( &cg.predictedPlayerState, cg_entities[cg.predictedPlayerState.m_iVehicleNum].m_pVehicle ) )//can roll/pitch without restriction
-		{//use the vehicle's viewangles to render view!
-			VectorCopy( cg.predictedVehicleState.viewangles, cg.refdef.viewangles );
-		}
-#endif// VEH_CONTROL_SCHEME_4
 		else
 		{
-			VectorCopy( ps->viewangles, cg.refdef.viewangles );
+			VectorCopy(ps->viewangles, cg.refdef.viewangles);
 		}
 	}
-	VectorCopy( cg.refdef.viewangles, cg_lastTurretViewAngles );
+	VectorCopy(cg.refdef.viewangles, cg_lastTurretViewAngles);
 
-	if (cg_cameraOrbit.integer) {
-		if (cg.time > cg.nextOrbitTime) {
+	if (cg_cameraOrbit.integer)
+	{
+		if (cg.time > cg.nextOrbitTime)
+		{
 			cg.nextOrbitTime = cg.time + cg_cameraOrbitDelay.integer;
 			cg_thirdPersonAngle.value += cg_cameraOrbit.value;
 		}
@@ -1597,26 +1556,26 @@ static int CG_CalcViewValues( void ) {
 		}
 	}
 
-	if (cg.snap->ps.weapon == WP_EMPLACED_GUN &&
-		cg.snap->ps.emplacedIndex)
-	{ //constrain the view properly for emplaced guns
+	if (cg.snap->ps.weapon == WP_EMPLACED_GUN && cg.snap->ps.emplacedIndex) //constrain the view properly for emplaced guns
+	{
 		CG_EmplacedView(cg_entities[cg.snap->ps.emplacedIndex].currentState.angles);
 	}
 
 	if ( !manningTurret )
 	{
-		if ( cg.predictedPlayerState.m_iVehicleNum //in a vehicle
-			&& BG_UnrestrainedPitchRoll( &cg.predictedPlayerState, cg_entities[cg.predictedPlayerState.m_iVehicleNum].m_pVehicle ) )//can roll/pitch without restriction
-		{//use the vehicle's viewangles to render view!
-			CG_OffsetFighterView();
+		if (cg.predictedPlayerState.m_iVehicleNum && BG_UnrestrainedPitchRoll(&cg.predictedPlayerState, cg_entities[cg.predictedPlayerState.m_iVehicleNum].m_pVehicle))//vehicles can roll/pitch without restriction
+		{
+			CG_OffsetFighterView(); //use the vehicle's viewangles to render view!
 		}
-		else if ( cg.renderingThirdPerson ) {
+		else if (cg.renderingThirdPerson)
+		{
 			// back away from character
-			if (cg_thirdPersonSpecialCam.integer &&
-				BG_SaberInSpecial(cg.snap->ps.saberMove))
-			{ //the action cam
+			if (cg_thirdPersonSpecialCam.integer && BG_SaberInSpecial(cg.snap->ps.saberMove))
+			{
+				//the action cam
 				if (!CG_ThirdPersonActionCam())
-				{ //couldn't do it for whatever reason, resort back to third person then
+				{
+					//couldn't do it for whatever reason, resort back to third person then
 					CG_OffsetThirdPersonView();
 				}
 			}
@@ -1624,20 +1583,23 @@ static int CG_CalcViewValues( void ) {
 			{
 				CG_OffsetThirdPersonView();
 			}
-		} else {
-			// offset for local bobbing and kicks
+		}
+		else
+		{
+			//offset for local bobbing and kicks
 			CG_OffsetFirstPersonView();
 		}
 	}
 
-	// position eye relative to origin
+	//position eye relative to origin
 	AnglesToAxis( cg.refdef.viewangles, cg.refdef.viewaxis );
 
-	if ( cg.hyperspace ) {
+	if (cg.hyperspace)
+	{
 		cg.refdef.rdflags |= RDF_NOWORLDMODEL | RDF_HYPERSPACE;
 	}
 
-	// field of view
+	//field of view
 	return CG_CalcFov();
 }
 
@@ -1659,9 +1621,6 @@ static void CG_PowerupTimerSounds( void ) {
 		}
 		if ( t - cg.time >= POWERUP_BLINKS * POWERUP_BLINK_TIME ) {
 			continue;
-		}
-		if ( ( t - cg.time ) / POWERUP_BLINK_TIME != ( t - cg.oldTime ) / POWERUP_BLINK_TIME ) {
-			//trap->S_StartSound( NULL, cg.snap->ps.clientNum, CHAN_ITEM, cgs.media.wearOffSound );
 		}
 	}
 }
@@ -2400,14 +2359,10 @@ void CG_DrawActiveFrame( int serverTime, stereoFrame_t stereoView, qboolean demo
 	float mPitchOverride = 0.0f;
 	float mYawOverride = 0.0f;
 	static centity_t *veh = NULL;
-#ifdef VEH_CONTROL_SCHEME_4
-	float mSensitivityOverride = 0.0f;
-	qboolean bUseFighterPitch = qfalse;
-	qboolean	isFighter = qfalse;
-#endif
 
 	if (cgQueueLoad)
-	{ //do this before you start messing around with adding ghoul2 refents and crap
+	{
+		//do this before you start messing around with adding ghoul2 refents and crap
 		CG_ActualLoadDeferredPlayers();
 		cgQueueLoad = qfalse;
 	}

@@ -1099,8 +1099,6 @@ Ghoul2 Insert End
 			continue;
 		}
 
-		//loadmodel = mod;	// this seems to be fairly pointless
-
 		// important that from now on we pass 'filename' instead of 'name' to all model load functions,
 		//	because 'filename' accounts for any LOD mangling etc so guarantees unique lookups for yet more
 		//	internal caching...
@@ -1111,9 +1109,8 @@ Ghoul2 Insert End
 			LL(ident);
 		}
 
-		switch (ident)
-		{ //if you're trying to register anything else as a model type on the server, you are out of luck
-
+		switch (ident) //If you're trying to register anything else as a model type on the server, you are out of luck
+		{
 			case MDXA_IDENT:
 				loaded = ServerLoadMDXA( mod, buf, filename, bAlreadyCached );
 				break;
@@ -1127,14 +1124,19 @@ Ghoul2 Insert End
 		if (!bAlreadyCached){	// important to check!!
 			ri.FS_FreeFile (buf);
 		}
-
-		if ( !loaded ) {
-			if ( lod == 0 ) {
+		if (!loaded)
+		{
+			if ( lod == 0 )
+			{
 				goto fail;
-			} else {
+			}
+			else
+			{
 				break;
 			}
-		} else {
+		}
+		else
+		{
 			mod->numLods++;
 			numLoaded++;
 		}
@@ -1210,10 +1212,6 @@ Ghoul2 Insert End
 /*
 Ghoul2 Insert Start
 */
-//	if (!tr.registered) {
-//		ri.Printf( PRINT_ALL, S_COLOR_YELLOW  "RE_RegisterModel (%s) called before ready!\n",name );
-//		return 0;
-//	}
 	//
 	// search the currently loaded models
 	//
@@ -1227,16 +1225,6 @@ Ghoul2 Insert Start
 			return mh->handle;
 		}
 	}
-
-//	for ( hModel = 1 ; hModel < tr.numModels; hModel++ ) {
-//		mod = tr.models[hModel];
-//		if ( !strcmp( mod->name, name ) ) {
-//			if( mod->type == MOD_BAD ) {
-//				return 0;
-//			}
-//			return hModel;
-//		}
-//	}
 
 	if (name[0] == '#')
 	{
