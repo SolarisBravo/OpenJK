@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\cm_load.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\cm_patch.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\cm_polylib.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\cm_test.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\cm_trace.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\cmd.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\common.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\cvar.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\files.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\GenericParser2.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\huffman.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\md4.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\md5.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\msg.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\matcomp.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\net_chan.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\net_ip.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\persistence.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\q_shared.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\RoffSystem.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\stringed_ingame.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\stringed_interface.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\vm.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\z_memman_pc.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\icarus\BlockStream.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\icarus\GameInterface.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\icarus\Instance.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\icarus\Interface.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\icarus\Memory.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\icarus\Q3_Interface.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\icarus\Q3_Registers.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\icarus\Sequence.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\icarus\Sequencer.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\icarus\TaskManager.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Server\NPCNav\navigator.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Server\sv_bot.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Server\sv_ccmds.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Server\sv_challenge.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Server\sv_client.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Server\sv_game.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Server\sv_init.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Server\sv_main.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Server\sv_net_chan.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Server\sv_snapshot.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Server\sv_world.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Server\sv_gameapi.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\cl_avi.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\cl_cgame.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\cl_cgameapi.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\cl_cin.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\cl_console.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\cl_input.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\cl_keys.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\cl_lan.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\cl_main.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\cl_net_chan.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\cl_parse.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\cl_scrn.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\cl_ui.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\cl_uiapi.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\FXExport.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\FxPrimitives.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\FxScheduler.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\FxSystem.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\FxTemplate.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\FxUtil.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\snd_ambient.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\snd_dma.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\snd_mem.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\snd_mix.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\snd_mp3.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Engine\Client\snd_music.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\cdct.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\csbt.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\csbtb.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\csbtl3.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\cup.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\cupini.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\cupl1.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\cupl3.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\cwin.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\cwinb.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\cwinm.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\hwin.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\l3dq.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\l3init.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\mdct.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\mhead.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\msis.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\towave.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\uph.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\upsf.c" />
+    <ClCompile Include="$(SolutionDir)code\Shared\mp3code\wavep.c" />
+    <ClCompile Include="$(SolutionDir)Code\Shared\qcommon\q_color.c" />
+    <ClCompile Include="$(SolutionDir)Code\Shared\qcommon\q_math.c" />
+    <ClCompile Include="$(SolutionDir)Code\Shared\qcommon\q_string.c" />
+    <ClCompile Include="$(SolutionDir)Code\Shared\qcommon\safe\files.cpp" />
+    <ClCompile Include="$(SolutionDir)Code\Shared\Windows\System\snapvector.cpp" />
+    <ClCompile Include="$(SolutionDir)Code\Shared\Windows\SDL2\sdl_window.cpp" />
+    <ClCompile Include="$(SolutionDir)Code\Shared\Windows\SDL2\sdl_input.cpp" />
+    <ClCompile Include="$(SolutionDir)Code\Shared\Windows\SDL2\sdl_sound.cpp" />
+    <ClCompile Include="$(SolutionDir)Code\Shared\Windows\System\sys_main.cpp" />
+    <ClCompile Include="$(SolutionDir)Code\Shared\Windows\System\sys_event.cpp" />
+    <ClCompile Include="$(SolutionDir)Code\Shared\Windows\System\con_log.cpp" />
+    <ClCompile Include="$(SolutionDir)Code\Shared\Windows\System\sys_win32.cpp" />
+    <ClCompile Include="$(SolutionDir)Code\Shared\Windows\System\con_passive.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(SolutionDir)build\shared\qcommon\q_version.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)code\win32\resource.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)code\Game\Client\cg_public.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Client\client.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Client\keys.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Client\snd_public.h" />
+    <ClInclude Include="$(SolutionDir)code\Game\Server\anims.h" />
+    <ClInclude Include="$(SolutionDir)code\Game\Server\bg_public.h" />
+    <ClInclude Include="$(SolutionDir)code\Game\Server\bg_weapons.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\botlib\botlib.h" />
+    <ClInclude Include="$(SolutionDir)code\Game\Server\g_public.h" />
+    <ClInclude Include="$(SolutionDir)code\Game\Server\surfaceflags.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\q_shared.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\cm_local.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\cm_patch.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\cm_polylib.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\cm_public.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\disablewarnings.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\game_version.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\GenericParser2.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\md5.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\MiniHeap.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\matcomp.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\qcommon.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\qfiles.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\RoffSystem.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\sstring.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\stringed_ingame.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\stringed_interface.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\tags.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\qcommon\timing.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\ghoul2\G2.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\ghoul2\G2_gore.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\ghoul2\ghoul2_shared.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\ghoul2\g2_local.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\icarus\blockstream.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\icarus\GameInterface.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\icarus\icarus.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\icarus\instance.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\icarus\interface.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\icarus\interpreter.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\icarus\Q3_Interface.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\icarus\Q3_Registers.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\icarus\sequence.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\icarus\sequencer.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\icarus\taskmanager.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\icarus\tokenizer.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Server\NPCNav\navigator.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Server\server.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Server\sv_gameapi.h" />
+    <ClInclude Include="$(SolutionDir)code\Game\UI\keycodes.h" />
+    <ClInclude Include="$(SolutionDir)code\Game\UI\ui_public.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Client\eax\eax.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Client\eax\EaxMan.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Client\cl_cgameapi.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Client\cl_lan.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Client\cl_uiapi.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Client\FXExport.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Client\FxPrimitives.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Client\FxScheduler.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Client\FxSystem.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Client\FxUtil.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Client\snd_ambient.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Client\snd_local.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Client\snd_mp3.h" />
+    <ClInclude Include="$(SolutionDir)code\Engine\Client\snd_music.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\Ratl\bits_vs.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\Ratl\ratl_common.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\Ratl\vector_vs.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\Ratl\CVec.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\mp3code\config.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\mp3code\htable.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\mp3code\jdw.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\mp3code\l3.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\mp3code\mhead.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\mp3code\mp3struct.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\mp3code\port.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\mp3code\small_header.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\mp3code\tableawd.h" />
+    <ClInclude Include="$(SolutionDir)Code\Shared\qcommon\q_platform.h" />
+    <ClInclude Include="$(SolutionDir)Code\Shared\qcommon\q_color.h" />
+    <ClInclude Include="$(SolutionDir)Code\Shared\qcommon\q_math.h" />
+    <ClInclude Include="$(SolutionDir)Code\Shared\qcommon\q_string.h" />
+    <ClInclude Include="$(SolutionDir)Code\Shared\qcommon\safe\files.h" />
+    <ClInclude Include="$(SolutionDir)Code\Shared\qcommon\safe\gsl.h" />
+    <ClInclude Include="$(SolutionDir)Code\Shared\Windows\SDL2\sdl_icon.h" />
+    <ClInclude Include="$(SolutionDir)Code\Shared\Windows\System\sys_loadlib.h" />
+    <ClInclude Include="$(SolutionDir)Code\Shared\Windows\System\sys_local.h" />
+    <ClInclude Include="$(SolutionDir)Code\Shared\Windows\System\sys_public.h" />
+    <ClInclude Include="$(SolutionDir)Code\Shared\Windows\System\con_local.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(SolutionDir)code\win32\icon.ico">
+      <Filter>win32</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="$(SolutionDir)code\Shared\Platforms\Win32\openjk.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="cgame">
+      <UniqueIdentifier>{0D09B5AD-E327-3949-BA3A-89B958714C45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="client">
+      <UniqueIdentifier>{02CC6489-1A0C-372F-9EF6-D9B8CF8795CA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{D32B3C4E-041E-3ADD-A2B4-95693690AF1F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\safe">
+      <UniqueIdentifier>{9D79B468-2F81-34A7-AFB2-86DA535442AB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="eax">
+      <UniqueIdentifier>{6D4F70A9-C7DD-3B5F-B6B5-0A5BDA809A88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game">
+      <UniqueIdentifier>{92712CAC-176B-3DC6-ADCE-EE7A26EEBE9A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ghoul2">
+      <UniqueIdentifier>{5E9F345A-C30D-3E00-83BA-DD53A741AC57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="icarus">
+      <UniqueIdentifier>{5370BBEC-6D46-36A7-A196-ED4171A05A90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mp3code">
+      <UniqueIdentifier>{86FEE24C-6F85-3252-9656-BA81E6ED1E2A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ratl">
+      <UniqueIdentifier>{2129632B-B64D-3E12-9B91-7DD6C515D7F5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ravl">
+      <UniqueIdentifier>{679288EE-FC0F-3F9F-95A8-AD5E84385941}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="server">
+      <UniqueIdentifier>{1675F25C-2777-3162-9CC0-A19CB29C2E88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sys">
+      <UniqueIdentifier>{926C4953-7FB4-3BA4-94E2-B480D3F6685E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ui">
+      <UniqueIdentifier>{1FEC96D5-111C-3C1C-9C78-9D3664B03F93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="win32">
+      <UniqueIdentifier>{5D403EC6-DED0-3EF0-85A2-428068AD5E44}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

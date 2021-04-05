@@ -22,11 +22,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{8B16F8B8-EB3B-31BF-B90E-91E96D59FBB8}</ProjectGuid>
+    <ProjectGuid>{9C5A2679-4CA5-39FC-9AEA-789BC0ED0753}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>Win32</Platform>
-    <ProjectName>MP UI Library</ProjectName>
+    <ProjectName>MP Client Game Library</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -60,26 +60,26 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)\build\Debug\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">uix86.dir\Debug\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">uix86</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cgamex86.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cgamex86</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)..\game\base\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)build\intermediate\$(TargetName)\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ui</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cgame</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(SolutionDir)\build\MinSizeRel\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">uix86.dir\MinSizeRel\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">uix86</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">cgamex86.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">cgamex86</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(SolutionDir)\build\RelWithDebInfo\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">uix86.dir\RelWithDebInfo\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">uix86</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">cgamex86.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">cgamex86</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
@@ -100,11 +100,11 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG;UI_BUILD;CMAKE_INTDIR="Debug";uix86_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG;_CGAME;CMAKE_INTDIR="Debug";cgamex86_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;UI_BUILD;CMAKE_INTDIR=\"Debug\";uix86_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CGAME;CMAKE_INTDIR=\"Debug\";cgamex86_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)\code;$(SolutionDir)\Code\Shared\ThirdParty;$(SolutionDir)\Code\Shared\ThirdParty\gsl-lite\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
@@ -121,8 +121,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/elitk/Documents/Projects/Code/Game Modifications/OpenJK/src/build/code/ui/Debug/uix86.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/elitk/Documents/Projects/Code/Game Modifications/OpenJK/src/build/Debug/uix86.pdb</ProgramDataBaseFile>
+      <ImportLibrary>$(SolutionDir)build/code/cgame/Debug/cgamex86.lib</ImportLibrary>
+      <ProgramDataBaseFile>$(SolutionDir)build/Debug/cgamex86.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -143,13 +143,13 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;FINAL_BUILD;UI_BUILD;CMAKE_INTDIR="Release";uix86_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;FINAL_BUILD;_CGAME;CMAKE_INTDIR="Release";cgamex86_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;FINAL_BUILD;UI_BUILD;CMAKE_INTDIR=\"Release\";uix86_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;FINAL_BUILD;_CGAME;CMAKE_INTDIR=\"Release\";cgamex86_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)\code;$(SolutionDir)\Code\Shared\ThirdParty;$(SolutionDir)\Code\Shared\ThirdParty\gsl-lite\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
@@ -166,8 +166,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/elitk/Documents/Projects/Code/Game Modifications/OpenJK/src/build/Output/uix86.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/elitk/Documents/Projects/Code/Game Modifications/OpenJK/src/build/Output/uix86.pdb</ProgramDataBaseFile>
+      <ImportLibrary>$(SolutionDir)build/Output/cgamex86.lib</ImportLibrary>
+      <ProgramDataBaseFile>$(SolutionDir)build/Output/cgamex86.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -188,13 +188,13 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;FINAL_BUILD;UI_BUILD;CMAKE_INTDIR="MinSizeRel";uix86_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;FINAL_BUILD;_CGAME;CMAKE_INTDIR="MinSizeRel";cgamex86_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;FINAL_BUILD;UI_BUILD;CMAKE_INTDIR=\"MinSizeRel\";uix86_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;FINAL_BUILD;_CGAME;CMAKE_INTDIR=\"MinSizeRel\";cgamex86_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)\code;$(SolutionDir)\Code\Shared\ThirdParty;$(SolutionDir)\Code\Shared\ThirdParty\gsl-lite\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
@@ -211,8 +211,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/elitk/Documents/Projects/Code/Game Modifications/OpenJK/src/build/code/ui/MinSizeRel/uix86.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/elitk/Documents/Projects/Code/Game Modifications/OpenJK/src/build/MinSizeRel/uix86.pdb</ProgramDataBaseFile>
+      <ImportLibrary>$(SolutionDir)build/code/cgame/MinSizeRel/cgamex86.lib</ImportLibrary>
+      <ProgramDataBaseFile>$(SolutionDir)build/MinSizeRel/cgamex86.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -234,11 +234,11 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;FINAL_BUILD;UI_BUILD;CMAKE_INTDIR="RelWithDebInfo";uix86_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;FINAL_BUILD;_CGAME;CMAKE_INTDIR="RelWithDebInfo";cgamex86_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;FINAL_BUILD;UI_BUILD;CMAKE_INTDIR=\"RelWithDebInfo\";uix86_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;FINAL_BUILD;_CGAME;CMAKE_INTDIR=\"RelWithDebInfo\";cgamex86_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)\code;$(SolutionDir)\Code\Shared\ThirdParty;$(SolutionDir)\Code\Shared\ThirdParty\gsl-lite\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
@@ -255,8 +255,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/elitk/Documents/Projects/Code/Game Modifications/OpenJK/src/build/code/ui/RelWithDebInfo/uix86.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/elitk/Documents/Projects/Code/Game Modifications/OpenJK/src/build/RelWithDebInfo/uix86.pdb</ProgramDataBaseFile>
+      <ImportLibrary>$(SolutionDir)build/code/cgame/RelWithDebInfo/cgamex86.lib</ImportLibrary>
+      <ProgramDataBaseFile>$(SolutionDir)build/RelWithDebInfo/cgamex86.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -264,20 +264,68 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="$(SolutionDir)\code\Game\Server\AnimalNPC.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Server\bg_g2_utils.c" />
     <ClCompile Include="$(SolutionDir)\code\Game\Server\bg_misc.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Server\bg_panimate.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Server\bg_pmove.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Server\bg_saber.c" />
     <ClCompile Include="$(SolutionDir)\code\Game\Server\bg_saberLoad.c" />
     <ClCompile Include="$(SolutionDir)\code\Game\Server\bg_saga.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Server\bg_slidemove.c" />
     <ClCompile Include="$(SolutionDir)\code\Game\Server\bg_vehicleLoad.c" />
     <ClCompile Include="$(SolutionDir)\code\Game\Server\bg_weapons.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Server\FighterNPC.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Server\SpeederNPC.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Server\WalkerNPC.c" />
     <ClInclude Include="$(SolutionDir)\code\Game\Server\anims.h" />
     <ClInclude Include="$(SolutionDir)\code\Game\Server\bg_local.h" />
     <ClInclude Include="$(SolutionDir)\code\Game\Server\bg_public.h" />
     <ClInclude Include="$(SolutionDir)\code\Game\Server\bg_saga.h" />
     <ClInclude Include="$(SolutionDir)\code\Game\Server\bg_weapons.h" />
     <ClInclude Include="$(SolutionDir)\code\Game\Server\surfaceflags.h" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_consolecmds.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_cvar.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_draw.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_drawtools.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_effects.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_ents.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_event.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_info.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_light.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_localents.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_main.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_marks.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_newDraw.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_players.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_playerstate.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_predict.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_saga.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_scoreboard.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_servercmds.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_snapshot.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_spawn.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_syscalls.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_turret.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_view.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_weaponinit.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\cg_weapons.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\fx_blaster.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\fx_bowcaster.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\fx_bryarpistol.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\fx_demp2.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\fx_disruptor.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\fx_flechette.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\fx_force.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\fx_heavyrepeater.c" />
+    <ClCompile Include="$(SolutionDir)\code\Game\Client\fx_rocketlauncher.c" />
+    <ClInclude Include="$(SolutionDir)\code\Game\Client\animtable.h" />
+    <ClInclude Include="$(SolutionDir)\code\Game\Client\cg_local.h" />
+    <ClInclude Include="$(SolutionDir)\code\Game\Client\cg_public.h" />
+    <ClInclude Include="$(SolutionDir)\code\Game\Client\cg_xcvar.h" />
+    <ClInclude Include="$(SolutionDir)\code\Game\Client\fx_local.h" />
     <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\q_shared.c" />
     <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\disablewarnings.h" />
-    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\game_version.h" />
     <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\q_shared.h" />
     <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\qfiles.h" />
     <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\tags.h" />
@@ -294,21 +342,10 @@
     <ClInclude Include="$(SolutionDir)\Code\Shared\qcommon\safe\string.h" />
     <ClInclude Include="$(SolutionDir)\Code\Shared\qcommon\safe\sscanf.h" />
     <ClInclude Include="$(SolutionDir)\Code\Shared\qcommon\safe\limited_vector.h" />
-    <ClCompile Include="$(SolutionDir)\code\Game\UI\ui_atoms.c" />
-    <ClCompile Include="$(SolutionDir)\code\Game\UI\ui_cvar.c" />
-    <ClCompile Include="$(SolutionDir)\code\Game\UI\ui_force.c" />
-    <ClCompile Include="$(SolutionDir)\code\Game\UI\ui_gameinfo.c" />
-    <ClCompile Include="$(SolutionDir)\code\Game\UI\ui_main.c" />
-    <ClCompile Include="$(SolutionDir)\code\Game\UI\ui_saber.c" />
     <ClCompile Include="$(SolutionDir)\code\Game\UI\ui_shared.c" />
-    <ClCompile Include="$(SolutionDir)\code\Game\UI\ui_syscalls.c" />
     <ClInclude Include="$(SolutionDir)\code\Game\UI\keycodes.h" />
     <ClInclude Include="$(SolutionDir)\code\Game\UI\menudef.h" />
-    <ClInclude Include="$(SolutionDir)\code\Game\UI\ui_force.h" />
-    <ClInclude Include="$(SolutionDir)\code\Game\UI\ui_local.h" />
-    <ClInclude Include="$(SolutionDir)\code\Game\UI\ui_public.h" />
     <ClInclude Include="$(SolutionDir)\code\Game\UI\ui_shared.h" />
-    <ClInclude Include="$(SolutionDir)\code\Game\UI\ui_xcvar.h" />
     <ClInclude Include="$(SolutionDir)\code\Renderer\rd-common\tr_types.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

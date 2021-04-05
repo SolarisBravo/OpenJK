@@ -121,8 +121,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/elitk/Documents/Projects/Code/Game Modifications/OpenJK/src/Build/Output/openjk.x86.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/elitk/Documents/Projects/Code/Game Modifications/OpenJK/src/Build/Output/openjk.x86.pdb</ProgramDataBaseFile>
+      <ImportLibrary>$(SolutionDir)Build/Output/openjk.x86.lib</ImportLibrary>
+      <ProgramDataBaseFile>$(SolutionDir)Build/Output/openjk.x86.pdb</ProgramDataBaseFile>
       <SubSystem>Windows</SubSystem>
     </Link>
     <ProjectReference>

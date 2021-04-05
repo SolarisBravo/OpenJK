@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(SolutionDir)shared\qcommon\q_color.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)shared\qcommon\q_math.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)shared\qcommon\q_string.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)shared\qcommon\safe\string.cpp">
+      <Filter>common\safe</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\G2_API.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\G2_bolts.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\G2_bones.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\G2_misc.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\G2_surfaces.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_arb.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_backend.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_bsp.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_cmds.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_curve.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_decals.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_ghoul2.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_image.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_init.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_light.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_main.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_marks.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_mesh.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_model.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_quicksprite.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_scene.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_shade.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_shade_calc.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_shader.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_shadows.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_skin.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_sky.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_subs.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_surface.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_surfacesprites.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_world.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_WorldEffects.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\ghoul2\G2_gore.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-common\tr_font.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-common\tr_image_load.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-common\tr_image_jpg.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-common\tr_image_tga.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-common\tr_image_png.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Renderer\rd-common\tr_noise.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\matcomp.cpp" />
+    <ClCompile Include="$(SolutionDir)code\Shared\qcommon\q_shared.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(SolutionDir)shared\qcommon\q_color.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)shared\qcommon\q_math.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)shared\qcommon\q_string.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)shared\qcommon\q_platform.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)build\shared\qcommon\q_version.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)shared\qcommon\safe\gsl.h">
+      <Filter>common\safe</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)shared\qcommon\safe\string.h">
+      <Filter>common\safe</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)shared\qcommon\safe\sscanf.h">
+      <Filter>common\safe</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)shared\qcommon\safe\limited_vector.h">
+      <Filter>common\safe</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)code\Renderer\rd-vanilla\glext.h" />
+    <ClInclude Include="$(SolutionDir)code\Renderer\rd-vanilla\qgl.h" />
+    <ClInclude Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_local.h" />
+    <ClInclude Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_quicksprite.h" />
+    <ClInclude Include="$(SolutionDir)code\Renderer\rd-vanilla\tr_WorldEffects.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\ghoul2\g2_local.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\ghoul2\ghoul2_shared.h" />
+    <ClInclude Include="$(SolutionDir)code\Shared\ghoul2\G2_gore.h" />
+    <ClInclude Include="$(SolutionDir)code\Renderer\rd-common\mdx_format.h" />
+    <ClInclude Include="$(SolutionDir)code\Renderer\rd-common\tr_common.h" />
+    <ClInclude Include="$(SolutionDir)code\Renderer\rd-common\tr_font.h" />
+    <ClInclude Include="$(SolutionDir)code\Renderer\rd-common\tr_public.h" />
+    <ClInclude Include="$(SolutionDir)code\Renderer\rd-common\tr_types.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="common">
+      <UniqueIdentifier>{D32B3C4E-041E-3ADD-A2B4-95693690AF1F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\safe">
+      <UniqueIdentifier>{9D79B468-2F81-34A7-AFB2-86DA535442AB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ghoul2">
+      <UniqueIdentifier>{5E9F345A-C30D-3E00-83BA-DD53A741AC57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rd-common">
+      <UniqueIdentifier>{47737245-EDD8-318A-8C93-C74F3991664E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="renderer">
+      <UniqueIdentifier>{3D471C83-BE9D-3368-9332-808278531A16}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
