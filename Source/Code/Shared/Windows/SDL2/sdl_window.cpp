@@ -299,22 +299,7 @@ static rserr_t GLimp_SetMode(glconfig_t *glConfig, const windowDesc_t *windowDes
 
 	Com_Printf( "...setting mode %d:", mode );
 
-	if (mode == -2)
-	{
-		// use desktop video resolution
-		if( desktopMode.h > 0 )
-		{
-			glConfig->vidWidth = desktopMode.w;
-			glConfig->vidHeight = desktopMode.h;
-		}
-		else
-		{
-			glConfig->vidWidth = 640;
-			glConfig->vidHeight = 480;
-			Com_Printf( "Cannot determine display resolution, assuming 640x480\n" );
-		}
-	}
-	else if ( !R_GetModeInfo( &glConfig->vidWidth, &glConfig->vidHeight, mode ) )
+	if ( !R_GetModeInfo( &glConfig->vidWidth, &glConfig->vidHeight, mode ) )
 	{
 		Com_Printf( " invalid mode\n" );
 		SDL_FreeSurface( icon );
@@ -356,6 +341,8 @@ static rserr_t GLimp_SetMode(glconfig_t *glConfig, const windowDesc_t *windowDes
 	{
 		flags |= SDL_WINDOW_BORDERLESS;
 		glConfig->isFullscreen = qfalse;
+		glConfig->vidWidth = desktopMode.w;
+		glConfig->vidHeight = desktopMode.h;
 	}
 	else
 	{
