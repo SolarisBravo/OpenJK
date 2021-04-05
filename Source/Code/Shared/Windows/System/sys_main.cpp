@@ -157,20 +157,15 @@ void Sys_Init( void ) {
 
 	com_unfocused = Cvar_Get( "com_unfocused", "0", CVAR_ROM );
 	com_minimized = Cvar_Get( "com_minimized", "0", CVAR_ROM );
-#ifdef _JK2EXE
-	com_maxfps = Cvar_Get ("com_maxfps", "125", CVAR_ARCHIVE );
-#else
 	com_maxfps = Cvar_Get( "com_maxfps", "125", CVAR_ARCHIVE, "Maximum frames per second" );
-#endif
 	com_maxfpsUnfocused = Cvar_Get( "com_maxfpsUnfocused", "0", CVAR_ARCHIVE_ND );
 	com_maxfpsMinimized = Cvar_Get( "com_maxfpsMinimized", "50", CVAR_ARCHIVE_ND );
 }
 
 static void NORETURN Sys_Exit( int ex ) {
 	IN_Shutdown();
-#ifndef DEDICATED
+
 	SDL_Quit();
-#endif
 
 	NET_Shutdown();
 
@@ -184,7 +179,6 @@ static void NORETURN Sys_Exit( int ex ) {
     exit( ex );
 }
 
-#if !defined(DEDICATED)
 static void Sys_ErrorDialog( const char *error )
 {
 	time_t rawtime;
@@ -226,7 +220,6 @@ static void Sys_ErrorDialog( const char *error )
 		}
 	}
 }
-#endif
 
 void NORETURN QDECL Sys_Error( const char *error, ... )
 {
@@ -239,12 +232,7 @@ void NORETURN QDECL Sys_Error( const char *error, ... )
 
 	Sys_Print( string );
 
-	// Only print Sys_ErrorDialog for client binary. The dedicated
-	// server binary is meant to be a command line program so you would
-	// expect to see the error printed.
-#if !defined(DEDICATED)
 	Sys_ErrorDialog( string );
-#endif
 
 	Sys_Exit( 3 );
 }
@@ -345,31 +333,6 @@ void *Sys_LoadDll( const char *name, qboolean useSystemLib )
 	return NULL;
 }
 
-#if defined(MACOS_X) && !defined(_JK2EXE)
-void *Sys_LoadMachOBundle( const char *name )
-{
-	if ( !FS_LoadMachOBundle(name) )
-		return NULL;
-
-	char *homepath = Cvar_VariableString( "fs_homepath" );
-	char *gamedir = Cvar_VariableString( "fs_game" );
-	char dllName[MAX_QPATH];
-
-	Com_sprintf( dllName, sizeof(dllName), "%s_pk3" DLL_EXT, name );
-
-	//load the unzipped library
-	char *fn = FS_BuildOSPath( homepath, gamedir, dllName );
-
-	void    *libHandle = Sys_LoadLibrary( fn );
-
-	if ( libHandle != NULL ) {
-		Com_Printf( "Loaded pk3 bundle %s.\n", name );
-	}
-
-	return libHandle;
-}
-#endif
-
 enum SearchPathFlag
 {
 	SEARCH_PATH_MOD		= 1 << 0,
@@ -378,13 +341,12 @@ enum SearchPathFlag
 	SEARCH_PATH_ROOT	= 1 << 3
 };
 
-static void *Sys_LoadDllFromPaths( const char *filename, const char *gamedir, const char **searchPaths,
-									size_t numPaths, uint32_t searchFlags, const char *callerName )
+static void *Sys_LoadDllFromPaths( const char *filename, const char *gamedir, const char **searchPaths, size_t numPaths, uint32_t searchFlags, const char *callerName )
 {
 	char *fn;
 	void *libHandle;
 
-	if ( searchFlags & SEARCH_PATH_MOD )
+	if (searchFlags & SEARCH_PATH_MOD)
 	{
 		for ( size_t i = 0; i < numPaths; i++ )
 		{
@@ -401,7 +363,7 @@ static void *Sys_LoadDllFromPaths( const char *filename, const char *gamedir, co
 		}
 	}
 
-	if ( searchFlags & SEARCH_PATH_BASE )
+	if (searchFlags & SEARCH_PATH_BASE)
 	{
 		for ( size_t i = 0; i < numPaths; i++ )
 		{
@@ -418,7 +380,7 @@ static void *Sys_LoadDllFromPaths( const char *filename, const char *gamedir, co
 		}
 	}
 
-	if ( searchFlags & SEARCH_PATH_OPENJK )
+	if (searchFlags & SEARCH_PATH_OPENJK)
 	{
 		for ( size_t i = 0; i < numPaths; i++ )
 		{
@@ -435,7 +397,7 @@ static void *Sys_LoadDllFromPaths( const char *filename, const char *gamedir, co
 		}
 	}
 
-	if ( searchFlags & SEARCH_PATH_ROOT )
+	if (searchFlags & SEARCH_PATH_ROOT)
 	{
 		for ( size_t i = 0; i < numPaths; i++ )
 		{
@@ -468,10 +430,6 @@ void *Sys_LoadLegacyGameDll( const char *name, VMMainProc **vmMain, SystemCallPr
 
 	Com_sprintf (filename, sizeof(filename), "%s" ARCH_STRING DLL_EXT, name);
 
-#if defined(_DEBUG)
-	libHandle = Sys_LoadLibrary( filename );
-	if ( !libHandle )
-#endif
 	{
 		UnpackDLLResult unpackResult = Sys_UnpackDLL(filename);
 		if ( !unpackResult.succeeded )
@@ -492,26 +450,15 @@ void *Sys_LoadLegacyGameDll( const char *name, VMMainProc **vmMain, SystemCallPr
 
 		if ( !libHandle )
 		{
-#if defined(MACOS_X) && !defined(_JK2EXE)
-			//First, look for the old-style mac .bundle that's inside a pk3
-			//It's actually zipped, and the zipfile has the same name as 'name'
-			libHandle = Sys_LoadMachOBundle( name );
-#endif
 
 			if (!libHandle) {
 				char *basepath = Cvar_VariableString( "fs_basepath" );
 				char *homepath = Cvar_VariableString( "fs_homepath" );
 				char *cdpath = Cvar_VariableString( "fs_cdpath" );
 				char *gamedir = Cvar_VariableString( "fs_game" );
-		#ifdef MACOS_X
-				char *apppath = Cvar_VariableString( "fs_apppath" );
-		#endif
 
 				const char *searchPaths[] = {
 					homepath,
-		#ifdef MACOS_X
-					apppath,
-		#endif
 					basepath,
 					cdpath,
 				};
@@ -529,7 +476,8 @@ void *Sys_LoadLegacyGameDll( const char *name, VMMainProc **vmMain, SystemCallPr
 	DllEntryProc *dllEntry = (DllEntryProc *)Sys_LoadFunction( libHandle, "dllEntry" );
 	*vmMain = (VMMainProc *)Sys_LoadFunction( libHandle, "vmMain" );
 
-	if ( !*vmMain || !dllEntry ) {
+	if (!*vmMain || !dllEntry)
+	{
 		Com_DPrintf ( "Sys_LoadLegacyGameDll(%s) failed to find vmMain function:\n...%s!\n", name, Sys_LibraryError() );
 		Sys_UnloadLibrary( libHandle );
 		return NULL;
@@ -550,26 +498,14 @@ void *Sys_LoadSPGameDll( const char *name, GetGameAPIProc **GetGameAPI )
 
 	Com_sprintf (filename, sizeof(filename), "%s" ARCH_STRING DLL_EXT, name);
 
-#if defined(MACOS_X) && !defined(_JK2EXE)
-    //First, look for the old-style mac .bundle that's inside a pk3
-    //It's actually zipped, and the zipfile has the same name as 'name'
-    libHandle = Sys_LoadMachOBundle( filename );
-#endif
-
 	if (!libHandle) {
 		char *basepath = Cvar_VariableString( "fs_basepath" );
 		char *homepath = Cvar_VariableString( "fs_homepath" );
 		char *cdpath = Cvar_VariableString( "fs_cdpath" );
 		char *gamedir = Cvar_VariableString( "fs_game" );
-#ifdef MACOS_X
-        char *apppath = Cvar_VariableString( "fs_apppath" );
-#endif
 
 		const char *searchPaths[] = {
 			homepath,
-#ifdef MACOS_X
-			apppath,
-#endif
 			basepath,
 			cdpath,
 		};
@@ -598,11 +534,6 @@ void *Sys_LoadGameDll( const char *name, GetModuleAPIProc **moduleAPI )
 	char	filename[MAX_OSPATH];
 
 	Com_sprintf (filename, sizeof(filename), "%s" ARCH_STRING DLL_EXT, name);
-
-#if defined(_DEBUG)
-	libHandle = Sys_LoadLibrary( filename );
-	if ( !libHandle )
-#endif
 	{
 		UnpackDLLResult unpackResult = Sys_UnpackDLL(filename);
 		if ( !unpackResult.succeeded )
@@ -623,26 +554,15 @@ void *Sys_LoadGameDll( const char *name, GetModuleAPIProc **moduleAPI )
 
 		if ( !libHandle )
 		{
-#if defined(MACOS_X) && !defined(_JK2EXE)
-			//First, look for the old-style mac .bundle that's inside a pk3
-			//It's actually zipped, and the zipfile has the same name as 'name'
-			libHandle = Sys_LoadMachOBundle( name );
-#endif
 
 			if (!libHandle) {
 				char *basepath = Cvar_VariableString( "fs_basepath" );
 				char *homepath = Cvar_VariableString( "fs_homepath" );
 				char *cdpath = Cvar_VariableString( "fs_cdpath" );
 				char *gamedir = Cvar_VariableString( "fs_game" );
-#ifdef MACOS_X
-				char *apppath = Cvar_VariableString( "fs_apppath" );
-#endif
 
 				const char *searchPaths[] = {
 					homepath,
-#ifdef MACOS_X
-					apppath,
-#endif
 					basepath,
 					cdpath,
 				};
@@ -656,7 +576,8 @@ void *Sys_LoadGameDll( const char *name, GetModuleAPIProc **moduleAPI )
 	}
 
 	*moduleAPI = (GetModuleAPIProc *)Sys_LoadFunction( libHandle, "GetModuleAPI" );
-	if ( !*moduleAPI ) {
+	if (!*moduleAPI)
+	{
 		Com_DPrintf ( "Sys_LoadGameDll(%s) failed to find GetModuleAPI function:\n...%s!\n", name, Sys_LibraryError() );
 		Sys_UnloadLibrary( libHandle );
 		return NULL;
@@ -683,10 +604,8 @@ void Sys_SigHandler( int signal )
 	{
 		signalcaught = qtrue;
 		//VM_Forced_Unload_Start();
-#ifndef DEDICATED
 		CL_Shutdown();
 		//CL_Shutdown(va("Received signal %d", signal), qtrue, qtrue);
-#endif
 		SV_Shutdown(va("Received signal %d", signal) );
 		//VM_Forced_Unload_Done();
 	}
@@ -697,40 +616,8 @@ void Sys_SigHandler( int signal )
 		Sys_Exit( 2 );
 }
 
-#ifdef MACOS_X
-/*
- =================
- Sys_StripAppBundle
-
- Discovers if passed dir is suffixed with the directory structure of a Mac OS X
- .app bundle. If it is, the .app directory structure is stripped off the end and
- the result is returned. If not, dir is returned untouched.
- =================
- */
-char *Sys_StripAppBundle( char *dir )
-{
-	static char cwd[MAX_OSPATH];
-
-	Q_strncpyz(cwd, dir, sizeof(cwd));
-	if(strcmp(Sys_Basename(cwd), "MacOS"))
-		return dir;
-	Q_strncpyz(cwd, Sys_Dirname(cwd), sizeof(cwd));
-	if(strcmp(Sys_Basename(cwd), "Contents"))
-		return dir;
-	Q_strncpyz(cwd, Sys_Dirname(cwd), sizeof(cwd));
-	if(!strstr(Sys_Basename(cwd), ".app"))
-		return dir;
-	Q_strncpyz(cwd, Sys_Dirname(cwd), sizeof(cwd));
-	return cwd;
-}
-#endif
-
 #ifndef DEFAULT_BASEDIR
-#	ifdef MACOS_X
-#		define DEFAULT_BASEDIR Sys_StripAppBundle(Sys_BinaryPath())
-#	else
-#		define DEFAULT_BASEDIR Sys_BinaryPath()
-#	endif
+#	define DEFAULT_BASEDIR Sys_BinaryPath()
 #endif
 
 int main ( int argc, char* argv[] )
@@ -743,12 +630,6 @@ int main ( int argc, char* argv[] )
 
 	// get the initial time base
 	Sys_Milliseconds();
-
-#ifdef MACOS_X
-	// This is passed if we are launched by double-clicking
-	if ( argc >= 2 && Q_strncmp ( argv[1], "-psn", 4 ) == 0 )
-		argc = 1;
-#endif
 
 	Sys_SetBinaryPath( Sys_Dirname( argv[ 0 ] ) );
 	Sys_SetDefaultInstallPath( DEFAULT_BASEDIR );
@@ -770,7 +651,6 @@ int main ( int argc, char* argv[] )
 
 	Com_Init (commandLine);
 
-#ifndef DEDICATED
 	SDL_version compiled;
 	SDL_version linked;
 
@@ -779,7 +659,6 @@ int main ( int argc, char* argv[] )
 
 	Com_Printf( "SDL Version Compiled: %d.%d.%d\n", compiled.major, compiled.minor, compiled.patch );
 	Com_Printf( "SDL Version Linked: %d.%d.%d\n", linked.major, linked.minor, linked.patch );
-#endif
 
 	NET_Init();
 
@@ -790,12 +669,10 @@ int main ( int argc, char* argv[] )
 		{
 			bool shouldSleep = false;
 
-#if !defined(_JK2EXE)
 			if ( com_dedicated->integer )
 			{
 				shouldSleep = true;
 			}
-#endif
 
 			if ( com_minimized->integer )
 			{
