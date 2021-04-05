@@ -6,7 +6,7 @@
 #include <cstddef>
 #include <algorithm>
 
-#include "qcommon/q_platform.h"
+#include "Shared/qcommon/q_platform.h"
 
 namespace Q
 {

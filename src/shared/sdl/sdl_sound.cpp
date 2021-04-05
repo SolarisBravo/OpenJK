@@ -25,9 +25,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #include <SDL.h>
 
-#include "qcommon/q_shared.h"
-#include "client/client.h"
-#include "client/snd_local.h"
+#include "Shared/qcommon/q_shared.h"
+#include "Engine/Client/client.h"
+#include "Engine/Client/snd_local.h"
 
 extern dma_t		dma;
 SDL_AudioDeviceID	dev;

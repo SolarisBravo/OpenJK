@@ -22,7 +22,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 ===========================================================================
 */
 
-#include "qcommon/qcommon.h"
+#include "Shared/qcommon/qcommon.h"
 #include "sys_local.h"
 #include "sys_public.h"
 

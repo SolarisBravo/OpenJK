@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bot Library", "build\codemp\botlib.vcxproj", "{7195D21D-3222-3A7B-B991-6C763EA71C2B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bot Library", "build\code\botlib.vcxproj", "{7195D21D-3222-3A7B-B991-6C763EA71C2B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bundled_libjpeg", "build\lib\jpeg-9a\bundled_libjpeg.vcxproj", "{CE6BF5F6-56FC-3E3D-8CAC-4FFD22321D21}"
 EndProject
@@ -13,16 +13,16 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bundled_minizip", "build\li
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bundled_zlib", "build\lib\zlib\bundled_zlib.vcxproj", "{45F5E263-42D9-3219-969F-797D68629492}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MP Client Game Library", "build\codemp\cgame\cgamex86.vcxproj", "{9C5A2679-4CA5-39FC-9AEA-789BC0ED0753}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MP Client Game Library", "build\code\cgame\cgamex86.vcxproj", "{9C5A2679-4CA5-39FC-9AEA-789BC0ED0753}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MP Client", "build\codemp\openjk.x86.vcxproj", "{38BA0DFF-97F9-3AF0-B1EF-AD797A2D1F95}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MP Client", "build\code\openjk.x86.vcxproj", "{38BA0DFF-97F9-3AF0-B1EF-AD797A2D1F95}"
 	ProjectSection(ProjectDependencies) = postProject
 		{7195D21D-3222-3A7B-B991-6C763EA71C2B} = {7195D21D-3222-3A7B-B991-6C763EA71C2B}
 		{FDD139AD-08C9-37FE-A7A3-C0FE6583221D} = {FDD139AD-08C9-37FE-A7A3-C0FE6583221D}
 		{45F5E263-42D9-3219-969F-797D68629492} = {45F5E263-42D9-3219-969F-797D68629492}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MP Vanilla Renderer", "build\codemp\rd-vanilla\rd-vanilla_x86.vcxproj", "{013BC2FF-8DCA-331A-A562-DB74C3565F06}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MP Vanilla Renderer", "build\code\rd-vanilla\rd-vanilla_x86.vcxproj", "{013BC2FF-8DCA-331A-A562-DB74C3565F06}"
 	ProjectSection(ProjectDependencies) = postProject
 		{CE6BF5F6-56FC-3E3D-8CAC-4FFD22321D21} = {CE6BF5F6-56FC-3E3D-8CAC-4FFD22321D21}
 		{FBAE487B-72DA-3C69-9B16-126BA853C948} = {FBAE487B-72DA-3C69-9B16-126BA853C948}
@@ -30,7 +30,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MP Vanilla Renderer", "buil
 		{45F5E263-42D9-3219-969F-797D68629492} = {45F5E263-42D9-3219-969F-797D68629492}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MP UI Library", "build\codemp\ui\uix86.vcxproj", "{8B16F8B8-EB3B-31BF-B90E-91E96D59FBB8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MP UI Library", "build\code\ui\uix86.vcxproj", "{8B16F8B8-EB3B-31BF-B90E-91E96D59FBB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

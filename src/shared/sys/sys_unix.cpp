@@ -33,8 +33,8 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 #include <sched.h>
 #include <signal.h>
 
-#include "qcommon/qcommon.h"
-#include "qcommon/q_shared.h"
+#include "Shared/qcommon/qcommon.h"
+#include "Shared/qcommon/q_shared.h"
 #include "sys_local.h"
 
 qboolean stdinIsATTY = qfalse;

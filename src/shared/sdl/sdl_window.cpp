@@ -21,8 +21,8 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 #include <SDL.h>
 #include <SDL_syswm.h>
-#include "qcommon/qcommon.h"
-#include "rd-common/tr_types.h"
+#include "Shared/qcommon/qcommon.h"
+#include "Renderer/rd-common/tr_types.h"
 #include "sys/sys_local.h"
 #include "sdl_icon.h"
 

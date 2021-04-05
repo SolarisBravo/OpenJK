@@ -1,0 +1,650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\cm_load.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\cm_patch.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\cm_polylib.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\cm_test.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\cm_trace.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\cmd.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\common.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\cvar.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\files.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\GenericParser2.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\huffman.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\md4.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\md5.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\msg.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\matcomp.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\net_chan.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\net_ip.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\persistence.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\q_shared.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\RoffSystem.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\stringed_ingame.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\stringed_interface.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\vm.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\z_memman_pc.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\q_color.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\q_math.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\q_string.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\safe\files.cpp">
+      <Filter>common\safe</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\BlockStream.cpp">
+      <Filter>icarus</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\GameInterface.cpp">
+      <Filter>icarus</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\Instance.cpp">
+      <Filter>icarus</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\Interface.cpp">
+      <Filter>icarus</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\Memory.cpp">
+      <Filter>icarus</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\Q3_Interface.cpp">
+      <Filter>icarus</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\Q3_Registers.cpp">
+      <Filter>icarus</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\Sequence.cpp">
+      <Filter>icarus</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\Sequencer.cpp">
+      <Filter>icarus</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\TaskManager.cpp">
+      <Filter>icarus</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\server\NPCNav\navigator.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\server\sv_bot.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\server\sv_ccmds.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\server\sv_challenge.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\server\sv_client.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\server\sv_game.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\server\sv_init.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\server\sv_main.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\server\sv_net_chan.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\server\sv_snapshot.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\server\sv_world.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\server\sv_gameapi.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\sys\snapvector.cpp">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\cl_avi.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\cl_cgame.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\cl_cgameapi.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\cl_cin.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\cl_console.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\cl_input.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\cl_keys.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\cl_lan.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\cl_main.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\cl_net_chan.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\cl_parse.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\cl_scrn.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\cl_ui.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\cl_uiapi.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\FXExport.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\FxPrimitives.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\FxScheduler.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\FxSystem.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\FxTemplate.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\FxUtil.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\snd_ambient.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\snd_dma.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\snd_mem.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\snd_mix.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\snd_mp3.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\snd_music.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\cdct.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\csbt.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\csbtb.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\csbtl3.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\cup.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\cupini.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\cupl1.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\cupl3.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\cwin.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\cwinb.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\cwinm.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\hwin.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\l3dq.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\l3init.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\mdct.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\mhead.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\msis.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\towave.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\uph.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\upsf.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\wavep.c">
+      <Filter>mp3code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\sdl\sdl_window.cpp">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\sdl\sdl_input.cpp">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\sdl\sdl_sound.cpp">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\sys\sys_main.cpp">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\sys\sys_event.cpp">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\sys\con_log.cpp">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\sys\sys_win32.cpp">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\sys\con_passive.cpp">
+      <Filter>sys</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\cgame\cg_public.h">
+      <Filter>cgame</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\client.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\keys.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\snd_public.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\game\anims.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\game\bg_public.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\game\bg_weapons.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\botlib\botlib.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\game\g_public.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\game\surfaceflags.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\q_shared.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\q_platform.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\cm_local.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\cm_patch.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\cm_polylib.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\cm_public.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\disablewarnings.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\game_version.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\GenericParser2.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\md5.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\MiniHeap.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\matcomp.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\qcommon.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\qfiles.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\RoffSystem.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\sstring.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\stringed_ingame.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\stringed_interface.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\tags.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\qcommon\timing.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\q_color.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\q_math.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\q_string.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\build\shared\qcommon\q_version.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\safe\files.h">
+      <Filter>common\safe</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\qcommon\safe\gsl.h">
+      <Filter>common\safe</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\ghoul2\G2.h">
+      <Filter>ghoul2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\ghoul2\G2_gore.h">
+      <Filter>ghoul2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\ghoul2\ghoul2_shared.h">
+      <Filter>ghoul2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\ghoul2\g2_local.h">
+      <Filter>ghoul2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\blockstream.h">
+      <Filter>icarus</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\GameInterface.h">
+      <Filter>icarus</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\icarus.h">
+      <Filter>icarus</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\instance.h">
+      <Filter>icarus</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\interface.h">
+      <Filter>icarus</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\interpreter.h">
+      <Filter>icarus</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\Q3_Interface.h">
+      <Filter>icarus</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\Q3_Registers.h">
+      <Filter>icarus</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\sequence.h">
+      <Filter>icarus</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\sequencer.h">
+      <Filter>icarus</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\taskmanager.h">
+      <Filter>icarus</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\icarus\tokenizer.h">
+      <Filter>icarus</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\server\NPCNav\navigator.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\server\server.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\server\sv_gameapi.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\ui\keycodes.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\ui\ui_public.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\eax\eax.h">
+      <Filter>eax</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\eax\EaxMan.h">
+      <Filter>eax</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\cl_cgameapi.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\cl_lan.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\cl_uiapi.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\FXExport.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\FxPrimitives.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\FxScheduler.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\FxSystem.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\FxUtil.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\snd_ambient.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\snd_local.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\snd_mp3.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\client\snd_music.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Ratl\bits_vs.h">
+      <Filter>ratl</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Ratl\ratl_common.h">
+      <Filter>ratl</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Ratl\vector_vs.h">
+      <Filter>ratl</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\config.h">
+      <Filter>mp3code</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\htable.h">
+      <Filter>mp3code</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\jdw.h">
+      <Filter>mp3code</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\l3.h">
+      <Filter>mp3code</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\mhead.h">
+      <Filter>mp3code</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\mp3struct.h">
+      <Filter>mp3code</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\port.h">
+      <Filter>mp3code</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\small_header.h">
+      <Filter>mp3code</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\mp3code\tableawd.h">
+      <Filter>mp3code</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\win32\resource.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\sdl\sdl_icon.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\sys\sys_loadlib.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\sys\sys_local.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\sys\sys_public.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\shared\sys\con_local.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Ratl\CVec.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\win32\icon.ico">
+      <Filter>win32</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\win32\openjk.rc">
+      <Filter>win32</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="cgame">
+      <UniqueIdentifier>{0D09B5AD-E327-3949-BA3A-89B958714C45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="client">
+      <UniqueIdentifier>{02CC6489-1A0C-372F-9EF6-D9B8CF8795CA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{D32B3C4E-041E-3ADD-A2B4-95693690AF1F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\safe">
+      <UniqueIdentifier>{9D79B468-2F81-34A7-AFB2-86DA535442AB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="eax">
+      <UniqueIdentifier>{6D4F70A9-C7DD-3B5F-B6B5-0A5BDA809A88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game">
+      <UniqueIdentifier>{92712CAC-176B-3DC6-ADCE-EE7A26EEBE9A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ghoul2">
+      <UniqueIdentifier>{5E9F345A-C30D-3E00-83BA-DD53A741AC57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="icarus">
+      <UniqueIdentifier>{5370BBEC-6D46-36A7-A196-ED4171A05A90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mp3code">
+      <UniqueIdentifier>{86FEE24C-6F85-3252-9656-BA81E6ED1E2A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ratl">
+      <UniqueIdentifier>{2129632B-B64D-3E12-9B91-7DD6C515D7F5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ravl">
+      <UniqueIdentifier>{679288EE-FC0F-3F9F-95A8-AD5E84385941}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="server">
+      <UniqueIdentifier>{1675F25C-2777-3162-9CC0-A19CB29C2E88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sys">
+      <UniqueIdentifier>{926C4953-7FB4-3BA4-94E2-B480D3F6685E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ui">
+      <UniqueIdentifier>{1FEC96D5-111C-3C1C-9C78-9D3664B03F93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="win32">
+      <UniqueIdentifier>{5D403EC6-DED0-3EF0-85A2-428068AD5E44}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
