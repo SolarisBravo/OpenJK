@@ -4861,46 +4861,6 @@ float cg_crosshairPrevPosX = 0;
 float cg_crosshairPrevPosY = 0;
 #define CRAZY_CROSSHAIR_MAX_ERROR_X	(100.0f*640.0f/480.0f)
 #define CRAZY_CROSSHAIR_MAX_ERROR_Y	(100.0f)
-void CG_LerpCrosshairPos( float *x, float *y )
-{
-	if ( cg_crosshairPrevPosX )
-	{//blend from old pos
-		float maxMove = 30.0f * ((float)cg.frametime/500.0f) * 640.0f/480.0f;
-		float xDiff = (*x - cg_crosshairPrevPosX);
-		if ( fabs(xDiff) > CRAZY_CROSSHAIR_MAX_ERROR_X )
-		{
-			maxMove = CRAZY_CROSSHAIR_MAX_ERROR_X;
-		}
-		if ( xDiff > maxMove )
-		{
-			*x = cg_crosshairPrevPosX + maxMove;
-		}
-		else if ( xDiff < -maxMove )
-		{
-			*x = cg_crosshairPrevPosX - maxMove;
-		}
-	}
-	cg_crosshairPrevPosX = *x;
-
-	if ( cg_crosshairPrevPosY )
-	{//blend from old pos
-		float maxMove = 30.0f * ((float)cg.frametime/500.0f);
-		float yDiff = (*y - cg_crosshairPrevPosY);
-		if ( fabs(yDiff) > CRAZY_CROSSHAIR_MAX_ERROR_Y )
-		{
-			maxMove = CRAZY_CROSSHAIR_MAX_ERROR_X;
-		}
-		if ( yDiff > maxMove )
-		{
-			*y = cg_crosshairPrevPosY + maxMove;
-		}
-		else if ( yDiff < -maxMove )
-		{
-			*y = cg_crosshairPrevPosY - maxMove;
-		}
-	}
-	cg_crosshairPrevPosY = *y;
-}
 
 vec3_t cg_crosshairPos={0,0,0};
 static void CG_DrawCrosshair( vec3_t worldPoint, int chEntValid ) {
@@ -4913,12 +4873,7 @@ static void CG_DrawCrosshair( vec3_t worldPoint, int chEntValid ) {
 	centity_t	*crossEnt = NULL;
 	float		chX, chY;
 
-	if ( worldPoint )
-	{
-		VectorCopy( worldPoint, cg_crosshairPos );
-	}
-
-	if ( !cg_drawCrosshair.integer )
+	if (!cg_drawCrosshair.integer)
 	{
 		return;
 	}
@@ -4928,26 +4883,27 @@ static void CG_DrawCrosshair( vec3_t worldPoint, int chEntValid ) {
 		return;
 	}
 
-	if ( cg.predictedPlayerState.zoomMode != 0 )
-	{//not while scoped
+	if (cg.predictedPlayerState.zoomMode != 0)
+	{
+		//not while scoped
 		return;
 	}
 
-	if ( cg_crosshairHealth.integer )
+	if (cg_crosshairHealth.integer)
 	{
-		vec4_t		hcolor;
+		vec4_t	hcolor;
 
-		CG_ColorForHealth( hcolor );
-		trap->R_SetColor( hcolor );
+		CG_ColorForHealth(hcolor);
+		trap->R_SetColor(hcolor);
 	}
 	else
 	{
 		//set color based on what kind of ent is under crosshair
-		if ( cg.crosshairClientNum >= ENTITYNUM_WORLD )
+		if (cg.crosshairClientNum >= ENTITYNUM_WORLD)
 		{
-			trap->R_SetColor( NULL );
+			trap->R_SetColor(NULL);
 		}
-		//rwwFIXMEFIXME: Write this a different way, it's getting a bit too sloppy looking
+		//FIXME: Write this a different way, it's getting a bit too sloppy looking
 		else if (chEntValid &&
 			(cg_entities[cg.crosshairClientNum].currentState.number < MAX_CLIENTS ||
 			cg_entities[cg.crosshairClientNum].currentState.eType == ET_NPC ||
@@ -4958,8 +4914,9 @@ static void CG_DrawCrosshair( vec3_t worldPoint, int chEntValid ) {
 		{
 			crossEnt = &cg_entities[cg.crosshairClientNum];
 
-			if ( crossEnt->currentState.powerups & (1 <<PW_CLOAKED) )
-			{ //don't show up for cloaked guys
+			if (crossEnt->currentState.powerups & (1 <<PW_CLOAKED))
+			{
+				//don't show up for cloaked guys
 				ecolor[0] = 1.0;//R
 				ecolor[1] = 1.0;//G
 				ecolor[2] = 1.0;//B
@@ -5038,29 +4995,35 @@ static void CG_DrawCrosshair( vec3_t worldPoint, int chEntValid ) {
 						ecolor[2] = 1.0f;//B
 					}
 					else if ( !crossEnt->currentState.teamowner )
-					{ //not on a team
+					{
+						//not on a team
 						if (!crossEnt->currentState.teamowner ||
 							crossEnt->currentState.NPC_class == CLASS_VEHICLE)
-						{ //neutral
+						{
+							//neutral
 							if (crossEnt->currentState.owner < MAX_CLIENTS)
-							{ //base color on who is pilotting this thing
+							{
+								//base color on who is pilotting this thing
 								clientInfo_t *ci = &cgs.clientinfo[crossEnt->currentState.owner];
 
 								if (cgs.gametype >= GT_TEAM && ci->team == cg.predictedPlayerState.persistant[PERS_TEAM])
-								{ //friendly
+								{
+									//friendly
 									ecolor[0] = 0.0f;//R
 									ecolor[1] = 1.0f;//G
 									ecolor[2] = 0.0f;//B
 								}
 								else
-								{ //hostile
+								{
+									//hostile
 									ecolor[0] = 1.0f;//R
 									ecolor[1] = 0.0f;//G
 									ecolor[2] = 0.0f;//B
 								}
 							}
 							else
-							{ //unmanned
+							{
+								//unmanned
 								ecolor[0] = 1.0f;//R
 								ecolor[1] = 1.0f;//G
 								ecolor[2] = 0.0f;//B
@@ -5074,13 +5037,15 @@ static void CG_DrawCrosshair( vec3_t worldPoint, int chEntValid ) {
 						}
 					}
 					else if ( crossEnt->currentState.teamowner != plTeam )
-					{// on enemy team
+					{
+						// on enemy team
 						ecolor[0] = 1.0f;//R
 						ecolor[1] = 0.0f;//G
 						ecolor[2] = 0.0f;//B
 					}
 					else
-					{ //a friend
+					{
+						//a friend
 						ecolor[0] = 0.0f;//R
 						ecolor[1] = 1.0f;//G
 						ecolor[2] = 0.0f;//B
@@ -5124,7 +5089,8 @@ static void CG_DrawCrosshair( vec3_t worldPoint, int chEntValid ) {
 				}
 			}
 			else if (crossEnt->currentState.eType == ET_MOVER && crossEnt->currentState.bolt1 && cg.predictedPlayerState.weapon == WP_SABER)
-			{ //can push/pull this mover. Only show it if we're using the saber.
+			{
+			//can push/pull this mover. Only show it if we're using the saber.
 				ecolor[0] = 0.2f;
 				ecolor[1] = 0.5f;
 				ecolor[2] = 1.0f;
@@ -5132,7 +5098,8 @@ static void CG_DrawCrosshair( vec3_t worldPoint, int chEntValid ) {
 				corona = qtrue;
 			}
 			else if (crossEnt->currentState.eType == ET_MOVER && crossEnt->currentState.teamowner)
-			{ //a team owns this - if it's my team green, if not red, if not teamplay then yellow
+			{
+			//a team owns this - if it's my team green, if not red, if not teamplay then yellow
 				if (cgs.gametype < GT_TEAM)
 				{
 					ecolor[0] = 1.0f;//R
@@ -5140,13 +5107,15 @@ static void CG_DrawCrosshair( vec3_t worldPoint, int chEntValid ) {
 					ecolor[2] = 0.0f;//B
 				}
                 else if (cg.predictedPlayerState.persistant[PERS_TEAM] != crossEnt->currentState.teamowner)
-				{ //not my team
+				{
+					//not my team
 					ecolor[0] = 1.0f;//R
 					ecolor[1] = 0.0f;//G
 					ecolor[2] = 0.0f;//B
 				}
 				else
-				{ //my team
+				{
+					//my team
 					ecolor[0] = 0.0f;//R
 					ecolor[1] = 1.0f;//G
 					ecolor[2] = 0.0f;//B
@@ -5155,19 +5124,22 @@ static void CG_DrawCrosshair( vec3_t worldPoint, int chEntValid ) {
 			else if (crossEnt->currentState.health)
 			{
 				if (!crossEnt->currentState.teamowner || cgs.gametype < GT_TEAM)
-				{ //not owned by a team or teamplay
+				{
+					//not owned by a team or teamplay
 					ecolor[0] = 1.0f;
 					ecolor[1] = 1.0f;
 					ecolor[2] = 0.0f;
 				}
 				else if (crossEnt->currentState.teamowner == cg.predictedPlayerState.persistant[PERS_TEAM])
-				{ //owned by my team
+				{
+					//owned by my team
 					ecolor[0] = 0.0f;
 					ecolor[1] = 1.0f;
 					ecolor[2] = 0.0f;
 				}
 				else
-				{ //hostile
+				{
+					//hostile
 					ecolor[0] = 1.0f;
 					ecolor[1] = 0.0f;
 					ecolor[2] = 0.0f;
@@ -5180,50 +5152,12 @@ static void CG_DrawCrosshair( vec3_t worldPoint, int chEntValid ) {
 		}
 	}
 
-	if ( cg.predictedPlayerState.m_iVehicleNum )
-	{//I'm in a vehicle
-		centity_t *vehCent = &cg_entities[cg.predictedPlayerState.m_iVehicleNum];
-	    if ( vehCent
-			&& vehCent->m_pVehicle
-			&& vehCent->m_pVehicle->m_pVehicleInfo
-			&& vehCent->m_pVehicle->m_pVehicleInfo->crosshairShaderHandle )
-		{
-			hShader = vehCent->m_pVehicle->m_pVehicleInfo->crosshairShaderHandle;
-		}
-		//bigger by default
-		w = cg_crosshairSize.value*2.0f;
-		h = w;
-	}
-	else
-	{
-		w = h = cg_crosshairSize.value;
-	}
+	w = h = cg_crosshairSize.value;
 
-	// pulse the size of the crosshair when picking up items
-	f = cg.time - cg.itemPickupBlendTime;
-	if ( f > 0 && f < ITEM_BLOB_TIME ) {
-		f /= ITEM_BLOB_TIME;
-		w *= ( 1 + f );
-		h *= ( 1 + f );
-	}
+	x = cg_crosshairX.integer;
+	y = cg_crosshairY.integer;
 
-	if ( worldPoint && VectorLength( worldPoint ) )
-	{
-		if ( !CG_WorldCoordToScreenCoordFloat( worldPoint, &x, &y ) )
-		{//off screen, don't draw it
-			return;
-		}
-		//CG_LerpCrosshairPos( &x, &y );
-		x -= 320;
-		y -= 240;
-	}
-	else
-	{
-		x = cg_crosshairX.integer;
-		y = cg_crosshairY.integer;
-	}
-
-	if ( !hShader )
+	if (!hShader)
 	{
 		hShader = cgs.media.crosshairShader[Com_Clampi( 1, NUM_CROSSHAIRS, cg_drawCrosshair.integer ) - 1];
 	}
@@ -5232,10 +5166,8 @@ static void CG_DrawCrosshair( vec3_t worldPoint, int chEntValid ) {
 	chY = y + cg.refdef.y + 0.5 * (480 - h);
 	trap->R_DrawStretchPic( chX, chY, w, h, 0, 0, 1, 1, hShader );
 
-	//draw a health bar directly under the crosshair if we're looking at something
-	//that takes damage
-	if (crossEnt &&
-		crossEnt->currentState.maxhealth)
+	//draw a health bar directly under the crosshair if we're looking at something that takes damage
+	if (crossEnt && crossEnt->currentState.maxhealth)
 	{
 		CG_DrawHealthBar(crossEnt, chX, chY, w, h);
 		chY += HEALTH_HEIGHT*2;
@@ -5248,14 +5180,16 @@ static void CG_DrawCrosshair( vec3_t worldPoint, int chEntValid ) {
 			chY += HEALTH_HEIGHT*4;
 		}
 		if (cg.crosshairVehNum && cg.time == cg.crosshairVehTime)
-		{ //it was in the crosshair this frame
+		{
+			//it was in the crosshair this frame
 			centity_t *hisVeh = &cg_entities[cg.crosshairVehNum];
 
 			if (hisVeh->currentState.eType == ET_NPC &&
 				hisVeh->currentState.NPC_class == CLASS_VEHICLE &&
 				hisVeh->currentState.maxhealth &&
 				hisVeh->m_pVehicle)
-			{ //draw the health for this vehicle
+			{
+				//draw the health for this vehicle
 				CG_DrawHealthBar(hisVeh, chX, chY, w, h);
 				chY += HEALTH_HEIGHT*2;
 			}
@@ -5263,16 +5197,18 @@ static void CG_DrawCrosshair( vec3_t worldPoint, int chEntValid ) {
 	}
 
 	if (cg.predictedPlayerState.hackingTime)
-	{ //hacking something
+	{
+		//hacking something
 		CG_DrawHaqrBar(chX, chY, w, h);
 	}
 
 	if (cg_genericTimerBar > cg.time)
-	{ //draw generic timing bar, can be used for whatever
+	{
+		//draw generic timing bar, can be used for whatever
 		CG_DrawGenericTimerBar();
 	}
 
-	if ( corona ) // drawing extra bits
+	if (corona) // drawing extra bits
 	{
 		ecolor[3] = 0.5f;
 		ecolor[0] = ecolor[1] = ecolor[2] = (1 - ecolor[3]) * ( sin( cg.time * 0.001f ) * 0.08f + 0.35f ); // don't draw full color

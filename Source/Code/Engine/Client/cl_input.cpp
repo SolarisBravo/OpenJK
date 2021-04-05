@@ -921,24 +921,18 @@ void CL_KeyMove( usercmd_t *cmd ) {
 CL_MouseEvent
 =================
 */
-void CL_MouseEvent( int dx, int dy, int time ) {
-	if (g_clAutoMapMode && cls.cgameStarted)
-	{ //automap input
-		autoMapInput_t *data = (autoMapInput_t *)cl.mSharedMemory;
-
-		g_clAutoMapInput.yaw = dx;
-		g_clAutoMapInput.pitch = dy;
-		memcpy(data, &g_clAutoMapInput, sizeof(autoMapInput_t));
-		CGVM_AutomapInput();
-
-		g_clAutoMapInput.yaw = 0.0f;
-		g_clAutoMapInput.pitch = 0.0f;
+void CL_MouseEvent( int dx, int dy, int time )
+{
+	if (Key_GetCatcher() & KEYCATCH_UI)
+	{
+		UIVM_MouseEvent(dx, dy);
 	}
-	else if ( Key_GetCatcher( ) & KEYCATCH_UI ) {
-		UIVM_MouseEvent( dx, dy );
-	} else if ( Key_GetCatcher( ) & KEYCATCH_CGAME ) {
-		CGVM_MouseEvent( dx, dy );
-	} else {
+	else if (Key_GetCatcher() & KEYCATCH_CGAME)
+	{
+		CGVM_MouseEvent(dx, dy);
+	}
+	else
+	{
 		cl.mouseDx[cl.mouseIndex] += dx;
 		cl.mouseDy[cl.mouseIndex] += dy;
 	}
