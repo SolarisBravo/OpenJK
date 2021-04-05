@@ -26,15 +26,15 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 // string allocation/managment
 
 #ifdef _CGAME
-	#include "cgame/cg_local.h"
+	#include "Game/Client/cg_local.h"
 #elif UI_BUILD
-	#include "ui/ui_local.h"
+	#include "Game/UI/ui_local.h"
 #endif
 
-#include "ui_shared.h"
-#include "game/bg_public.h"
-#include "game/anims.h"
-#include "ghoul2/G2.h"
+#include "Game/UI/ui_shared.h"
+#include "Game/Server/bg_public.h"
+#include "Game/Server/anims.h"
+#include "Shared/ghoul2/G2.h"
 extern stringID_table_t animTable [MAX_ANIMATIONS+1];
 extern void UI_UpdateCharacterSkin( void );
 

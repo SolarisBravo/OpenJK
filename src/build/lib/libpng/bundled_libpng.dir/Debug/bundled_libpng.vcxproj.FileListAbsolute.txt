@@ -1,2 +1,0 @@
-C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\build\lib\libpng\Debug\bundled_libpng.pdb
-C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\build\lib\libpng\bundled_libpng.dir\Debug\bundled_libpng.pdb

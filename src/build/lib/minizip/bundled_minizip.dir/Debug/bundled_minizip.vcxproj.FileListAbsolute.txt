@@ -1,2 +1,0 @@
-C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\build\lib\minizip\Debug\bundled_minizip.pdb
-C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\build\lib\minizip\bundled_minizip.dir\Debug\bundled_minizip.pdb
