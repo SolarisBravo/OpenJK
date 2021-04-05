@@ -19,12 +19,12 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 */
 
 // cl_uiapi.c  -- client system interaction with client game
-#include "Shared/qcommon/RoffSystem.h"
-#include "Shared/qcommon/stringed_ingame.h"
-#include "Shared/qcommon/timing.h"
+#include "../../Shared/qcommon/RoffSystem.h"
+#include "../../Shared/qcommon/stringed_ingame.h"
+#include "../../Shared/qcommon/timing.h"
 #include "client.h"
 #include "cl_lan.h"
-#include "Shared/botlib/botlib.h"
+#include "../../Shared/botlib/botlib.h"
 #include "snd_ambient.h"
 #include "FXExport.h"
 #include "FxUtil.h"

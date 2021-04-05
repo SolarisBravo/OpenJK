@@ -19,7 +19,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 */
 #pragma once
 
-#include "Shared/qcommon/q_shared.h"
+#include "../../Shared/qcommon/q_shared.h"
 
 // initializes cycling through a DMA buffer and returns information on it
 qboolean SNDDMA_Init(int sampleFrequencyInKHz);

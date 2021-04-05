@@ -23,7 +23,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 // BlockStream.h
-#include "Shared/qcommon/qcommon.h"
+#include "../../Shared/qcommon/qcommon.h"
 #include <stdio.h>
 
 #include <list>

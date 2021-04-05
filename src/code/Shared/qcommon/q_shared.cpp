@@ -21,4 +21,4 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 ===========================================================================
 */
 
-#include "Shared/qcommon/q_shared.c"
+#include "../../Shared/qcommon/q_shared.c"

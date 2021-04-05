@@ -25,14 +25,14 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 // client.h -- primary header for client
 
-#include "Shared/qcommon/q_shared.h"
-#include "Shared/qcommon/qcommon.h"
-#include "Renderer/rd-common/tr_public.h"
+#include "../../Shared/qcommon/q_shared.h"
+#include "../../Shared/qcommon/qcommon.h"
+#include "../../Renderer/rd-common/tr_public.h"
 #include "keys.h"
 #include "snd_public.h"
-#include "Game/Server/bg_public.h"
-#include "Game/Client/cg_public.h"
-#include "Game/UI/ui_public.h"
+#include "../../Game/Server/bg_public.h"
+#include "../../Game/Client/cg_public.h"
+#include "../../Game/UI/ui_public.h"
 
 #define	RETRANSMIT_TIMEOUT	3000	// time between connection packet retransmits
 

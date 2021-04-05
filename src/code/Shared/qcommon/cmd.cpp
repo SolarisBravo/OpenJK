@@ -24,7 +24,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 // cmd.c -- Quake script command processing module
 
-#include "Shared/qcommon/qcommon.h"
+#include "qcommon.h"
 
 #include <vector>
 #include <algorithm>

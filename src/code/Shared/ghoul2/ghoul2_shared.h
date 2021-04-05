@@ -26,10 +26,10 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 #include <map>
 
 #define MDXABONEDEF
-#include "Renderer/rd-common/mdx_format.h"
-#include "Renderer/rd-common/tr_types.h"
-#include "Shared/qcommon/matcomp.h"
-#include "Shared/ghoul2/G2_gore.h"
+#include "../../Renderer/rd-common/mdx_format.h"
+#include "../../Renderer/rd-common/tr_types.h"
+#include "../../Shared/qcommon/matcomp.h"
+#include "../../Shared/ghoul2/G2_gore.h"
 
 struct model_s;
 

@@ -24,7 +24,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 // cvar.c -- dynamic variable tracking
 
-#include "Shared/qcommon/qcommon.h"
+#include "qcommon.h"
 
 cvar_t		*cvar_vars = NULL;
 cvar_t		*cvar_cheats;

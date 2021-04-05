@@ -22,7 +22,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 // Created 3/13/03 by Brian Osman (VV) - Split Zone/Hunk from common
 
-#include "Engine/Client/client.h" // hi i'm bad
+#include "../../Engine/Client/client.h" // hi i'm bad
 
 ////////////////////////////////////////////////
 //
@@ -32,7 +32,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 #define TAGDEF(blah) #blah
 const static char *psTagStrings[TAG_COUNT+1]=	// +1 because TAG_COUNT will itself become a string here. Oh well.
 {
-	#include "Shared/qcommon/tags.h"
+	#include "../../Shared/qcommon/tags.h"
 };
 //
 ////////////////////////////////////////////////

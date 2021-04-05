@@ -276,8 +276,8 @@ Ghoul2 Insert End
 Ghoul2 Insert Start
 */
 #define MDXABONEDEF
-#include "Renderer/rd-common/mdx_format.h"
-#include "Shared/qcommon/qfiles.h"
+#include "../../Renderer/rd-common/mdx_format.h"
+#include "../../Shared/qcommon/qfiles.h"
 
 // skins allow models to be retextured without modifying the model file
 //this is a mock copy, renderers may have their own implementation.

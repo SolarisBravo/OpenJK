@@ -23,11 +23,11 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include "Shared/qcommon/q_shared.h"
-#include "Shared/qcommon/qcommon.h"
-#include "Game/Server/g_public.h"
-#include "Game/Server/bg_public.h"
-#include "Renderer/rd-common/tr_public.h"
+#include "../../Shared/qcommon/q_shared.h"
+#include "../../Shared/qcommon/qcommon.h"
+#include "../../Game/Server/g_public.h"
+#include "../../Game/Server/bg_public.h"
+#include "../../Renderer/rd-common/tr_public.h"
 
 //=============================================================================
 

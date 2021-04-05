@@ -23,10 +23,10 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 */
 
 #include "server.h"
-#include "Shared/ghoul2/G2.h"
-#include "Shared/qcommon/cm_public.h"
-#include "Shared/qcommon/MiniHeap.h"
-#include "Shared/qcommon/stringed_ingame.h"
+#include "../../Shared/ghoul2/G2.h"
+#include "../../Shared/qcommon/cm_public.h"
+#include "../../Shared/qcommon/MiniHeap.h"
+#include "../../Shared/qcommon/stringed_ingame.h"
 #include "sv_gameapi.h"
 
 /*

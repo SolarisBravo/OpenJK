@@ -20,12 +20,12 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 ===========================================================================
 */
 
-#include "Shared/qcommon/q_shared.h"
+#include "../../../Shared/qcommon/q_shared.h"
 
 #include <algorithm>
 
 #include "navigator.h"
-#include "Game/Server/g_nav.h"
+#include "../../../Game/Server/g_nav.h"
 #include <time.h>
 #ifdef __linux__
 unsigned int timeGetTime(void);

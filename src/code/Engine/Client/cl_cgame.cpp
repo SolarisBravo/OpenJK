@@ -24,17 +24,17 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 // cl_cgame.c  -- client system interaction with client game
 #include "client.h"
 #include "cl_cgameapi.h"
-#include "Shared/botlib/botlib.h"
+#include "../../Shared/botlib/botlib.h"
 #include "FXExport.h"
 #include "FxUtil.h"
-#include "Shared/qcommon/RoffSystem.h"
-#include "Shared/qcommon/stringed_ingame.h"
-#include "Shared/ghoul2/G2_gore.h"
+#include "../../Shared/qcommon/RoffSystem.h"
+#include "../../Shared/qcommon/stringed_ingame.h"
+#include "../../Shared/ghoul2/G2_gore.h"
 
 extern IHeapAllocator *G2VertSpaceClient;
 
 #include "snd_ambient.h"
-#include "Shared/qcommon/timing.h"
+#include "../../Shared/qcommon/timing.h"
 
 /*
 Ghoul2 Insert End

@@ -19,11 +19,11 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 ===========================================================================
 */
 
-#include <SDL.h>
-#include "Shared/qcommon/qcommon.h"
-#include "Shared/qcommon/q_shared.h"
-#include "Engine/Client/client.h"
-#include "sys/sys_local.h"
+#include "../../ThirdParty/SDL2/include/SDL.h"
+#include "../../../Shared/qcommon/qcommon.h"
+#include "../../../Shared/qcommon/q_shared.h"
+#include "../../../Engine/Client/client.h"
+#include "../../Windows/System/sys_local.h"
 
 static cvar_t *in_keyboardDebug     = NULL;
 

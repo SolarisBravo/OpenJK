@@ -23,7 +23,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 // cmodel.c -- model loading
 #include "cm_local.h"
-#include "Shared/qcommon/qfiles.h"
+#include "../../Shared/qcommon/qfiles.h"
 
 #ifdef BSPC
 

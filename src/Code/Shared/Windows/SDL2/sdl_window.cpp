@@ -19,11 +19,11 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 ===========================================================================
 */
 
-#include <SDL.h>
-#include <SDL_syswm.h>
-#include "Shared/qcommon/qcommon.h"
-#include "Renderer/rd-common/tr_types.h"
-#include "sys/sys_local.h"
+#include "../../ThirdParty/SDL2/include/SDL.h"
+#include "../../ThirdParty/SDL2/include/sdl_syswm.h"
+#include "../../../Shared/qcommon/qcommon.h"
+#include "../../../Renderer/rd-common/tr_types.h"
+#include "../../Windows/System/sys_local.h"
 #include "sdl_icon.h"
 
 enum rserr_t

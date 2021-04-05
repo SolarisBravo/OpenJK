@@ -23,7 +23,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include "Shared/qcommon/q_shared.h"
+#include "q_shared.h"
 #include "qfiles.h"
 
 void		CM_LoadMap( const char *name, qboolean clientload, int *checksum);

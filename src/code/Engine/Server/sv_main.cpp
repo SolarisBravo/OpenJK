@@ -24,7 +24,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 #include "server.h"
 
-#include "Shared/ghoul2/ghoul2_shared.h"
+#include "../../Shared/ghoul2/ghoul2_shared.h"
 #include "sv_gameapi.h"
 
 serverStatic_t	svs;				// persistant server info

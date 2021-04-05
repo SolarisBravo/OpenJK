@@ -25,7 +25,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 // sv_client.c -- server code for dealing with clients
 
 #include "server.h"
-#include "Shared/qcommon/stringed_ingame.h"
+#include "../../Shared/qcommon/stringed_ingame.h"
 
 #ifdef USE_INTERNAL_ZLIB
 #include "zlib/zlib.h"
@@ -33,7 +33,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 #include <zlib.h>
 #endif
 
-#include "Engine/Server/sv_gameapi.h"
+#include "../../Engine/Server/sv_gameapi.h"
 
 static void SV_CloseDownload( client_t *cl );
 

@@ -22,7 +22,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 ===========================================================================
 */
 
-#include "Shared/qcommon/qcommon.h"
+#include "../../Shared/qcommon/qcommon.h"
 
 #ifdef _WIN32
 	#include <winsock.h>

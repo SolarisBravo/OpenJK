@@ -23,7 +23,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include "Shared/qcommon/q_shared.h"
+#include "q_shared.h"
 
 // this is only used for visualization tools in cm_ debug functions
 

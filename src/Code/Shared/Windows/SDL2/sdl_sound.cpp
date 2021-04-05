@@ -23,11 +23,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #include <stdlib.h>
 #include <stdio.h>
 
-#include <SDL.h>
+#include "..\..\ThirdParty\SDL2\include\SDL.h"
 
-#include "Shared/qcommon/q_shared.h"
-#include "Engine/Client/client.h"
-#include "Engine/Client/snd_local.h"
+#include "../../../Shared/qcommon/q_shared.h"
+#include "../../../Engine/Client/client.h"
+#include "../../../Engine/Client/snd_local.h"
 
 extern dma_t		dma;
 SDL_AudioDeviceID	dev;

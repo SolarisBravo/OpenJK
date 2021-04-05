@@ -40,8 +40,8 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 #include <vector>
 #include <list>
 
-#include "Engine/Server/server.h"
-#include "Shared/qcommon/q_shared.h"
+#include "../../../Engine/Server/server.h"
+#include "../../../Shared/qcommon/q_shared.h"
 
 //Miscellaneous defines
 #define	NODE_NONE		-1

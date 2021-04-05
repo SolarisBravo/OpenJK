@@ -23,7 +23,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 // this is only used for visualization tools in cm_ debug functions
 #include "cm_local.h"
-#include "Shared/qcommon/qcommon.h"
+#include "../../Shared/qcommon/qcommon.h"
 
 
 // counters are only bumped when running single threaded,

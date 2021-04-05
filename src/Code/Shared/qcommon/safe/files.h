@@ -3,8 +3,8 @@
 #include <cstddef>
 #include <cassert>
 
-#include "qcommon/q_platform.h"
-#include "qcommon/safe/gsl.h"
+#include "../q_platform.h"
+#include "gsl.h"
 
 /**
 @file RAII C++ bindings for filesystem operations

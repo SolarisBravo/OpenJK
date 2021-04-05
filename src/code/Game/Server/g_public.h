@@ -25,7 +25,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include "Shared/qcommon/q_shared.h"
+#include "../../Shared/qcommon/q_shared.h"
 
 #define Q3_INFINITE			16777216
 
@@ -263,9 +263,9 @@ class CTaskManager;
 extern CSequencer	*gSequencers[MAX_GENTITIES];
 extern CTaskManager	*gTaskManagers[MAX_GENTITIES];
 
-#include "Shared/icarus/icarus.h"
-#include "Shared/icarus/sequencer.h"
-#include "Shared/icarus/taskmanager.h"
+#include "../../Shared/icarus/icarus.h"
+#include "../../Shared/icarus/sequencer.h"
+#include "../../Shared/icarus/taskmanager.h"
 #endif
 
 typedef struct T_G_ICARUS_PLAYSOUND_s {

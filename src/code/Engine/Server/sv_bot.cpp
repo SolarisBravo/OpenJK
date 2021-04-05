@@ -23,9 +23,9 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 // sv_bot.c
 #include "server.h"
-#include "Shared/botlib/botlib.h"
-#include "Shared/qcommon/cm_public.h"
-#include "Engine/Server/sv_gameapi.h"
+#include "../../Shared/botlib/botlib.h"
+#include "../../Shared/qcommon/cm_public.h"
+#include "../../Engine/Server/sv_gameapi.h"
 
 typedef struct bot_debugpoly_s
 {

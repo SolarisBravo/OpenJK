@@ -29,7 +29,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 #include <vector>
 #include <map>
 
-#include "Shared/qcommon/q_shared.h"
+#include "../../Shared/qcommon/q_shared.h"
 
 #define MAX_STRING_LENGTH		256
 #define MAX_IDENTIFIER_LENGTH	128

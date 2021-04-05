@@ -25,7 +25,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 #include "cm_polylib.h"
 #include "cm_public.h"
-#include "Shared/qcommon/qcommon.h"
+#include "qcommon.h"
 
 #define	MAX_SUBMODELS			512
 #define	BOX_MODEL_HANDLE		(MAX_SUBMODELS-1)

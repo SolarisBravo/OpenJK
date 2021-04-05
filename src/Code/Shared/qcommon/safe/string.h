@@ -2,7 +2,7 @@
 
 #include "sscanf.h"
 #include "gsl.h"
-#include "qcommon/q_platform.h"
+#include "../qcommon/q_platform.h"
 
 #include <cassert>
 #include <iostream>

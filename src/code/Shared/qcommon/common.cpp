@@ -25,11 +25,11 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 // common.c -- misc functions used in client and server
 
 #include "stringed_ingame.h"
-#include "Shared/qcommon/cm_public.h"
-#include "Shared/qcommon/game_version.h"
-#include "qcommon/q_version.h"
+#include "cm_public.h"
+#include "game_version.h"
+#include "q_version.h"
 #include "../../Engine/Server/NPCNav/navigator.h"
-#include "../shared/sys/sys_local.h"
+#include "../../Shared/Windows/System/sys_local.h"
 #if defined(_WIN32)
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>

@@ -48,12 +48,12 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 					//	between base<->modbase clients and servers (mismatching events, powerups, etc)
 					// leave this defined to ensure compatibility
 
-#include "qcommon/q_math.h"
-#include "qcommon/q_color.h"
-#include "qcommon/q_string.h"
-#include "Shared/qcommon/disablewarnings.h"
+#include "q_math.h"
+#include "q_color.h"
+#include "q_string.h"
+#include "disablewarnings.h"
 
-#include "Game/server/teams.h" //npc team stuff
+#include "../../Game/Server/teams.h" //npc team stuff
 
 #define MAX_WORLD_COORD		( 64 * 1024 )
 #define MIN_WORLD_COORD		( -64 * 1024 )
@@ -143,7 +143,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 	#define idppc	0
 #endif
 
-#include "qcommon/q_platform.h"
+#include "q_platform.h"
 
 typedef union fileBuffer_u {
 	void *v;
@@ -776,7 +776,7 @@ COLLISION DETECTION
 ==============================================================
 */
 
-#include "Game/Server/surfaceflags.h"			// shared with the q3map utility
+#include "../../Game/Server/surfaceflags.h"			// shared with the q3map utility
 
 /*
 Ghoul2 Insert Start
@@ -1819,7 +1819,7 @@ Ghoul2 Insert End
 //
 #define TAGDEF(blah) TAG_ ## blah
 typedef enum {
-	#include "Shared/qcommon/tags.h"
+	#include "tags.h"
 } memtag;
 typedef unsigned memtag_t;
 

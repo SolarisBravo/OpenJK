@@ -23,7 +23,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include "Game/UI/keycodes.h"
+#include "../../Game/UI/keycodes.h"
 
 typedef struct qkey_s {
 	qboolean	down;

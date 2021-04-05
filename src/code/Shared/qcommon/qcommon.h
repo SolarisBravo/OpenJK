@@ -26,8 +26,8 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 // qcommon.h -- definitions common between client and server, but not game.or ref modules
 
-#include "Shared/qcommon/q_shared.h"
-#include "sys/sys_public.h"
+#include "q_shared.h"
+#include "../Windows/System/sys_public.h"
 
 //============================================================================
 
@@ -1058,4 +1058,4 @@ const void *PD_Load ( const char *name, size_t *size );
 
 uint32_t ConvertUTF8ToUTF32( char *utf8CurrentChar, char **utf8NextChar );
 
-#include "sys/sys_public.h"
+#include "..\Windows\System\sys_public.h"
