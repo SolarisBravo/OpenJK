@@ -1819,7 +1819,6 @@ void G2_LoadGhoul2Model(CGhoul2Info_v &ghoul2, char *buffer)
 		ghoul2[i].mValid=false;
 		// load the ghoul2 info from the buffer
 		memcpy(&ghoul2[i].mModelindex, buffer, ghoul2BlockSize);
-//		OutputDebugString(va("G2_LoadGhoul2Model(): ghoul2[%d].mModelindex = %d\n",i,ghoul2[i].mModelindex));
 		buffer +=ghoul2BlockSize;
 
 		if (ghoul2[i].mModelindex!=-1&&ghoul2[i].mFileName[0])

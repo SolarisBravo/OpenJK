@@ -30,124 +30,6 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 #include <set>
 #include <list>
 
-#ifdef _FULL_G2_LEAK_CHECKING
-int g_Ghoul2Allocations = 0;
-int g_G2ServerAlloc = 0;
-int g_G2ClientAlloc = 0;
-int g_G2AllocServer = 0;
-
-//stupid debug crap to track leaks in case they happen.
-//we used to shove everything into a map and delete it all and not care about
-//leaks, but that was not the Right Thing. -rww
-#define MAX_TRACKED_ALLOC					4096
-static bool g_G2AllocTrackInit = false; //want to keep this thing contained
-static CGhoul2Info_v *g_G2AllocTrack[MAX_TRACKED_ALLOC];
-
-void G2_DEBUG_InitPtrTracker(void)
-{
-	memset(g_G2AllocTrack, 0, sizeof(g_G2AllocTrack));
-	g_G2AllocTrackInit = true;
-}
-
-void G2_DEBUG_ReportLeaks(void)
-{
-	int i = 0;
-
-	if (!g_G2AllocTrackInit)
-	{
-		ri.Printf( PRINT_ALL, "g2 leak tracker was never initialized!\n");
-		return;
-	}
-
-    while (i < MAX_TRACKED_ALLOC)
-	{
-		if (g_G2AllocTrack[i])
-		{
-			ri.Printf( PRINT_ALL, "Bad guy found in slot %i, attempting to access...", i);
-			CGhoul2Info_v &g2v = *g_G2AllocTrack[i];
-			CGhoul2Info &g2 = g2v[0];
-
-			if (g2v.IsValid() && g2.mFileName && g2.mFileName[0])
-			{
-				ri.Printf( PRINT_ALL, "Bad guy's filename is %s\n", g2.mFileName);
-			}
-			else
-			{
-				ri.Printf( PRINT_ALL, "He's not valid! BURN HIM!\n");
-			}
-		}
-		i++;
-	}
-}
-
-void G2_DEBUG_ShovePtrInTracker(CGhoul2Info_v *g2)
-{
-	int i = 0;
-
-	if (!g_G2AllocTrackInit)
-	{
-		G2_DEBUG_InitPtrTracker();
-	}
-
-	if (!g_G2AllocTrackInit)
-	{
-		G2_DEBUG_InitPtrTracker();
-	}
-
-	while (i < MAX_TRACKED_ALLOC)
-	{
-		if (!g_G2AllocTrack[i])
-		{
-			g_G2AllocTrack[i] = g2;
-			return;
-		}
-		i++;
-	}
-
-	CGhoul2Info_v &g2v = *g2;
-
-	if (g2v[0].currentModel && g2v[0].currentModel->name && g2v[0].currentModel->name[0])
-	{
-		ri.Printf( PRINT_ALL, "%s could not be fit into g2 debug instance tracker.\n", g2v[0].currentModel->name);
-	}
-	else
-	{
-		ri.Printf( PRINT_ALL, "Crap g2 instance passed to instance tracker (in).\n");
-	}
-}
-
-void G2_DEBUG_RemovePtrFromTracker(CGhoul2Info_v *g2)
-{
-	int i = 0;
-
-	if (!g_G2AllocTrackInit)
-	{
-		G2_DEBUG_InitPtrTracker();
-	}
-
-	while (i < MAX_TRACKED_ALLOC)
-	{
-		if (g_G2AllocTrack[i] == g2)
-		{
-			g_G2AllocTrack[i] = NULL;
-			return;
-		}
-		i++;
-	}
-
-	CGhoul2Info_v &g2v = *g2;
-
-	if (g2v[0].currentModel && g2v[0].currentModel->name && g2v[0].currentModel->name[0])
-	{
-		ri.Printf( PRINT_ALL, "%s not in g2 debug instance tracker.\n", g2v[0].currentModel->name);
-	}
-	else
-	{
-		ri.Printf( PRINT_ALL, "Crap g2 instance passed to instance tracker (out).\n");
-	}
-}
-#endif
-
 qboolean G2_SetupModelPointers(CGhoul2Info *ghlInfo);
 qboolean G2_SetupModelPointers(CGhoul2Info_v &ghoul2);
 qboolean G2_TestModelPointers(CGhoul2Info *ghlInfo);
@@ -159,18 +41,12 @@ static int G2TimeBases[NUM_G2T_TIME];
 void G2API_SetTime(int currentTime,int clock)
 {
 	assert(clock>=0&&clock<NUM_G2T_TIME);
-#if G2_DEBUG_TIME
-	ri.Printf( PRINT_ALL, "Set Time: before c%6d  s%6d",G2TimeBases[1],G2TimeBases[0]);
-#endif
 	G2TimeBases[clock]=currentTime;
 	if (G2TimeBases[1]>G2TimeBases[0]+200)
 	{
 		G2TimeBases[1]=0; // use server time instead
 		return;
 	}
-#if G2_DEBUG_TIME
-	ri.Printf( PRINT_ALL, " after c%6d  s%6d\n",G2TimeBases[1],G2TimeBases[0]);
-#endif
 }
 
 int	G2API_GetTime(int argTime) // this may or may not return arg depending on ghoul2_time cvar
@@ -185,47 +61,16 @@ int	G2API_GetTime(int argTime) // this may or may not return arg depending on gh
 }
 //rww - RAGDOLL_END
 
-//rww - Stuff to allow association of ghoul2 instances to entity numbers.
-//This way, on listen servers when both the client and server are doing
-//ghoul2 operations, we can copy relevant data off the client instance
-//directly onto the server instance and slash the transforms and whatnot
-//right in half.
-#ifdef _G2_LISTEN_SERVER_OPT
-CGhoul2Info_v *g2ClientAttachments[MAX_GENTITIES];
-#endif
-
 void G2API_AttachInstanceToEntNum(CGhoul2Info_v &ghoul2, int entityNum, qboolean server)
-{ //Assign the pointers in the arrays
-#ifdef _G2_LISTEN_SERVER_OPT
-	if (server)
-	{
-		ghoul2[0].entityNum = entityNum;
-	}
-	else
-	{
-		g2ClientAttachments[entityNum] = &ghoul2;
-	}
-#endif
+{
 }
 
 void G2API_ClearAttachedInstance(int entityNum)
 {
-#ifdef _G2_LISTEN_SERVER_OPT
-	g2ClientAttachments[entityNum] = NULL;
-#endif
 }
 
 void G2API_CleanEntAttachments(void)
 {
-#ifdef _G2_LISTEN_SERVER_OPT
-	int i = 0;
-
-	while (i < MAX_GENTITIES)
-	{
-		g2ClientAttachments[i] = NULL;
-		i++;
-	}
-#endif
 }
 
 #ifdef _G2_LISTEN_SERVER_OPT
@@ -234,63 +79,7 @@ void CopyBoneCache(CBoneCache *to, CBoneCache *from);
 
 qboolean G2API_OverrideServerWithClientData(CGhoul2Info_v& ghoul2, int modelIndex)
 {
-#ifndef _G2_LISTEN_SERVER_OPT
 	return qfalse;
-#else
-	CGhoul2Info *serverInstance = &ghoul2[modelIndex];
-	CGhoul2Info *clientInstance;
-
-	if (ri.Cvar_VariableIntegerValue( "dedicated" ))
-	{ //No client to get from!
-		return qfalse;
-	}
-
-	if (!g2ClientAttachments[serverInstance->entityNum])
-	{ //No clientside instance is attached to this entity
-		return qfalse;
-	}
-
-	CGhoul2Info_v &g2Ref = *g2ClientAttachments[serverInstance->entityNum];
-	clientInstance = &g2Ref[0];
-
-	int frameNum = G2API_GetTime(0);
-
-	if (clientInstance->mSkelFrameNum != frameNum)
-	{ //it has to be constructed already
-		return qfalse;
-	}
-
-	if (!clientInstance->mBoneCache)
-	{ //that just won't do
-		return qfalse;
-	}
-
-	//Just copy over the essentials
-	serverInstance->aHeader = clientInstance->aHeader;
-	serverInstance->animModel = clientInstance->animModel;
-	serverInstance->currentAnimModelSize = clientInstance->currentAnimModelSize;
-	serverInstance->currentModel = clientInstance->currentModel;
-	serverInstance->currentModelSize = clientInstance->currentModelSize;
-	serverInstance->mAnimFrameDefault = clientInstance->mAnimFrameDefault;
-	serverInstance->mModel = clientInstance->mModel;
-	serverInstance->mModelindex = clientInstance->mModelindex;
-	serverInstance->mSurfaceRoot = clientInstance->mSurfaceRoot;
-	serverInstance->mTransformedVertsArray = clientInstance->mTransformedVertsArray;
-
-	if (!serverInstance->mBoneCache)
-	{ //if this is the case.. I guess we can use the client one instead
-		serverInstance->mBoneCache = clientInstance->mBoneCache;
-	}
-
-	//Copy the contents of the client cache over the contents of the server cache
-	if (serverInstance->mBoneCache != clientInstance->mBoneCache)
-	{
-		CopyBoneCache(serverInstance->mBoneCache, clientInstance->mBoneCache);
-	}
-
-	serverInstance->mSkelFrameNum = clientInstance->mSkelFrameNum;
-	return qtrue;
-#endif
 }
 
 // must be a power of two
@@ -2881,29 +2670,19 @@ extern int G2Time_G2_SetupModelPointers;
 
 qboolean G2_SetupModelPointers(CGhoul2Info *ghlInfo) // returns true if the model is properly set up
 {
-#ifdef G2_PERFORMANCE_ANALYSIS
-	G2PerformanceTimer_G2_SetupModelPointers.Start();
-#endif
 	G2ERROR(ghlInfo,"NULL ghlInfo");
 	if (!ghlInfo)
 	{
 		return qfalse;
 	}
 
-//	if (ghlInfo->mValid && ghlInfo->currentModel)
 	if (0)
-	{ //rww - Why are we bothering with all this? We can't change models like this anyway.
-	  //This function goes over 200k on the precision timer (in debug, but still), so I'm
-	  //cutting it off here because it gets called constantly.
-#ifdef G2_PERFORMANCE_ANALYSIS
-		G2Time_G2_SetupModelPointers += G2PerformanceTimer_G2_SetupModelPointers.End();
-#endif
+	{
 		return qtrue;
 	}
 
 	ghlInfo->mValid=false;
 
-//	G2WARNING(ghlInfo->mModelindex != -1,"Setup request on non-used info slot?");
 	if (ghlInfo->mModelindex != -1)
 	{
 		G2ERROR(ghlInfo->mFileName[0],"empty ghlInfo->mFileName");
@@ -2911,8 +2690,7 @@ qboolean G2_SetupModelPointers(CGhoul2Info *ghlInfo) // returns true if the mode
 		// RJ - experimental optimization!
 		if (!ghlInfo->mModel || 1)
 		{
-			if (ri.Cvar_VariableIntegerValue( "dedicated" ) ||
-				(G2_ShouldRegisterServer())) //supreme hackery!
+			if (ri.Cvar_VariableIntegerValue( "dedicated" ) || (G2_ShouldRegisterServer())) //supreme hackery!
 			{
 				ghlInfo->mModel = RE_RegisterServerModel(ghlInfo->mFileName);
 			}
@@ -2971,9 +2749,6 @@ qboolean G2_SetupModelPointers(CGhoul2Info *ghlInfo) // returns true if the mode
 		ghlInfo->aHeader=0;
 	}
 
-#ifdef G2_PERFORMANCE_ANALYSIS
-	G2Time_G2_SetupModelPointers += G2PerformanceTimer_G2_SetupModelPointers.End();
-#endif
 	return (qboolean)ghlInfo->mValid;
 }
 

@@ -1182,46 +1182,38 @@ optimization to prevent disk rescanning if they are
 asked for again.
 ====================
 */
-static qhandle_t RE_RegisterModel_Actual( const char *name ) {
+static qhandle_t RE_RegisterModel_Actual( const char *name )
+{
 	model_t		*mod;
 	unsigned	*buf;
 	int			lod;
 	int			ident;
 	qboolean	loaded;
-//	qhandle_t	hModel;
 	int			numLoaded;
-/*
-Ghoul2 Insert Start
-*/
+
 	int			hash;
 	modelHash_t	*mh;
-/*
-Ghoul2 Insert End
-*/
 
-	if ( !name || !name[0] ) {
-		ri.Printf( PRINT_ALL, "RE_RegisterModel: NULL name\n" );
+	if (!name || !name[0])
+	{
+		ri.Printf(PRINT_ALL, "RE_RegisterModel: NULL name\n");
 		return 0;
 	}
 
-	if ( strlen( name ) >= MAX_QPATH ) {
-		ri.Printf( PRINT_DEVELOPER, S_COLOR_RED "Model name exceeds MAX_QPATH\n" );
+	if (strlen(name) >= MAX_QPATH)
+	{
+		ri.Printf(PRINT_DEVELOPER, S_COLOR_RED "Model name exceeds MAX_QPATH\n");
 		return 0;
 	}
 
-/*
-Ghoul2 Insert Start
-*/
-	//
 	// search the currently loaded models
-	//
 	hash = generateHashValue(name, FILE_HASH_SIZE);
 
-	//
 	// see if the model is already loaded
-	//
-	for (mh=mhHashTable[hash]; mh; mh=mh->next) {
-		if (Q_stricmp(mh->name, name) == 0) {
+	for (mh=mhHashTable[hash]; mh; mh=mh->next)
+	{
+		if (Q_stricmp(mh->name, name) == 0)
+		{
 			return mh->handle;
 		}
 	}
@@ -1229,7 +1221,7 @@ Ghoul2 Insert Start
 	if (name[0] == '#')
 	{
 		char		temp[MAX_QPATH];
-
+		
 		tr.numBSPModels++;
 		RE_LoadWorldMap_Actual(va("maps/%s.bsp", name + 1), tr.bspModels[tr.numBSPModels - 1], tr.numBSPModels);
 		Com_sprintf(temp, MAX_QPATH, "*%d-0", tr.numBSPModels);
@@ -1241,25 +1233,21 @@ Ghoul2 Insert Start
 				return mh->handle;
 			}
 		}
-
 		return 0;
 	}
 
 	if (name[0] == '*')
-	{	// don't create a bad model for a bsp model
+	{
+		// don't create a bad model for a bsp model
 		if (Q_stricmp(name, "*default.gla"))
 		{
 			return 0;
 		}
 	}
 
-/*
-Ghoul2 Insert End
-*/
-
 	// allocate a new model_t
-
-	if ( ( mod = R_AllocModel() ) == NULL ) {
+	if ((mod = R_AllocModel()) == NULL)
+	{
 		ri.Printf( PRINT_ALL, S_COLOR_YELLOW  "RE_RegisterModel: R_AllocModel() failed for '%s'\n", name);
 		return 0;
 	}
@@ -1271,7 +1259,8 @@ Ghoul2 Insert End
 	R_IssuePendingRenderCommands();
 
 	int iLODStart = 0;
-	if (strstr (name, ".md3")) {
+	if (strstr (name, ".md3"))
+	{
 		iLODStart = MD3_MAX_LODS-1;	// this loads the md3s in reverse so they can be biased
 	}
 	mod->numLods = 0;
@@ -1281,16 +1270,19 @@ Ghoul2 Insert End
 	//
 	numLoaded = 0;
 
-	for ( lod = iLODStart; lod >= 0 ; lod-- ) {
+	for (lod = iLODStart; lod >= 0 ; lod--)
+	{
 		char filename[1024];
 
-		strcpy( filename, name );
+		strcpy(filename, name);
 
-		if ( lod != 0 ) {
+		if ( lod != 0 )
+		{
 			char namebuf[80];
 
-			if ( strrchr( filename, '.' ) ) {
-				*strrchr( filename, '.' ) = 0;
+			if (strrchr(filename, '.'))
+			{
+				*strrchr(filename, '.') = 0;
 			}
 			sprintf( namebuf, "_%d.md3", lod );
 			strcat( filename, namebuf );
@@ -1302,12 +1294,7 @@ Ghoul2 Insert End
 			continue;
 		}
 
-		//loadmodel = mod;	// this seems to be fairly pointless
-
-		// important that from now on we pass 'filename' instead of 'name' to all model load functions,
-		//	because 'filename' accounts for any LOD mangling etc so guarantees unique lookups for yet more
-		//	internal caching...
-		//
+		//Get first four bytes
 		ident = *(unsigned *)buf;
 		if (!bAlreadyCached)
 		{
@@ -1316,78 +1303,62 @@ Ghoul2 Insert End
 
 		switch (ident)
 		{
-			// if you add any new types of model load in this switch-case, tell me,
-			//	or copy what I've done with the cache scheme (-ste).
-			//
 			case MDXA_IDENT:
-				loaded = R_LoadMDXA( mod, buf, filename, bAlreadyCached );
+				loaded = R_LoadMDXA(mod, buf, filename, bAlreadyCached);
 				break;
 
 			case MDXM_IDENT:
-				loaded = R_LoadMDXM( mod, buf, filename, bAlreadyCached );
+				loaded = R_LoadMDXM(mod, buf, filename, bAlreadyCached);
 				break;
 
 			case MD3_IDENT:
-				loaded = R_LoadMD3( mod, lod, buf, filename, bAlreadyCached );
+				loaded = R_LoadMD3(mod, lod, buf, filename, bAlreadyCached);
 				break;
-
-			default:
-				ri.Printf( PRINT_ALL, S_COLOR_YELLOW"RE_RegisterModel: unknown fileid for %s\n", filename);
-				goto fail;
 		}
 
-		if (!bAlreadyCached){	// important to check!!
+		if (!bAlreadyCached)
+		{
 			ri.FS_FreeFile (buf);
 		}
 
-		if ( !loaded ) {
-			if ( lod == 0 ) {
+		if (!loaded)
+		{
+			if (lod == 0)
+			{
 				goto fail;
-			} else {
+			}
+			else
+			{
 				break;
 			}
-		} else {
+		}
+		else
+		{
 			mod->numLods++;
 			numLoaded++;
 			// if we have a valid model and are biased
 			// so that we won't see any higher detail ones,
 			// stop loading them
-			if ( lod <= r_lodbias->integer ) {
+			if (lod <= r_lodbias->integer)
+			{
 				break;
 			}
 		}
 	}
 
-	if ( numLoaded ) {
+	if (numLoaded)
+	{
 		// duplicate into higher lod spots that weren't
 		// loaded, in case the user changes r_lodbias on the fly
-		for ( lod-- ; lod >= 0 ; lod-- ) {
+		for (lod-- ; lod >= 0 ; lod--)
+		{
 			mod->numLods++;
 			mod->md3[lod] = mod->md3[lod+1];
 		}
 
-/*
-Ghoul2 Insert Start
-*/
-
-#ifdef _DEBUG
-	if (r_noPrecacheGLA && r_noPrecacheGLA->integer && ident == MDXA_IDENT)
-	{ //I expect this will cause leaks, but I don't care because it's a debugging utility.
-		return mod->index;
-	}
-#endif
-
 	RE_InsertModelIntoHash(name, mod);
 	return mod->index;
-/*
-Ghoul2 Insert End
-*/
 	}
-#ifdef _DEBUG
-	else {
-		ri.Printf( PRINT_ALL, S_COLOR_YELLOW"RE_RegisterModel: couldn't load %s\n", name);
-	}
-#endif
 
 fail:
 	// we still keep the model_t around, so if the model name is asked for
@@ -1405,7 +1376,7 @@ qboolean gbInsideRegisterModel = qfalse;
 qhandle_t RE_RegisterModel( const char *name )
 {
 	const qboolean bWhatitwas = gbInsideRegisterModel;
-	gbInsideRegisterModel = qtrue;	// !!!!!!!!!!!!!!
+	gbInsideRegisterModel = qtrue;
 
 	qhandle_t q = RE_RegisterModel_Actual( name );
 
@@ -1428,14 +1399,6 @@ static qboolean R_LoadMD3 (model_t *mod, int lod, void *buffer, const char *mod_
 	md3Surface_t		*surf;
 	int					version;
 	int					size;
-
-#ifdef Q3_BIG_ENDIAN
-	md3Frame_t			*frame;
-	md3Triangle_t		*tri;
-	md3St_t				*st;
-	md3XyzNormal_t		*xyz;
-	md3Tag_t			*tag;
-#endif
 
 
 	pinmodel= (md3Header_t *)buffer;
@@ -1468,15 +1431,8 @@ static qboolean R_LoadMD3 (model_t *mod, int lod, void *buffer, const char *mod_
 
 	if (!bAlreadyFound)
 	{
-		// horrible new hackery, if !bAlreadyFound then we've just done a tag-morph, so we need to set the
-		//	bool reference passed into this function to true, to tell the caller NOT to do an ri.FS_Freefile since
-		//	we've hijacked that memory block...
-		//
-		// Aaaargh. Kill me now...
-		//
 		bAlreadyCached = qtrue;
 		assert( mod->md3[lod] == buffer );
-//		memcpy( mod->md3[lod], buffer, size );	// and don't do this now, since it's the same thing
 
 		LL(mod->md3[lod]->ident);
 		LL(mod->md3[lod]->version);
@@ -1498,30 +1454,6 @@ static qboolean R_LoadMD3 (model_t *mod, int lod, void *buffer, const char *mod_
 	{
 		return qtrue;	// All done. Stop, go no further, do not pass Go...
 	}
-
-#ifdef Q3_BIG_ENDIAN
-	// swap all the frames
-	frame = (md3Frame_t *) ( (byte *)mod->md3[lod] + mod->md3[lod]->ofsFrames );
-	for ( i = 0 ; i < mod->md3[lod]->numFrames ; i++, frame++) {
-		LF(frame->radius);
-		for ( j = 0 ; j < 3 ; j++ ) {
-			LF(frame->bounds[0][j]);
-			LF(frame->bounds[1][j]);
-			LF(frame->localOrigin[j]);
-		}
-	}
-
-	// swap all the tags
-	tag = (md3Tag_t *) ( (byte *)mod->md3[lod] + mod->md3[lod]->ofsTags );
-	for ( i = 0 ; i < mod->md3[lod]->numTags * mod->md3[lod]->numFrames ; i++, tag++) {
-		for ( j = 0 ; j < 3 ; j++ ) {
-			LF(tag->origin[j]);
-			LF(tag->axis[0][j]);
-			LF(tag->axis[1][j]);
-			LF(tag->axis[2][j]);
-		}
-	}
-#endif
 
 	// swap all the surfaces
 	surf = (md3Surface_t *) ( (byte *)mod->md3[lod] + mod->md3[lod]->ofsSurfaces );
@@ -1572,34 +1504,6 @@ static qboolean R_LoadMD3 (model_t *mod, int lod, void *buffer, const char *mod_
 			}
 			RE_RegisterModels_StoreShaderRequest(mod_name, &shader->name[0], &shader->shaderIndex);
         }
-
-#ifdef Q3_BIG_ENDIAN
-		// swap all the triangles
-		tri = (md3Triangle_t *) ( (byte *)surf + surf->ofsTriangles );
-		for ( j = 0 ; j < surf->numTriangles ; j++, tri++ ) {
-			LL(tri->indexes[0]);
-			LL(tri->indexes[1]);
-			LL(tri->indexes[2]);
-		}
-
-		// swap all the ST
-		st = (md3St_t *) ( (byte *)surf + surf->ofsSt );
-		for ( j = 0 ; j < surf->numVerts ; j++, st++ ) {
-			LF(st->st[0]);
-			LF(st->st[1]);
-		}
-
-		// swap all the XyzNormals
-		xyz = (md3XyzNormal_t *) ( (byte *)surf + surf->ofsXyzNormals );
-		for ( j = 0 ; j < surf->numVerts * surf->numFrames ; j++, xyz++ )
-		{
-			LS(xyz->xyz[0]);
-			LS(xyz->xyz[1]);
-			LS(xyz->xyz[2]);
-
-			LS(xyz->normal);
-		}
-#endif
 
 		// find the next surface
 		surf = (md3Surface_t *)( (byte *)surf + surf->ofsEnd );
