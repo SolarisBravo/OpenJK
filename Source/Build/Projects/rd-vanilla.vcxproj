@@ -26,7 +26,7 @@
     <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>Win32</Platform>
-    <ProjectName>MP Vanilla Renderer</ProjectName>
+    <ProjectName>Renderer</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -116,7 +116,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>$(SolutionDir)Build\Output\bundled_libjpeg\bundled_libjpeg.lib;$(SolutionDir)Build\Output\bundled_libpng\bundled_libpng.lib;$(SolutionDir)Build\Output\bundled_zlib\bundled_zlib.lib;$(SolutionDir)Build\Output\bundled_minizip\bundled_minizip.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)Build\Output\libjpeg\bundled_libjpeg.lib;$(SolutionDir)Build\Output\libpng\bundled_libpng.lib;$(SolutionDir)Build\Output\zlib\bundled_zlib.lib;$(SolutionDir)Build\Output\minizip\bundled_minizip.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -200,21 +200,21 @@
     <ClInclude Include="$(SolutionDir)\Code\Shared\qcommon\safe\limited_vector.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="$(SolutionDir)\Build\Projects\jpeg-9a\bundled_libjpeg.vcxproj">
+    <ProjectReference Include="$(SolutionDir)\Build\Projects\ThirdParty\libjpeg.vcxproj">
       <Project>{CE6BF5F6-56FC-3E3D-8CAC-4FFD22321D21}</Project>
-      <Name>bundled_libjpeg</Name>
+      <Name>libjpeg</Name>
     </ProjectReference>
-    <ProjectReference Include="$(SolutionDir)\Build\Projects\libpng\bundled_libpng.vcxproj">
+    <ProjectReference Include="$(SolutionDir)\Build\Projects\ThirdParty\libpng.vcxproj">
       <Project>{FBAE487B-72DA-3C69-9B16-126BA853C948}</Project>
-      <Name>bundled_libpng</Name>
+      <Name>libpng</Name>
     </ProjectReference>
-    <ProjectReference Include="$(SolutionDir)\Build\Projects\minizip\bundled_minizip.vcxproj">
+    <ProjectReference Include="$(SolutionDir)\Build\Projects\ThirdParty\minizip.vcxproj">
       <Project>{FDD139AD-08C9-37FE-A7A3-C0FE6583221D}</Project>
-      <Name>bundled_minizip</Name>
+      <Name>minizip</Name>
     </ProjectReference>
-    <ProjectReference Include="$(SolutionDir)\Build\Projects\zlib\bundled_zlib.vcxproj">
+    <ProjectReference Include="$(SolutionDir)\Build\Projects\ThirdParty\zlib.vcxproj">
       <Project>{45F5E263-42D9-3219-969F-797D68629492}</Project>
-      <Name>bundled_zlib</Name>
+      <Name>zlib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

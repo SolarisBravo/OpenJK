@@ -22,11 +22,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{45F5E263-42D9-3219-969F-797D68629492}</ProjectGuid>
+    <ProjectGuid>{CE6BF5F6-56FC-3E3D-8CAC-4FFD22321D21}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>Win32</Platform>
-    <ProjectName>bundled_zlib</ProjectName>
+    <ProjectName>libjpeg</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -59,30 +59,29 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)\build\lib\zlib\Debug\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">bundled_zlib.dir\Debug\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">bundled_zlib</TargetName>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)\build\lib\jpeg-9a\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">bundled_libjpeg.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">bundled_libjpeg</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)build\output\$(TargetName)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)build\intermediate\$(TargetName)\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">bundled_zlib</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">bundled_libjpeg</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(SolutionDir)\build\lib\zlib\MinSizeRel\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">bundled_zlib.dir\MinSizeRel\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">bundled_zlib</TargetName>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(SolutionDir)\build\lib\jpeg-9a\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">bundled_libjpeg.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">bundled_libjpeg</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(SolutionDir)\build\lib\zlib\RelWithDebInfo\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">bundled_zlib.dir\RelWithDebInfo\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">bundled_zlib</TargetName>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(SolutionDir)\build\lib\jpeg-9a\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">bundled_libjpeg.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">bundled_libjpeg</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\zlib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\.;$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -98,10 +97,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\zlib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\.;$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\zlib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\.;$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -114,9 +113,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\zlib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\.;$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
-      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -134,10 +132,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\zlib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\.;$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\zlib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\.;$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -150,9 +148,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\zlib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\.;$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
-      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -170,10 +167,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\zlib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\.;$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\zlib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\.;$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -186,10 +183,9 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\zlib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\.;$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -205,10 +201,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\zlib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\.;$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\zlib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\.;$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -220,21 +216,73 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\zlib\adler32.c" />
-    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\zlib\compress.c" />
-    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\zlib\crc32.c" />
-    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\zlib\deflate.c" />
-    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\zlib\gzclose.c" />
-    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\zlib\gzlib.c" />
-    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\zlib\gzread.c" />
-    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\zlib\gzwrite.c" />
-    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\zlib\infback.c" />
-    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\zlib\inffast.c" />
-    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\zlib\inflate.c" />
-    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\zlib\inftrees.c" />
-    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\zlib\trees.c" />
-    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\zlib\uncompr.c" />
-    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\zlib\zutil.c" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include\jconfig.h" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include\jmorecfg.h" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include\jpegint.h" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include\jpeglib.h" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\cderror.h" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jaricom.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jcapimin.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jcapistd.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jcarith.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jccoefct.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jccolor.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jcdctmgr.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jchuff.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jcinit.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jcmainct.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jcmarker.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jcmaster.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jcomapi.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jcparam.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jcprepct.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jcsample.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jctrans.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jdapimin.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jdapistd.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jdarith.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jdatadst.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jdatasrc.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jdcoefct.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jdcolor.c" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jdct.h" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jddctmgr.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jdhuff.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jdinput.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jdmainct.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jdmarker.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jdmaster.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jdmerge.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jdpostct.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jdsample.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jdtrans.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jerror.c" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jerror.h" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jfdctflt.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jfdctfst.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jfdctint.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jidctflt.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jidctfst.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jidctint.c" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jinclude.h" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jmemmgr.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jmemnobs.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jquant1.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jquant2.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jutils.c" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\jversion.h" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\rdbmp.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\rdcolmap.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\rdgif.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\rdppm.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\rdrle.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\rdswitch.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\rdtarga.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\wrbmp.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\wrgif.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\wrppm.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\wrrle.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\wrtarga.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
