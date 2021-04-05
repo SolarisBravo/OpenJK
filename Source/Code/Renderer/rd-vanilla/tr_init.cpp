@@ -95,12 +95,10 @@ cvar_t	*r_allowExtensions;
 cvar_t	*r_ext_compressed_textures;
 cvar_t	*r_ext_compressed_lightmaps;
 cvar_t	*r_ext_preferred_tc_method;
-cvar_t	*r_ext_gamma_control;
 cvar_t	*r_ext_multitexture;
 cvar_t	*r_ext_compiled_vertex_array;
 cvar_t	*r_ext_texture_env_add;
 cvar_t	*r_ext_texture_filter_anisotropic;
-cvar_t	*r_gammaShaders;
 
 cvar_t	*r_environmentMapping;
 
@@ -138,7 +136,6 @@ cvar_t	*r_markcount;
 cvar_t	*r_textureMode;
 cvar_t	*r_offsetFactor;
 cvar_t	*r_offsetUnits;
-cvar_t	*r_gamma;
 cvar_t	*r_intensity;
 cvar_t	*r_lockpvs;
 cvar_t	*r_noportals;
@@ -701,44 +698,15 @@ static void GLimp_InitExtensions( void )
 	if(bNVRegisterCombiners)
 		qglGetIntegerv( GL_MAX_GENERAL_COMBINERS_NV, &iNumGeneralCombiners );
 
-	glConfigExt.doGammaCorrectionWithShaders = qfalse;
-	if ( r_gammaShaders->integer && qglActiveTextureARB && bTexRectSupported && bARBVertexProgram && bARBFragmentProgram )
-	{
-#if !defined(__APPLE__)
-		qglTexImage3D = (PFNGLTEXIMAGE3DPROC)ri.GL_GetProcAddress("glTexImage3D");
-		qglTexSubImage3D = (PFNGLTEXSUBIMAGE3DPROC)ri.GL_GetProcAddress("glTexSubImage3D");
-		if ( qglTexImage3D && qglTexSubImage3D )
-		{
-			glConfigExt.doGammaCorrectionWithShaders = qtrue;
-		}
-#else
-		glConfigExt.doGammaCorrectionWithShaders = qtrue;
-#endif
-	}
 
-	// Only allow dynamic glows/flares if they have the hardware
-	if ( bTexRectSupported && bARBVertexProgram && qglActiveTextureARB && glConfig.maxActiveTextures >= 4 &&
-		( ( bNVRegisterCombiners && iNumGeneralCombiners >= 2 ) || bARBFragmentProgram ) )
-	{
-		g_bDynamicGlowSupported = true;
-		// this would overwrite any achived setting gwg
-		// ri.Cvar_Set( "r_DynamicGlow", "1" );
-	}
-	else
-	{
-		g_bDynamicGlowSupported = false;
-		ri.Cvar_Set( "r_DynamicGlow","0" );
-	}
+	g_bDynamicGlowSupported = true;
 
-#if !defined(__APPLE__)
+
 	qglStencilOpSeparate = (PFNGLSTENCILOPSEPARATEPROC)ri.GL_GetProcAddress("glStencilOpSeparate");
 	if ( qglStencilOpSeparate )
 	{
 		glConfigExt.doStencilShadowsInOneDrawcall = qtrue;
 	}
-#else
-	glConfigExt.doStencilShadowsInOneDrawcall = qtrue;
-#endif
 }
 
 // Truncates the GL extensions string by only allowing up to 'maxExtensions' extensions in the string.
@@ -786,9 +754,6 @@ static void InitOpenGL( void )
 	// GLimp_Init directly or indirectly references the following cvars:
 	//		- r_fullscreen
 	//		- r_(color|depth|stencil)bits
-	//		- r_ignorehwgamma
-	//		- r_gamma
-	//
 
 	if ( glConfig.vidWidth == 0 )
 	{
@@ -973,10 +938,6 @@ void R_TakeScreenshot( int x, int y, int width, int height, char *fileName ) {
 
 	memcount = linelen * height;
 
-	// gamma correct
-	if(glConfig.deviceSupportsGamma && !glConfigExt.doGammaCorrectionWithShaders)
-		R_GammaCorrect(allbuf + offset, memcount);
-
 	ri.FS_WriteFile(fileName, buffer, memcount + 18);
 
 	ri.Hunk_FreeTempMemory(allbuf);
@@ -1009,10 +970,6 @@ void R_TakeScreenshotJPEG( int x, int y, int width, int height, char *fileName )
 
 	buffer = RB_ReadPixels(x, y, width, height, &offset, &padlen);
 	memcount = (width * 3 + padlen) * height;
-
-	// gamma correct
-	if(glConfig.deviceSupportsGamma && !glConfigExt.doGammaCorrectionWithShaders)
-		R_GammaCorrect(buffer + offset, memcount);
 
 	RE_SaveJPG(fileName, r_screenshotJpegQuality->integer, width, height, buffer + offset, padlen);
 	ri.Hunk_FreeTempMemory(buffer);
@@ -1087,11 +1044,6 @@ static void R_LevelShot( void ) {
 			dst[1] = g / 12;
 			dst[2] = r / 12;
 		}
-	}
-
-	// gamma correct
-	if ( ( tr.overbrightBits > 0 ) && glConfig.deviceSupportsGamma && !glConfigExt.doGammaCorrectionWithShaders ) {
-		R_GammaCorrect( buffer + 18, LEVELSHOTSIZE * LEVELSHOTSIZE * 3 );
 	}
 
 	ri.FS_WriteFile( checkname, buffer, LEVELSHOTSIZE * LEVELSHOTSIZE*3 + 18 );
@@ -1253,10 +1205,6 @@ const void *RB_TakeVideoFrameCmd( const void *data )
 		GL_UNSIGNED_BYTE, cBuf);
 
 	memcount = padwidth * cmd->height;
-
-	// gamma correct
-	if(glConfig.deviceSupportsGamma && !glConfigExt.doGammaCorrectionWithShaders)
-		R_GammaCorrect(cBuf, memcount);
 
 	if(cmd->motionJpeg)
 	{
@@ -1427,14 +1375,6 @@ void GfxInfo_f( void )
 	{
 		ri.Printf( PRINT_ALL, "N/A\n" );
 	}
-	if ( glConfig.deviceSupportsGamma && !glConfigExt.doGammaCorrectionWithShaders )
-	{
-		ri.Printf( PRINT_ALL, "GAMMA: hardware w/ %d overbright bits\n", tr.overbrightBits );
-	}
-	else
-	{
-		ri.Printf( PRINT_ALL, "GAMMA: software w/ %d overbright bits\n", tr.overbrightBits );
-	}
 
 	// rendering primitives
 	{
@@ -1553,12 +1493,10 @@ void R_Register( void )
 	r_ext_compressed_textures			= ri.Cvar_Get( "r_ext_compress_textures",			"1",						CVAR_ARCHIVE_ND|CVAR_LATCH, "" );
 	r_ext_compressed_lightmaps			= ri.Cvar_Get( "r_ext_compress_lightmaps",			"0",						CVAR_ARCHIVE_ND|CVAR_LATCH, "" );
 	r_ext_preferred_tc_method			= ri.Cvar_Get( "r_ext_preferred_tc_method",		"0",						CVAR_ARCHIVE_ND|CVAR_LATCH, "" );
-	r_ext_gamma_control					= ri.Cvar_Get( "r_ext_gamma_control",				"1",						CVAR_ARCHIVE_ND|CVAR_LATCH, "" );
 	r_ext_multitexture					= ri.Cvar_Get( "r_ext_multitexture",				"1",						CVAR_ARCHIVE_ND|CVAR_LATCH, "" );
 	r_ext_compiled_vertex_array			= ri.Cvar_Get( "r_ext_compiled_vertex_array",		"1",						CVAR_ARCHIVE_ND|CVAR_LATCH, "" );
 	r_ext_texture_env_add				= ri.Cvar_Get( "r_ext_texture_env_add",			"1",						CVAR_ARCHIVE_ND|CVAR_LATCH, "" );
 	r_ext_texture_filter_anisotropic	= ri.Cvar_Get( "r_ext_texture_filter_anisotropic",	"16",						CVAR_ARCHIVE_ND, "" );
-	r_gammaShaders						= ri.Cvar_Get( "r_gammaShaders",					"0",						CVAR_ARCHIVE_ND|CVAR_LATCH, "" );
 	r_environmentMapping				= ri.Cvar_Get( "r_environmentMapping",				"1",						CVAR_ARCHIVE_ND, "" );
 	r_DynamicGlow						= ri.Cvar_Get( "r_DynamicGlow",					"0",						CVAR_ARCHIVE_ND, "" );
 	r_DynamicGlowPasses					= ri.Cvar_Get( "r_DynamicGlowPasses",				"5",						CVAR_ARCHIVE_ND, "" );
@@ -1601,7 +1539,6 @@ void R_Register( void )
 	r_finish							= ri.Cvar_Get( "r_finish",							"0",						CVAR_ARCHIVE_ND, "" );
 	r_textureMode						= ri.Cvar_Get( "r_textureMode",					"GL_LINEAR_MIPMAP_NEAREST",	CVAR_ARCHIVE, "" );
 	r_markcount							= ri.Cvar_Get( "r_markcount",						"100",						CVAR_ARCHIVE_ND, "" );
-	r_gamma								= ri.Cvar_Get( "r_gamma",							"1",						CVAR_ARCHIVE_ND, "" );
 	r_facePlaneCull						= ri.Cvar_Get( "r_facePlaneCull",					"1",						CVAR_ARCHIVE_ND, "" );
 	r_cullRoofFaces						= ri.Cvar_Get( "r_cullRoofFaces",					"0",						CVAR_CHEAT, "" ); //attempted smart method of culling out upwards facing surfaces on roofs for automap shots -rww
 	r_roofCullCeilDist					= ri.Cvar_Get( "r_roofCullCeilDist",				"256",						CVAR_CHEAT, "" ); //attempted smart method of culling out upwards facing surfaces on roofs for automap shots -rww
@@ -1829,23 +1766,11 @@ void RE_Shutdown( qboolean destroyWindow, qboolean restarting ) {
 			}
 		}
 
-		if ( tr.gammaCorrectVtxShader )
-		{
-			qglDeleteProgramsARB(1, &tr.gammaCorrectVtxShader);
-		}
-
-		if ( tr.gammaCorrectPxShader )
-		{
-			qglDeleteProgramsARB(1, &tr.gammaCorrectPxShader);
-		}
-
 		// Release the scene glow texture.
 		qglDeleteTextures( 1, &tr.screenGlow );
 
 		// Release the scene texture.
 		qglDeleteTextures( 1, &tr.sceneImage );
-
-		qglDeleteTextures(1, &tr.gammaCorrectLUTImage);
 
 		// Release the blur texture.
 		qglDeleteTextures( 1, &tr.blurImage );

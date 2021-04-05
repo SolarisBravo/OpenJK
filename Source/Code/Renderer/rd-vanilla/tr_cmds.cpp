@@ -377,17 +377,6 @@ void RE_BeginFrame( stereoFrame_t stereoFrame ) {
 		r_ext_texture_filter_anisotropic->modified = qfalse;
 	}
 
-	//
-	// gamma stuff
-	//
-	if ( r_gamma->modified ) {
-		r_gamma->modified = qfalse;
-
-		R_IssuePendingRenderCommands();
-		R_SetColorMappings();
-		R_SetGammaCorrectionLUT();
-	}
-
 	// check for errors
 	if ( !r_ignoreGLErrors->integer ) {
 		R_IssuePendingRenderCommands();

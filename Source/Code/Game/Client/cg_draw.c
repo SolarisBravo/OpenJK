@@ -4866,7 +4866,6 @@ vec3_t cg_crosshairPos={0,0,0};
 static void CG_DrawCrosshair( vec3_t worldPoint, int chEntValid ) {
 	float		w, h;
 	qhandle_t	hShader = 0;
-	float		f;
 	float		x, y;
 	qboolean	corona = qfalse;
 	vec4_t		ecolor = {0,0,0,0};

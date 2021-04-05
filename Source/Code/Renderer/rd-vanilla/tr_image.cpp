@@ -29,24 +29,9 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 #include <map>
 
 static byte			 s_intensitytable[256];
-static unsigned char s_gammatable[256];
 
 int		gl_filter_min = GL_LINEAR_MIPMAP_NEAREST;
 int		gl_filter_max = GL_LINEAR;
-
-//#define FILE_HASH_SIZE		1024	// actually the shader code still needs this (from another module, great),
-//static	image_t*		hashTable[FILE_HASH_SIZE];
-
-/*
-** R_GammaCorrect
-*/
-void R_GammaCorrect( byte *buffer, int bufSize ) {
-	int i;
-
-	for ( i = 0; i < bufSize; i++ ) {
-		buffer[i] = s_gammatable[buffer[i]];
-	}
-}
 
 typedef struct textureMode_s {
 	const char *name;
@@ -304,65 +289,6 @@ void R_ImageList_f( void ) {
 }
 
 //=======================================================================
-
-
-/*
-================
-R_LightScaleTexture
-
-Scale up the pixel values in a texture to increase the
-lighting range
-================
-*/
-void R_LightScaleTexture (unsigned *in, int inwidth, int inheight, qboolean only_gamma )
-{
-	if ( only_gamma )
-	{
-		if ( !glConfig.deviceSupportsGamma && !glConfigExt.doGammaCorrectionWithShaders )
-		{
-			int		i, c;
-			byte	*p;
-
-			p = (byte *)in;
-
-			c = inwidth*inheight;
-			for (i=0 ; i<c ; i++, p+=4)
-			{
-				p[0] = s_gammatable[p[0]];
-				p[1] = s_gammatable[p[1]];
-				p[2] = s_gammatable[p[2]];
-			}
-		}
-	}
-	else
-	{
-		int		i, c;
-		byte	*p;
-
-		p = (byte *)in;
-
-		c = inwidth*inheight;
-
-		if ( glConfig.deviceSupportsGamma || glConfigExt.doGammaCorrectionWithShaders )
-		{
-			for (i=0 ; i<c ; i++, p+=4)
-			{
-				p[0] = s_intensitytable[p[0]];
-				p[1] = s_intensitytable[p[1]];
-				p[2] = s_intensitytable[p[2]];
-			}
-		}
-		else
-		{
-			for (i=0 ; i<c ; i++, p+=4)
-			{
-				p[0] = s_gammatable[s_intensitytable[p[0]]];
-				p[1] = s_gammatable[s_intensitytable[p[1]]];
-				p[2] = s_gammatable[s_intensitytable[p[2]]];
-			}
-		}
-	}
-}
 
 
 /*
@@ -717,8 +643,6 @@ static void Upload32( unsigned *data,
 			qglTexImage2D( uiTarget, 0, *pformat, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data );
 			goto done;
 		}
-
-		R_LightScaleTexture (data, width, height, (qboolean)!mipmap );
 
 		qglTexImage2D( uiTarget, 0, *pformat, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data );
 
@@ -1357,20 +1281,6 @@ void R_CreateBuiltinImages( void ) {
 	qglTexParameteri( GL_TEXTURE_RECTANGLE_ARB, GL_TEXTURE_WRAP_T, GL_CLAMP );
 	qglDisable( GL_TEXTURE_RECTANGLE_ARB );
 
-	if ( glConfigExt.doGammaCorrectionWithShaders )
-	{
-		qglEnable( GL_TEXTURE_3D );
-		tr.gammaCorrectLUTImage = 1024 + giTextureBindNum++;
-		qglBindTexture(GL_TEXTURE_3D, tr.gammaCorrectLUTImage);
-		qglTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA8, 64, 64, 64, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
-		qglTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		qglTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		qglTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-		qglTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-		qglTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-		qglDisable(GL_TEXTURE_3D);
-	}
-
 	qglEnable(GL_TEXTURE_2D);
 
 	// with overbright bits active, we need an image which is some fraction of full color,
@@ -1404,67 +1314,17 @@ R_SetColorMappings
 */
 void R_SetColorMappings( void ) {
 	int		i, j;
-	float	g;
-	int		inf;
-	int		shift;
 
-	// setup the overbright lighting
-	tr.overbrightBits = r_overBrightBits->integer;
-	if ( !glConfig.deviceSupportsGamma && !glConfigExt.doGammaCorrectionWithShaders ) {
-		tr.overbrightBits = 0;		// need hardware gamma for overbright
-	}
-
-	// never overbright in windowed mode (all modes)
+	//Never overbright
 	tr.overbrightBits = 0;
 
-	if ( tr.overbrightBits > 1 ) {
-		tr.overbrightBits = 1;
-	}
-
-	if ( tr.overbrightBits < 0 ) {
-		tr.overbrightBits = 0;
-	}
-
-	tr.identityLight = 1.0f / ( 1 << tr.overbrightBits );
+	tr.identityLight = 1.0f;
 	tr.identityLightByte = 255 * tr.identityLight;
 
 
-	if ( r_intensity->value < 1.0f ) {
-		ri.Cvar_Set( "r_intensity", "1" );
-	}
-
-	if ( r_gamma->value < 0.5f ) {
-		ri.Cvar_Set( "r_gamma", "0.5" );
-	} else if ( r_gamma->value > 3.0f ) {
-		ri.Cvar_Set( "r_gamma", "3.0" );
-	}
-
-	g = r_gamma->value;
-
-	shift = tr.overbrightBits;
-
-	if ( !glConfigExt.doGammaCorrectionWithShaders )
+	if ( r_intensity->value < 1.0f )
 	{
-		for ( i = 0; i < 256; i++ ) {
-			if ( g == 1 ) {
-				inf = i;
-			} else {
-				inf = 255 * pow ( i/255.0f, 1.0f / g ) + 0.5f;
-			}
-			inf <<= shift;
-			if (inf < 0) {
-				inf = 0;
-			}
-			if (inf > 255) {
-				inf = 255;
-			}
-			s_gammatable[i] = inf;
-		}
-
-		if ( glConfig.deviceSupportsGamma )
-		{
-			ri.WIN_SetGamma( &glConfig, s_gammatable, s_gammatable, s_gammatable );
-		}
+		ri.Cvar_Set( "r_intensity", "1" );
 	}
 
 	for (i=0 ; i<256 ; i++) {
@@ -1473,52 +1333,6 @@ void R_SetColorMappings( void ) {
 			j = 255;
 		}
 		s_intensitytable[i] = j;
-	}
-}
-
-void R_SetGammaCorrectionLUT()
-{
-	if ( glConfigExt.doGammaCorrectionWithShaders )
-	{
-		int inf;
-		int shift = tr.overbrightBits;
-		float g = r_gamma->value;
-		byte gammaCorrected[64];
-
-		for ( int i = 0; i < 64; i++ )
-		{
-			if ( g == 1.0f )
-			{
-				inf = (int)(((float)i / 63.0f) * 255.0f + 0.5f);
-			}
-			else
-			{
-				inf = (int)(255.0f * pow((float)i / 63.0f, 1.0f / g) + 0.5f);
-			}
-
-			gammaCorrected[i] = Com_Clampi(0, 255, inf << shift);
-		}
-
-		byte *lutTable = (byte *)ri.Hunk_AllocateTempMemory(64 * 64 * 64 * 3);
-		byte *write = lutTable;
-		for ( int z = 0; z < 64; z++ )
-		{
-			for ( int y = 0; y < 64; y++ )
-			{
-				for ( int x = 0; x < 64; x++ )
-				{
-					*write++ = gammaCorrected[x];
-					*write++ = gammaCorrected[y];
-					*write++ = gammaCorrected[z];
-				}
-			}
-		}
-
-		qglBindTexture(GL_TEXTURE_3D, tr.gammaCorrectLUTImage);
-		qglPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-		qglTexSubImage3D(GL_TEXTURE_3D, 0, 0, 0, 0, 64, 64, 64, GL_RGB, GL_UNSIGNED_BYTE, lutTable);
-
-		ri.Hunk_FreeTempMemory(lutTable);
 	}
 }
 
@@ -1534,8 +1348,6 @@ void	R_InitImages( void ) {
 
 	// create default texture and white texture
 	R_CreateBuiltinImages();
-
-	R_SetGammaCorrectionLUT();
 }
 
 /*
