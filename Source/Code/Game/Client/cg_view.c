@@ -1137,7 +1137,8 @@ Fixed fov at intermissions, otherwise account for fov variable and zooms.
 #define	WAVE_FREQUENCY	0.4
 float zoomFov; //this has to be global client-side
 
-static int CG_CalcFov( void ) {
+static int CG_CalcFov(void)
+{
 	float	x;
 	float	phase;
 	float	v;
@@ -1151,29 +1152,20 @@ static int CG_CalcFov( void ) {
 		cgFov = 1;
 	}
 
-	if ( cg.predictedPlayerState.pm_type == PM_INTERMISSION )
+	if (cg.predictedPlayerState.pm_type == PM_INTERMISSION) //if in intermission, use a fixed value
 	{
-		// if in intermission, use a fixed value
-		fov_x = 80;//90;
+		fov_x = 80; //90;
 	}
 	else
 	{
-		// user selectable
-		if ( cgs.dmflags & DF_FIXED_FOV ) {
-			// dmflag to prevent wide fov for all clients
-			fov_x = 80;//90;
-		}
-		else
+		fov_x = cgFov;
+		if ( fov_x < 1 )
 		{
-			fov_x = cgFov;
-			if ( fov_x < 1 )
-			{
-				fov_x = 1;
-			}
+			fov_x = 1;
 		}
 
-		if (cg.predictedPlayerState.zoomMode == 2)
-		{ //binoculars
+		if (cg.predictedPlayerState.zoomMode == 2) //binoculars
+		{
 			if (zoomFov > 40.0f)
 			{
 				zoomFov -= cg.frametime * 0.075f;
@@ -1194,8 +1186,8 @@ static int CG_CalcFov( void ) {
 		{
 			if (!cg.predictedPlayerState.zoomLocked)
 			{
-				if (zoomFov > 50)
-				{ //Now starting out at nearly half zoomed in
+				if (zoomFov > 50) //Now starting out at nearly half zoomed in
+				{
 					zoomFov = 50;
 				}
 				zoomFov -= cg.frametime * 0.035f;//0.075f;
@@ -1238,20 +1230,18 @@ static int CG_CalcFov( void ) {
 		}
 	}
 
-	// FOV Adjustment
-	// Based on LordHavoc's code for Darkplaces
-	// http://www.quakeworld.nu/forum/topic/53/what-does-your-qw-look-like/page/30
+	//Widescreen FOV Adjustment
 	const float baseAspect = 0.75f; // 3/4
 	const float aspect = (float)cgs.glconfig.vidWidth/(float)cgs.glconfig.vidHeight;
 	const float desiredFov = fov_x;
-
 	fov_x = atan( tan( desiredFov*M_PI / 360.0f ) * baseAspect*aspect )*360.0f / M_PI;
 
+	//Calculate fov_y
 	x = cg.refdef.width / tan( fov_x / 360 * M_PI );
 	fov_y = atan2( cg.refdef.height, x );
 	fov_y = fov_y * 360 / M_PI;
 
-	// warp if underwater
+	//warp if underwater
 	cg.refdef.viewContents = CG_PointContents( cg.refdef.vieworg, -1 );
 	if ( cg.refdef.viewContents & ( CONTENTS_WATER | CONTENTS_SLIME | CONTENTS_LAVA ) ){
 		phase = cg.time / 1000.0 * WAVE_FREQUENCY * M_PI * 2;
@@ -1264,7 +1254,7 @@ static int CG_CalcFov( void ) {
 		inwater = qfalse;
 	}
 
-	// set it
+	//Set the FOV
 	cg.refdef.fov_x = fov_x;
 	cg.refdef.fov_y = fov_y;
 
