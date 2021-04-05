@@ -1592,9 +1592,9 @@ Ghoul2 Insert End
 			{
 				if (lightSide)
 				{
-					if (curTimeDif < 2200)
-					{ //probably temporary
-						trap->S_StartSound ( NULL, cent->currentState.number, CHAN_AUTO, trap->S_RegisterSound( "sound/weapons/saber/saberhum1.wav" ) );
+					if (curTimeDif < 2200 && cg.frametime > 0 && ((cg.frametime < 50 && cg.time % 50 <= cg.frametime) || cg.frametime >= 50))  //probably temporary 
+					{
+						trap->S_StartSound(NULL, cent->currentState.number, CHAN_AUTO, trap->S_RegisterSound("sound/weapons/saber/saberhum1.wav"));
 					}
 				}
 				else
@@ -1611,7 +1611,7 @@ Ghoul2 Insert End
 					{
 						ent.customShader = cgs.media.electricBody2Shader;
 					}
-					if ( Q_flrand(0.0f, 1.0f) > 0.9f )
+					if ((Q_flrand(0.0f, 1.0f) > 0.9f) && cg.frametime > 0 && ((cg.frametime < 50 && cg.time % 50 <= cg.frametime) || cg.frametime >= 50))
 					{
 						trap->S_StartSound ( NULL, cent->currentState.number, CHAN_AUTO, cgs.media.crackleSound );
 					}
@@ -3007,7 +3007,7 @@ void CG_AdjustPositionForMover( const vec3_t in, int moverNum, int fromTime, int
 	vec3_t	oldOrigin, origin, deltaOrigin;
 	vec3_t	oldAngles, angles, deltaAngles;
 
-	if ( cg.predictedPlayerState.persistant[PERS_TEAM] == TEAM_SPECTATOR )
+	if ( cg.predictedPlayerState.persistant[PERS_TEAM] == TEAM_SPECTATOR || cg.predictedPlayerState.pm_flags & PMF_FOLLOW )
 	{
 		VectorCopy( in, out );
 		return;
@@ -3094,7 +3094,8 @@ void CG_CalcEntityLerpPositions( centity_t *cent ) {
 	if (cg.predictedPlayerState.m_iVehicleNum &&
 		cg.predictedPlayerState.m_iVehicleNum == cent->currentState.number &&
 		cent->currentState.eType == ET_NPC && cent->currentState.NPC_class == CLASS_VEHICLE)
-	{ //special case for vehicle we are riding
+	{
+		//special case for vehicle we are riding
 		centity_t *veh = &cg_entities[cg.predictedPlayerState.m_iVehicleNum];
 
 		if (veh->currentState.owner == cg.predictedPlayerState.clientNum)

@@ -6025,38 +6025,22 @@ static void CG_ScanForCrosshairEntity( void ) {
 	if ( cg_dynamicCrosshair.integer )
 	{
 		vec3_t d_f, d_rt, d_up;
-		/*
-		if ( cg.snap->ps.weapon == WP_NONE ||
-			cg.snap->ps.weapon == WP_SABER ||
-			cg.snap->ps.weapon == WP_STUN_BATON)
-		{
-			VectorCopy( cg.refdef.vieworg, start );
-			AngleVectors( cg.refdef.viewangles, d_f, d_rt, d_up );
-		}
-		else
-		*/
+
 		//For now we still want to draw the crosshair in relation to the player's world coordinates
 		//even if we have a melee weapon/no weapon.
 		if ( cg.predictedPlayerState.m_iVehicleNum && (cg.predictedPlayerState.eFlags&EF_NODRAW) )
-		{//we're *inside* a vehicle
+		{
+			//we're *inside* a vehicle
 			//do the vehicle's crosshair instead
 			centity_t *veh = &cg_entities[cg.predictedPlayerState.m_iVehicleNum];
 			qboolean gunner = qfalse;
 
 			//if (veh->currentState.owner == cg.predictedPlayerState.clientNum)
-			{ //the pilot
+			{
+				//the pilot
 				ignore = cg.predictedPlayerState.m_iVehicleNum;
 				gunner = CG_CalcVehicleMuzzlePoint(cg.predictedPlayerState.m_iVehicleNum, start, d_f, d_rt, d_up);
 			}
-			/*
-			else
-			{ //a passenger
-				ignore = cg.predictedPlayerState.m_iVehicleNum;
-				VectorCopy( veh->lerpOrigin, start );
-				AngleVectors( veh->lerpAngles, d_f, d_rt, d_up );
-				VectorMA(start, 32.0f, d_f, start); //super hack
-			}
-			*/
 			if ( veh->m_pVehicle
 				&& veh->m_pVehicle->m_pVehicleInfo
 				&& veh->m_pVehicle->m_pVehicleInfo->type == VH_FIGHTER
@@ -6069,9 +6053,9 @@ static void CG_ScanForCrosshairEntity( void ) {
 				bVehCheckTraceFromCamPos = qtrue;
 			}
 		}
-		else if (cg.snap && cg.snap->ps.weapon == WP_EMPLACED_GUN && cg.snap->ps.emplacedIndex &&
-			cg_entities[cg.snap->ps.emplacedIndex].ghoul2 && cg_entities[cg.snap->ps.emplacedIndex].currentState.weapon == WP_NONE)
-		{ //locked into our e-web, calc the muzzle from it
+		else if (cg.snap && cg.snap->ps.weapon == WP_EMPLACED_GUN && cg.snap->ps.emplacedIndex && cg_entities[cg.snap->ps.emplacedIndex].ghoul2 && cg_entities[cg.snap->ps.emplacedIndex].currentState.weapon == WP_NONE)
+		{
+			//locked into our e-web, calc the muzzle from it
 			CG_CalcEWebMuzzlePoint(&cg_entities[cg.snap->ps.emplacedIndex], start, d_f, d_rt, d_up);
 		}
 		else
@@ -6127,10 +6111,10 @@ static void CG_ScanForCrosshairEntity( void ) {
 	}
 
 	if ( cg_dynamicCrosshair.integer && cg_dynamicCrosshairPrecision.integer )
-	{ //then do a trace with ghoul2 models in mind
-		CG_G2Trace( &trace, start, vec3_origin, vec3_origin, end,
-			ignore, CONTENTS_SOLID|CONTENTS_BODY );
-		if ( bVehCheckTraceFromCamPos )
+	{
+		//then do a trace with ghoul2 models in mind
+		CG_G2Trace( &trace, start, vec3_origin, vec3_origin, end, ignore, CONTENTS_SOLID|CONTENTS_BODY );
+		if (bVehCheckTraceFromCamPos)
 		{
 			//NOTE: this MUST stay up to date with the method used in WP_VehCheckTraceFromCamPos
 			centity_t *veh = &cg_entities[cg.predictedPlayerState.m_iVehicleNum];
@@ -6138,20 +6122,19 @@ static void CG_ScanForCrosshairEntity( void ) {
 			vec3_t	viewDir2End, extraEnd;
 			float	minAutoAimDist = Distance( veh->lerpOrigin, cg.refdef.vieworg ) + (veh->m_pVehicle->m_pVehicleInfo->length/2.0f) + 200.0f;
 
-			VectorSubtract( end, cg.refdef.vieworg, viewDir2End );
-			VectorNormalize( viewDir2End );
-			VectorMA( cg.refdef.vieworg, MAX_XHAIR_DIST_ACCURACY, viewDir2End, extraEnd );
-			CG_G2Trace( &extraTrace, cg.refdef.vieworg, vec3_origin, vec3_origin, extraEnd,
-				ignore, CONTENTS_SOLID|CONTENTS_BODY );
-			if ( !extraTrace.allsolid
-				&& !extraTrace.startsolid )
+			VectorSubtract(end, cg.refdef.vieworg, viewDir2End);
+			VectorNormalize(viewDir2End);
+			VectorMA(cg.refdef.vieworg, MAX_XHAIR_DIST_ACCURACY, viewDir2End, extraEnd);
+			CG_G2Trace(&extraTrace, cg.refdef.vieworg, vec3_origin, vec3_origin, extraEnd, ignore, CONTENTS_SOLID|CONTENTS_BODY);
+			if (!extraTrace.allsolid && !extraTrace.startsolid)
 			{
-				if ( extraTrace.fraction < 1.0f )
+				if (extraTrace.fraction < 1.0f)
 				{
-					if ( (extraTrace.fraction*MAX_XHAIR_DIST_ACCURACY) > minAutoAimDist )
+					if ((extraTrace.fraction*MAX_XHAIR_DIST_ACCURACY) > minAutoAimDist)
 					{
-						if ( ((extraTrace.fraction*MAX_XHAIR_DIST_ACCURACY)-Distance( veh->lerpOrigin, cg.refdef.vieworg )) < (trace.fraction*cg.distanceCull) )
-						{//this trace hit *something* that's closer than the thing the main trace hit, so use this result instead
+						if (((extraTrace.fraction*MAX_XHAIR_DIST_ACCURACY)-Distance(veh->lerpOrigin, cg.refdef.vieworg)) < (trace.fraction*cg.distanceCull))
+						{
+							//this trace hit *something* that's closer than the thing the main trace hit, so use this result instead
 							memcpy( &trace, &extraTrace, sizeof( trace_t ) );
 						}
 					}
@@ -6161,17 +6144,13 @@ static void CG_ScanForCrosshairEntity( void ) {
 	}
 	else
 	{
-		CG_Trace( &trace, start, vec3_origin, vec3_origin, end,
-			ignore, CONTENTS_SOLID|CONTENTS_BODY );
+		CG_Trace( &trace, start, vec3_origin, vec3_origin, end, ignore, CONTENTS_SOLID|CONTENTS_BODY );
 	}
 
 	if (trace.entityNum < MAX_CLIENTS)
 	{
-		if (CG_IsMindTricked(cg_entities[trace.entityNum].currentState.trickedentindex,
-			cg_entities[trace.entityNum].currentState.trickedentindex2,
-			cg_entities[trace.entityNum].currentState.trickedentindex3,
-			cg_entities[trace.entityNum].currentState.trickedentindex4,
-			cg.snap->ps.clientNum))
+		if (CG_IsMindTricked(cg_entities[trace.entityNum].currentState.trickedentindex, cg_entities[trace.entityNum].currentState.trickedentindex2,
+			cg_entities[trace.entityNum].currentState.trickedentindex3, cg_entities[trace.entityNum].currentState.trickedentindex4, cg.snap->ps.clientNum))
 		{
 			if (cg.crosshairClientNum == trace.entityNum)
 			{
@@ -6187,7 +6166,7 @@ static void CG_ScanForCrosshairEntity( void ) {
 
 	if (cg.snap->ps.persistant[PERS_TEAM] != TEAM_SPECTATOR)
 	{
-		if (trace.entityNum < /*MAX_CLIENTS*/ENTITYNUM_WORLD)
+		if (trace.entityNum < ENTITYNUM_WORLD)
 		{
 			centity_t *veh = &cg_entities[trace.entityNum];
 			cg.crosshairClientNum = trace.entityNum;
@@ -6196,7 +6175,8 @@ static void CG_ScanForCrosshairEntity( void ) {
 			if (veh->currentState.eType == ET_NPC &&
 				veh->currentState.NPC_class == CLASS_VEHICLE &&
 				veh->currentState.owner < MAX_CLIENTS)
-			{ //draw the name of the pilot then
+			{
+				//draw the name of the pilot then
 				cg.crosshairClientNum = veh->currentState.owner;
 				cg.crosshairVehNum = veh->currentState.number;
 				cg.crosshairVehTime = cg.time;
@@ -6214,13 +6194,13 @@ static void CG_ScanForCrosshairEntity( void ) {
 		return;
 	}
 
-	// if the player is in fog, don't show it
+	//if the player is in fog, don't show it
 	content = CG_PointContents( trace.endpos, 0 );
 	if ( content & CONTENTS_FOG ) {
 		return;
 	}
 
-	// update the fade timer
+	//update the fade timer
 	cg.crosshairClientNum = trace.entityNum;
 	cg.crosshairClientTime = cg.time;
 }
