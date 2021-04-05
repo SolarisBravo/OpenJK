@@ -1603,20 +1603,21 @@ static int CG_CalcViewValues( void ) {
 		CG_EmplacedView(cg_entities[cg.snap->ps.emplacedIndex].currentState.angles);
 	}
 
-	if ( !manningTurret )
+	if (!manningTurret)
 	{
-		if ( cg.predictedPlayerState.m_iVehicleNum //in a vehicle
-			&& BG_UnrestrainedPitchRoll( &cg.predictedPlayerState, cg_entities[cg.predictedPlayerState.m_iVehicleNum].m_pVehicle ) )//can roll/pitch without restriction
-		{//use the vehicle's viewangles to render view!
+		if (cg.predictedPlayerState.m_iVehicleNum && BG_UnrestrainedPitchRoll(&cg.predictedPlayerState, cg_entities[cg.predictedPlayerState.m_iVehicleNum].m_pVehicle)) //In a vehicle
+		{
+			//Use the vehicle's viewangles to render view
 			CG_OffsetFighterView();
 		}
 		else if ( cg.renderingThirdPerson ) {
-			// back away from character
-			if (cg_thirdPersonSpecialCam.integer &&
-				BG_SaberInSpecial(cg.snap->ps.saberMove))
-			{ //the action cam
+			//Back away from character
+			if (cg_thirdPersonSpecialCam.integer && BG_SaberInSpecial(cg.snap->ps.saberMove))
+			{ 
+				//The action cam
 				if (!CG_ThirdPersonActionCam())
-				{ //couldn't do it for whatever reason, resort back to third person then
+				{
+					//Couldn't do it for whatever reason, resort back to third person then
 					CG_OffsetThirdPersonView();
 				}
 			}
@@ -1624,8 +1625,10 @@ static int CG_CalcViewValues( void ) {
 			{
 				CG_OffsetThirdPersonView();
 			}
-		} else {
-			// offset for local bobbing and kicks
+		}
+		else
+		{
+			//Offset for local bobbing and kicks
 			CG_OffsetFirstPersonView();
 		}
 	}
@@ -1633,7 +1636,8 @@ static int CG_CalcViewValues( void ) {
 	// position eye relative to origin
 	AnglesToAxis( cg.refdef.viewangles, cg.refdef.viewaxis );
 
-	if ( cg.hyperspace ) {
+	if (cg.hyperspace)
+	{
 		cg.refdef.rdflags |= RDF_NOWORLDMODEL | RDF_HYPERSPACE;
 	}
 
@@ -1652,16 +1656,16 @@ static void CG_PowerupTimerSounds( void ) {
 	int		t;
 
 	// powerup timers going away
-	for ( i = 0 ; i < MAX_POWERUPS ; i++ ) {
+	for (i = 0 ; i < MAX_POWERUPS ; i++ )
+	{
 		t = cg.snap->ps.powerups[i];
-		if ( t <= cg.time ) {
+		if (t <= cg.time)
+		{
 			continue;
 		}
-		if ( t - cg.time >= POWERUP_BLINKS * POWERUP_BLINK_TIME ) {
+		if (t - cg.time >= POWERUP_BLINKS * POWERUP_BLINK_TIME)
+		{
 			continue;
-		}
-		if ( ( t - cg.time ) / POWERUP_BLINK_TIME != ( t - cg.oldTime ) / POWERUP_BLINK_TIME ) {
-			//trap->S_StartSound( NULL, cg.snap->ps.clientNum, CHAN_ITEM, cgs.media.wearOffSound );
 		}
 	}
 }

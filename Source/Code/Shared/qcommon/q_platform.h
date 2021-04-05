@@ -48,11 +48,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 	#define QINLINE __inline
 	#define PATH_SEP '\\'
 
-	#if defined(_M_ALPHA)
-		#define ARCH_STRING "AXP"
-	#else
-		#define ARCH_STRING "x86_64"
-	#endif
+	#define ARCH_STRING "x86_64"
 
 	#define Q3_LITTLE_ENDIAN
 
@@ -76,109 +72,11 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 	#define QINLINE __inline
 	#define PATH_SEP '\\'
 
-	#if defined(_M_IX86) || defined(__i386__)
-		#define ARCH_STRING "x86"
-	#elif defined _M_ALPHA
-		#define ARCH_STRING "AXP"
-	#endif
+	#define ARCH_STRING "x86"
 
 	#define Q3_LITTLE_ENDIAN
 
 	#define DLL_EXT ".dll"
-
-// MAC OS X
-#elif defined(MACOS_X) || defined(__APPLE_CC__)
-
-	// make sure this is defined, just for sanity's sake...
-	#ifndef MACOS_X
-		#define MACOS_X
-	#endif
-
-	#define OS_STRING "macosx"
-	#define QINLINE inline
-	#define	PATH_SEP '/'
-
-	#if defined(__ppc__)
-		#define ARCH_STRING "ppc"
-		#define Q3_BIG_ENDIAN
-	#elif defined(__i386__)
-		#define ARCH_STRING "x86"
-		#define Q3_LITTLE_ENDIAN
-	#elif defined(__x86_64__)
-		#define idx64
-		#define ARCH_STRING "x86_64"
-		#define Q3_LITTLE_ENDIAN
-	#endif
-
-    #define DLL_EXT ".dylib"
-
-// Linux
-#elif defined(__linux__) || defined(__FreeBSD_kernel__)
-
-	#include <endian.h>
-
-	#if defined(__linux__)
-		#define OS_STRING "linux"
-	#else
-		#define OS_STRING "kFreeBSD"
-	#endif
-
-	#define QINLINE inline
-
-	#define PATH_SEP '/'
-
-	#if !defined(ARCH_STRING)
-		#error ARCH_STRING should be defined by the build system
-	#endif
-
-	#if defined(__x86_64__)
-		#define idx64
-	#endif
-
-	#if __FLOAT_WORD_ORDER == __BIG_ENDIAN
-		#define Q3_BIG_ENDIAN
-	#else
-		#define Q3_LITTLE_ENDIAN
-	#endif
-
-	#define DLL_EXT ".so"
-
-// BSD
-#elif defined(__FreeBSD__) || defined(__OpenBSD__) || defined(__NetBSD__)
-
-	#include <sys/types.h>
-	#include <machine/endian.h>
-
-	#ifndef __BSD__
-		#define __BSD__
-	#endif
-
-	#if defined(__FreeBSD__)
-		#define OS_STRING "freebsd"
-	#elif defined(__OpenBSD__)
-		#define OS_STRING "openbsd"
-	#elif defined(__NetBSD__)
-		#define OS_STRING "netbsd"
-	#endif
-
-	#define QINLINE inline
-	#define PATH_SEP '/'
-
-	#if !defined(ARCH_STRING)
-		#error ARCH_STRING should be defined by the build system
-	#endif
-
-	#if defined(__amd64__)
-		#define idx64
-	#endif
-
-	#if BYTE_ORDER == BIG_ENDIAN
-		#define Q3_BIG_ENDIAN
-	#else
-		#define Q3_LITTLE_ENDIAN
-	#endif
-
-	#define DLL_EXT ".so"
 #endif
 
 #if (defined( _MSC_VER ) && (_MSC_VER < 1900)) || (defined(__GNUC__))

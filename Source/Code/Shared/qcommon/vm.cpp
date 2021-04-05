@@ -30,9 +30,9 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 vm_t *currentVM = NULL;
 
 static const char *vmNames[MAX_VM] = {
-	"jampgame",
+	"jampgamex86",
 	"cgame",
-	"ui"
+	"uix86"
 };
 
 const char *vmStrs[MAX_VM] = {
@@ -137,7 +137,7 @@ vm_t *VM_CreateLegacy( vmSlots_t vmSlot, intptr_t( *systemCalls )(intptr_t *) ) 
 	FS_FindPureDLL( vm->name );
 	vm->dllHandle = Sys_LoadLegacyGameDll( vm->name, &vm->legacy.main, VM_DllSyscall );
 
-	Com_Printf( "VM_CreateLegacy: %s" ARCH_STRING DLL_EXT, vm->name );
+	Com_Printf( "VM_CreateLegacy: %s" DLL_EXT, vm->name );
 	if ( vm->dllHandle ) {
 		if ( com_developer->integer )
 			Com_Printf( " succeeded [0x%" PRIxPTR "]\n", (uintptr_t)vm->dllHandle );
@@ -176,7 +176,7 @@ vm_t *VM_Create( vmSlots_t vmSlot ) {
 	FS_FindPureDLL( vm->name );
 	vm->dllHandle = Sys_LoadGameDll( vm->name, &vm->GetModuleAPI );
 
-	Com_Printf( "VM_Create: %s" ARCH_STRING DLL_EXT, vm->name );
+	Com_Printf( "VM_Create: %s" DLL_EXT, vm->name );
 	if ( vm->dllHandle ) {
 		if ( com_developer->integer )
 			Com_Printf( " succeeded [0x%" PRIxPTR "+0x%" PRIxPTR "]\n", vm->dllHandle, (intptr_t)vm->GetModuleAPI - (intptr_t)vm->dllHandle );
