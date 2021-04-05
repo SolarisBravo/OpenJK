@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{38BA0DFF-97F9-3AF0-B1EF-AD797A2D1F95}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>MP Client</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)\build\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">openjk.x86.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">openjk.x86</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)..\game\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)build\intermediate\$(TargetName)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">jamp</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(SolutionDir)\build\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">openjk.x86.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">openjk.x86</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(SolutionDir)\build\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">openjk.x86.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">openjk.x86</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$SolutionDir\Code;$SolutionDir\Code\Shared\ThirdParty;$SolutionDir\Code\Shared\ThirdParty\gsl-lite\include;$SolutionDir\Code\Shared\Windows\System;$SolutionDir\Code\Shared\Windows;$SolutionDir\Code\Shared;$SolutionDir\Code\Shared\ThirdParty\minizip\include;$SolutionDir\Code\Shared\ThirdParty\zlib\include;$SolutionDir\Code\Shared\ThirdParty\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;FINAL_BUILD;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;FINAL_BUILD;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)\code;$(SolutionDir)\Code\Shared\ThirdParty;$(SolutionDir)\Code\Shared\ThirdParty\gsl-lite\include;$(SolutionDir)\build\shared;$(SolutionDir)\lib\minizip\include;$(SolutionDir)\Code\Shared\ThirdParty\zlib\include;$(SolutionDir)\Code\Shared\ThirdParty\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(SolutionDir)\code;$(SolutionDir)\Code\Shared\ThirdParty;$(SolutionDir)\Code\Shared\ThirdParty\gsl-lite\include;$(SolutionDir)\build\shared;$(SolutionDir)\lib\minizip\include;$(SolutionDir)\Code\Shared\ThirdParty\zlib\include;$(SolutionDir)\Code\Shared\ThirdParty\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>$(SolutionDir)Build\Output\botlib\botlib.lib;winmm.lib;wsock32.lib;$(SolutionDir)Build\Output\bundled_minizip\bundled_minizip.lib;$(SolutionDir)Build\Output\bundled_zlib\bundled_zlib.lib;OpenAL32.lib;SDL2\lib\x86\SDL2main.lib;SDL2\lib\x86\SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Code\Shared\ThirdParty;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/elitk/Documents/Projects/Code/Game Modifications/OpenJK/src/Build/Output/openjk.x86.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/elitk/Documents/Projects/Code/Game Modifications/OpenJK/src/Build/Output/openjk.x86.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <Manifest>
+      <AdditionalManifestFiles>$(SolutionDir)\Code\Shared\Windows\System\win_manifest.manifest;</AdditionalManifestFiles>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="$(SolutionDir)\code\Game\Client\cg_public.h" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Client\client.h" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Client\keys.h" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Client\snd_public.h" />
+    <ClInclude Include="$(SolutionDir)\code\Game\Server\anims.h" />
+    <ClInclude Include="$(SolutionDir)\code\Game\Server\bg_public.h" />
+    <ClInclude Include="$(SolutionDir)\code\Game\Server\bg_weapons.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\botlib\botlib.h" />
+    <ClInclude Include="$(SolutionDir)\code\Game\Server\g_public.h" />
+    <ClInclude Include="$(SolutionDir)\code\Game\Server\surfaceflags.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\q_shared.h" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\qcommon\q_platform.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\cm_load.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\cm_local.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\cm_patch.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\cm_patch.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\cm_polylib.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\cm_polylib.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\cm_public.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\cm_test.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\cm_trace.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\cmd.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\common.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\cvar.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\disablewarnings.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\files.cpp">
+      <ObjectFileName>$(IntDir)/qcommon/files.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\game_version.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\GenericParser2.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\GenericParser2.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\huffman.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\md4.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\md5.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\md5.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\MiniHeap.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\msg.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\matcomp.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\matcomp.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\net_chan.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\net_ip.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\persistence.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\q_shared.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\qcommon.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\qfiles.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\RoffSystem.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\RoffSystem.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\sstring.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\stringed_ingame.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\stringed_ingame.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\stringed_interface.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\stringed_interface.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\tags.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\qcommon\timing.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\vm.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\z_memman_pc.cpp" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\qcommon\q_color.h" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\qcommon\q_color.c" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\qcommon\q_math.h" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\qcommon\q_math.c" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\qcommon\q_string.h" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\qcommon\q_string.c" />
+    <ClInclude Include="$(SolutionDir)\build\shared\qcommon\q_version.h" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\qcommon\safe\files.cpp">
+      <ObjectFileName>$(IntDir)/__/shared/qcommon/safe/files.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="$(SolutionDir)\Code\Shared\qcommon\safe\files.h" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\qcommon\safe\gsl.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\ghoul2\G2.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\ghoul2\G2_gore.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\ghoul2\ghoul2_shared.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\ghoul2\g2_local.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\icarus\BlockStream.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\icarus\blockstream.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\icarus\GameInterface.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\icarus\GameInterface.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\icarus\icarus.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\icarus\Instance.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\icarus\instance.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\icarus\Interface.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\icarus\interface.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\icarus\interpreter.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\icarus\Memory.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\icarus\Q3_Interface.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\icarus\Q3_Interface.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\icarus\Q3_Registers.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\icarus\Q3_Registers.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\icarus\Sequence.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\icarus\sequence.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\icarus\Sequencer.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\icarus\sequencer.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\icarus\TaskManager.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\icarus\taskmanager.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\icarus\tokenizer.h" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Server\NPCNav\navigator.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Server\NPCNav\navigator.h" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Server\server.h" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Server\sv_bot.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Server\sv_ccmds.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Server\sv_challenge.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Server\sv_client.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Server\sv_game.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Server\sv_init.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Server\sv_main.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Server\sv_net_chan.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Server\sv_snapshot.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Server\sv_world.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Server\sv_gameapi.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Server\sv_gameapi.h" />
+    <ClInclude Include="$(SolutionDir)\code\Game\UI\keycodes.h" />
+    <ClInclude Include="$(SolutionDir)\code\Game\UI\ui_public.h" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\Windows\System\snapvector.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Client\eax\eax.h" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Client\eax\EaxMan.h" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\cl_avi.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\cl_cgame.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\cl_cgameapi.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Client\cl_cgameapi.h" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\cl_cin.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\cl_console.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\cl_input.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\cl_keys.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\cl_lan.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Client\cl_lan.h" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\cl_main.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\cl_net_chan.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\cl_parse.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\cl_scrn.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\cl_ui.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\cl_uiapi.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Client\cl_uiapi.h" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\FXExport.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Client\FXExport.h" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\FxPrimitives.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Client\FxPrimitives.h" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\FxScheduler.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Client\FxScheduler.h" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\FxSystem.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Client\FxSystem.h" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\FxTemplate.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\FxUtil.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Client\FxUtil.h" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\snd_ambient.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Client\snd_ambient.h" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\snd_dma.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Client\snd_local.h" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\snd_mem.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\snd_mix.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\snd_mp3.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Client\snd_mp3.h" />
+    <ClCompile Include="$(SolutionDir)\code\Engine\Client\snd_music.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Engine\Client\snd_music.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\Ratl\bits_vs.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\Ratl\ratl_common.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\Ratl\vector_vs.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\Ratl\CVec.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\cdct.c" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\mp3code\config.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\csbt.c" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\csbtb.c" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\csbtl3.c" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\cup.c" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\cupini.c" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\cupl1.c" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\cupl3.c" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\cwin.c" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\cwinb.c" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\cwinm.c" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\mp3code\htable.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\hwin.c" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\mp3code\jdw.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\mp3code\l3.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\l3dq.c" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\l3init.c" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\mdct.c" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\mhead.c" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\mp3code\mhead.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\mp3code\mp3struct.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\msis.c" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\mp3code\port.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\mp3code\small_header.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\mp3code\tableawd.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\towave.c" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\uph.c" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\upsf.c" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\mp3code\wavep.c" />
+    <None Include="$(SolutionDir)\code\win32\icon.ico">
+    </None>
+    <ClInclude Include="$(SolutionDir)\code\win32\resource.h" />
+    <ResourceCompile Include="$(SolutionDir)\Code\Shared\Windows\Win32\openjk.rc" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\Windows\SDL2\sdl_window.cpp" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\Windows\SDL2\sdl_icon.h" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\Windows\SDL2\sdl_input.cpp" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\Windows\SDL2\sdl_sound.cpp" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\Windows\System\sys_loadlib.h" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\Windows\System\sys_local.h" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\Windows\System\sys_main.cpp" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\Windows\System\sys_event.cpp" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\Windows\System\sys_public.h" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\Windows\System\con_local.h" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\Windows\System\con_log.cpp" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\Windows\System\sys_win32.cpp" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\Windows\System\con_passive.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(SolutionDir)\Build\Projects\botlib.vcxproj">
+      <Project>{44DD7E8E-E115-3EA3-A5F8-BB989858040E}</Project>
+      <Name>botlib</Name>
+    </ProjectReference>
+    <ProjectReference Include="$(SolutionDir)\Build\Projects\minizip\bundled_minizip.vcxproj">
+      <Project>{FDD139AD-08C9-37FE-A7A3-C0FE6583221D}</Project>
+      <Name>bundled_minizip</Name>
+    </ProjectReference>
+    <ProjectReference Include="$(SolutionDir)\Build\Projects\zlib\bundled_zlib.vcxproj">
+      <Project>{45F5E263-42D9-3219-969F-797D68629492}</Project>
+      <Name>bundled_zlib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

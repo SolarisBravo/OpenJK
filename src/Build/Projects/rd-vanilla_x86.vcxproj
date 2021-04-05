@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{013BC2FF-8DCA-331A-A562-DB74C3565F06}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>MP Vanilla Renderer</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)\build\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">rd-vanilla_x86.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">rd-vanilla_x86</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)..\game\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)build\intermediate\$(TargetName)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">rd-vanilla</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(SolutionDir)\build\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">rd-vanilla_x86.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">rd-vanilla_x86</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(SolutionDir)\build\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">rd-vanilla_x86.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">rd-vanilla_x86</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)\code;$(SolutionDir)\Code\Shared\ThirdParty;$(SolutionDir)\code\Renderer\rd-vanilla;$(SolutionDir)\Code\Shared\ThirdParty\gsl-lite\include;$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include;$(SolutionDir)\Code\Shared\ThirdParty\libpng\include;$(SolutionDir)\Code\Shared\ThirdParty\zlib\include;$(SolutionDir)\lib\minizip\include;$(SolutionDir)\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;FINAL_BUILD;CMAKE_INTDIR="Release";rd_vanilla_x86_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;FINAL_BUILD;CMAKE_INTDIR=\"Release\";rd_vanilla_x86_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)\code;$(SolutionDir)\Code\Shared\ThirdParty;$(SolutionDir)\code\Renderer\rd-vanilla;$(SolutionDir)\Code\Shared\ThirdParty\gsl-lite\include;$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include;$(SolutionDir)\Code\Shared\ThirdParty\libpng\include;$(SolutionDir)\Code\Shared\ThirdParty\zlib\include;$(SolutionDir)\lib\minizip\include;$(SolutionDir)\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(SolutionDir)\code;$(SolutionDir)\Code\Shared\ThirdParty;$(SolutionDir)\code\Renderer\rd-vanilla;$(SolutionDir)\Code\Shared\ThirdParty\gsl-lite\include;$(SolutionDir)\Code\Shared\ThirdParty\jpeg-9a\include;$(SolutionDir)\Code\Shared\ThirdParty\libpng\include;$(SolutionDir)\Code\Shared\ThirdParty\zlib\include;$(SolutionDir)\lib\minizip\include;$(SolutionDir)\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>$(SolutionDir)Build\Output\bundled_libjpeg\bundled_libjpeg.lib;$(SolutionDir)Build\Output\bundled_libpng\bundled_libpng.lib;$(SolutionDir)Build\Output\bundled_zlib\bundled_zlib.lib;$(SolutionDir)Build\Output\bundled_minizip\bundled_minizip.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/elitk/Documents/Projects/Code/Game Modifications/OpenJK/src/Build/Output/rd-vanilla_x86.lib</ImportLibrary>
+      <ProgramDataBaseFile>
+      </ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="$(SolutionDir)\code\Renderer\rd-vanilla\glext.h" />
+    <ClInclude Include="$(SolutionDir)\code\Renderer\rd-vanilla\qgl.h" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\G2_API.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\G2_bolts.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\G2_bones.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\G2_misc.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\G2_surfaces.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_arb.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_backend.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_bsp.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_cmds.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_curve.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_decals.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_ghoul2.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_image.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_init.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_light.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_local.h" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_main.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_marks.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_mesh.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_model.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_quicksprite.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_quicksprite.h" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_scene.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_shade.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_shade_calc.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_shader.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_shadows.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_skin.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_sky.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_subs.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_surface.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_surfacesprites.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_world.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_WorldEffects.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Renderer\rd-vanilla\tr_WorldEffects.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\ghoul2\g2_local.h" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\ghoul2\ghoul2_shared.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\ghoul2\G2_gore.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Shared\ghoul2\G2_gore.h" />
+    <ClInclude Include="$(SolutionDir)\code\Renderer\rd-common\mdx_format.h" />
+    <ClInclude Include="$(SolutionDir)\code\Renderer\rd-common\tr_common.h" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-common\tr_font.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Renderer\rd-common\tr_font.h" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-common\tr_image_load.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-common\tr_image_jpg.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-common\tr_image_tga.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-common\tr_image_png.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Renderer\rd-common\tr_noise.cpp" />
+    <ClInclude Include="$(SolutionDir)\code\Renderer\rd-common\tr_public.h" />
+    <ClInclude Include="$(SolutionDir)\code\Renderer\rd-common\tr_types.h" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\matcomp.cpp" />
+    <ClCompile Include="$(SolutionDir)\code\Shared\qcommon\q_shared.cpp" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\qcommon\q_color.h" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\qcommon\q_color.c" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\qcommon\q_math.h" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\qcommon\q_math.c" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\qcommon\q_string.h" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\qcommon\q_string.c" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\qcommon\q_platform.h" />
+    <ClInclude Include="$(SolutionDir)\build\shared\qcommon\q_version.h" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\qcommon\safe\gsl.h" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\qcommon\safe\string.cpp" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\qcommon\safe\string.h" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\qcommon\safe\sscanf.h" />
+    <ClInclude Include="$(SolutionDir)\Code\Shared\qcommon\safe\limited_vector.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(SolutionDir)\Build\Projects\jpeg-9a\bundled_libjpeg.vcxproj">
+      <Project>{CE6BF5F6-56FC-3E3D-8CAC-4FFD22321D21}</Project>
+      <Name>bundled_libjpeg</Name>
+    </ProjectReference>
+    <ProjectReference Include="$(SolutionDir)\Build\Projects\libpng\bundled_libpng.vcxproj">
+      <Project>{FBAE487B-72DA-3C69-9B16-126BA853C948}</Project>
+      <Name>bundled_libpng</Name>
+    </ProjectReference>
+    <ProjectReference Include="$(SolutionDir)\Build\Projects\minizip\bundled_minizip.vcxproj">
+      <Project>{FDD139AD-08C9-37FE-A7A3-C0FE6583221D}</Project>
+      <Name>bundled_minizip</Name>
+    </ProjectReference>
+    <ProjectReference Include="$(SolutionDir)\Build\Projects\zlib\bundled_zlib.vcxproj">
+      <Project>{45F5E263-42D9-3219-969F-797D68629492}</Project>
+      <Name>bundled_zlib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

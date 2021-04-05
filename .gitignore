@@ -1,3 +1,6 @@
+*.vcxproj.user
+
 /game/
 /src/.vs/
-/src/Build/
+/src/Build/Intermediate
+/src/Build/Output

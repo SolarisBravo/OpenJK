@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_bspq3.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_cluster.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_debug.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_entity.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_file.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_main.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_move.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_optimize.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_reach.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_route.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_routealt.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_sample.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_ai_char.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_ai_chat.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_ai_gen.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_ai_goal.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_ai_move.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_ai_weap.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_ai_weight.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_ea.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_interface.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\l_crc.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\l_libvar.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\l_log.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\l_memory.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\l_precomp.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\l_script.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\l_struct.cpp" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\Code\Shared\qcommon\q_color.c" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\Code\Shared\qcommon\q_math.c" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\Code\Shared\qcommon\q_string.c" />
+    <ClCompile Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\Code\Shared\qcommon\safe\string.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\aasfile.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_bsp.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_cluster.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_debug.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_def.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_entity.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_file.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_funcs.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_main.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_move.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_optimize.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_reach.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_route.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_routealt.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_aas_sample.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_ai_char.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_ai_chat.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_ai_gen.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_ai_goal.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_ai_move.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_ai_weap.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_ai_weight.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_ea.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\be_interface.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\botlib.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\l_crc.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\l_libvar.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\l_log.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\l_memory.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\l_precomp.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\l_script.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\l_struct.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\botlib\l_utils.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Game\Server\surfaceflags.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\qcommon\cm_public.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\qcommon\disablewarnings.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\qcommon\q_shared.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\qcommon\qcommon.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\qcommon\qfiles.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Shared\qcommon\tags.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\build\shared\qcommon\q_version.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\code\Engine\server\server.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\Code\Shared\qcommon\q_color.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\Code\Shared\qcommon\q_math.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\Code\Shared\qcommon\q_string.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\Code\Shared\qcommon\q_platform.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\Code\Shared\qcommon\safe\gsl.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\Code\Shared\qcommon\safe\string.h" />
+    <ClInclude Include="C:\Users\elitk\Documents\Projects\Code\Game Modifications\OpenJK\src\Code\Shared\qcommon\safe\sscanf.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="botlib">
+      <UniqueIdentifier>{2592EB5B-151F-314D-9AB0-6C4249109CFD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{FCF82E0D-99C3-3C37-B93A-B2A29AA2C9ED}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\safe">
+      <UniqueIdentifier>{5F00EEDE-EE7F-3059-9BD5-C61F500D4E05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game">
+      <UniqueIdentifier>{CF259E3F-6F76-3E00-B20A-12D0183EBACA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="server">
+      <UniqueIdentifier>{93C6FF9D-1CBA-3031-9E88-A5416028DD01}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

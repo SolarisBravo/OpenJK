@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\minizip\ioapi.c" />
+    <ClCompile Include="$(SolutionDir)\Code\Shared\ThirdParty\minizip\unzip.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{7545AF3B-B105-333F-9FFF-A97D3779BC8E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
