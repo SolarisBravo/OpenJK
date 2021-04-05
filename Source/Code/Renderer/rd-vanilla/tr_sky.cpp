@@ -30,8 +30,6 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 static float s_cloudTexCoords[6][SKY_SUBDIVISIONS+1][SKY_SUBDIVISIONS+1][2];
 static float s_cloudTexP[6][SKY_SUBDIVISIONS+1][SKY_SUBDIVISIONS+1];
 
-extern bool g_bRenderGlowingObjects;
-
 /*
 ===================================================================================
 
@@ -791,9 +789,6 @@ Other things could be stuck in here, like birds in the sky, etc
 */
 void RB_StageIteratorSky( void )
 {
-	if ( g_bRenderGlowingObjects )
-		return;
-
 	if ( r_fastsky->integer ) {
 		return;
 	}

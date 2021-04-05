@@ -2446,7 +2446,6 @@ void CL_InitRef( void ) {
 	ri.CGVM_RagCallback = CGVM_RagCallback;
 
     ri.WIN_Init = WIN_Init;
-	ri.WIN_SetGamma = WIN_SetGamma;
     ri.WIN_Shutdown = WIN_Shutdown;
     ri.WIN_Present = WIN_Present;
 	ri.GL_GetProcAddress = WIN_GL_GetProcAddress;

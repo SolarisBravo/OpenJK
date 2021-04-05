@@ -38,8 +38,6 @@ static qboolean	setArraysOnce;
 
 color4ub_t	styleColors[MAX_LIGHT_STYLES];
 
-extern bool g_bRenderGlowingObjects;
-
 /*
 ================
 R_ArrayElementDiscrete
@@ -1608,15 +1606,9 @@ static void RB_IterateStagesGeneric( shaderCommands_t *input )
 			qglFogi(GL_FOG_MODE, GL_EXP2);
 			qglFogf(GL_FOG_DENSITY, logtestExp2 / fog->parms.depthForOpaque);
 		}
-		if ( g_bRenderGlowingObjects )
-		{
-			const float fogColor[3] = { 0.0f, 0.0f, 0.0f };
-			qglFogfv(GL_FOG_COLOR, fogColor );
-		}
-		else
-		{
-			qglFogfv(GL_FOG_COLOR, fog->parms.color);
-		}
+
+		qglFogfv(GL_FOG_COLOR, fog->parms.color);
+
 		qglEnable(GL_FOG);
 		UseGLFog = true;
 	}
@@ -1630,12 +1622,6 @@ static void RB_IterateStagesGeneric( shaderCommands_t *input )
 		if ( !pStage->active )
 		{
 			break;
-		}
-
-		// Reject this stage if it's not a glow stage but we are doing a glow pass.
-		if ( g_bRenderGlowingObjects && !pStage->glow )
-		{
-			continue;
 		}
 
 		if ( stage && r_lightmap->integer && !( pStage->bundle[0].isLightmap || pStage->bundle[1].isLightmap || pStage->bundle[0].vertexLightmap ) )

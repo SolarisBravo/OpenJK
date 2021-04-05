@@ -102,14 +102,6 @@ cvar_t	*r_ext_texture_filter_anisotropic;
 
 cvar_t	*r_environmentMapping;
 
-cvar_t	*r_DynamicGlow;
-cvar_t	*r_DynamicGlowPasses;
-cvar_t	*r_DynamicGlowDelta;
-cvar_t	*r_DynamicGlowIntensity;
-cvar_t	*r_DynamicGlowSoft;
-cvar_t	*r_DynamicGlowWidth;
-cvar_t	*r_DynamicGlowHeight;
-
 cvar_t	*r_ignoreGLErrors;
 cvar_t	*r_logFile;
 
@@ -430,15 +422,12 @@ static void GLW_InitTextureCompression( void )
 GLimp_InitExtensions
 ===============
 */
-extern bool g_bDynamicGlowSupported;
 extern bool g_bARBShadersAvailable;
 static void GLimp_InitExtensions( void )
 {
 	if ( !r_allowExtensions->integer )
 	{
 		Com_Printf ("*** IGNORING OPENGL EXTENSIONS ***\n" );
-		g_bDynamicGlowSupported = false;
-		ri.Cvar_Set( "r_DynamicGlow","0" );
 		return;
 	}
 
@@ -697,9 +686,6 @@ static void GLimp_InitExtensions( void )
 	GLint iNumGeneralCombiners = 0;
 	if(bNVRegisterCombiners)
 		qglGetIntegerv( GL_MAX_GENERAL_COMBINERS_NV, &iNumGeneralCombiners );
-
-
-	g_bDynamicGlowSupported = true;
 
 
 	qglStencilOpSeparate = (PFNGLSTENCILOPSEPARATEPROC)ri.GL_GetProcAddress("glStencilOpSeparate");
@@ -1425,7 +1411,6 @@ void GfxInfo_f( void )
 		else
 			ri.Printf( PRINT_ALL, "%f)\n", glConfig.maxTextureFilterAnisotropy);
 	}
-	ri.Printf( PRINT_ALL, "Dynamic Glow: %s\n", enablestrings[r_DynamicGlow->integer ? 1 : 0] );
 	if (g_bTextureRectangleHack) ri.Printf( PRINT_ALL, "Dynamic Glow ATI BAD DRIVER HACK %s\n", enablestrings[g_bTextureRectangleHack] );
 
 	if ( r_finish->integer ) {
@@ -1498,13 +1483,6 @@ void R_Register( void )
 	r_ext_texture_env_add				= ri.Cvar_Get( "r_ext_texture_env_add",			"1",						CVAR_ARCHIVE_ND|CVAR_LATCH, "" );
 	r_ext_texture_filter_anisotropic	= ri.Cvar_Get( "r_ext_texture_filter_anisotropic",	"16",						CVAR_ARCHIVE_ND, "" );
 	r_environmentMapping				= ri.Cvar_Get( "r_environmentMapping",				"1",						CVAR_ARCHIVE_ND, "" );
-	r_DynamicGlow						= ri.Cvar_Get( "r_DynamicGlow",					"0",						CVAR_ARCHIVE_ND, "" );
-	r_DynamicGlowPasses					= ri.Cvar_Get( "r_DynamicGlowPasses",				"5",						CVAR_ARCHIVE_ND, "" );
-	r_DynamicGlowDelta					= ri.Cvar_Get( "r_DynamicGlowDelta",				"0.8f",						CVAR_ARCHIVE_ND, "" );
-	r_DynamicGlowIntensity				= ri.Cvar_Get( "r_DynamicGlowIntensity",			"1.13f",					CVAR_ARCHIVE_ND, "" );
-	r_DynamicGlowSoft					= ri.Cvar_Get( "r_DynamicGlowSoft",				"1",						CVAR_ARCHIVE_ND, "" );
-	r_DynamicGlowWidth					= ri.Cvar_Get( "r_DynamicGlowWidth",				"320",						CVAR_ARCHIVE_ND|CVAR_LATCH, "" );
-	r_DynamicGlowHeight					= ri.Cvar_Get( "r_DynamicGlowHeight",				"240",						CVAR_ARCHIVE_ND|CVAR_LATCH, "" );
 	r_picmip							= ri.Cvar_Get( "r_picmip",							"0",						CVAR_ARCHIVE|CVAR_LATCH, "" );
 	ri.Cvar_CheckRange( r_picmip, 0, 16, qtrue );
 	r_colorMipLevels					= ri.Cvar_Get( "r_colorMipLevels",					"0",						CVAR_LATCH, "" );
@@ -1742,39 +1720,6 @@ void RE_Shutdown( qboolean destroyWindow, qboolean restarting ) {
 
 	for ( size_t i = 0; i < numCommands; i++ )
 		ri.Cmd_RemoveCommand( commands[i].cmd );
-
-	if ( r_DynamicGlow && r_DynamicGlow->integer )
-	{
-		// Release the Glow Vertex Shader.
-		if ( tr.glowVShader )
-		{
-			qglDeleteProgramsARB( 1, &tr.glowVShader );
-		}
-
-		// Release Pixel Shader.
-		if ( tr.glowPShader )
-		{
-			if ( qglCombinerParameteriNV  )
-			{
-				// Release the Glow Regcom call list.
-				qglDeleteLists( tr.glowPShader, 1 );
-			}
-			else if ( qglGenProgramsARB )
-			{
-				// Release the Glow Fragment Shader.
-				qglDeleteProgramsARB( 1, &tr.glowPShader );
-			}
-		}
-
-		// Release the scene glow texture.
-		qglDeleteTextures( 1, &tr.screenGlow );
-
-		// Release the scene texture.
-		qglDeleteTextures( 1, &tr.sceneImage );
-
-		// Release the blur texture.
-		qglDeleteTextures( 1, &tr.blurImage );
-	}
 
 	R_ShutdownWorldEffects();
 	R_ShutdownFonts();

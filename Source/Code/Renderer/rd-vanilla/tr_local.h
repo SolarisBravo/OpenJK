@@ -986,11 +986,6 @@ typedef struct trGlobals_s {
 	// Image used to downsample and blur scene to.	- AReis
 	GLuint					blurImage;
 
-	// Gamma correction using vertex/pixel programs
-	GLuint					gammaCorrectLUTImage;
-	GLuint					gammaCorrectVtxShader;
-	GLuint					gammaCorrectPxShader;
-
 	shader_t				*defaultShader;
 	shader_t				*shadowShader;
 	shader_t				*distortionShader;
@@ -1062,7 +1057,6 @@ struct glconfigExt_t
 {
 	glconfig_t *glConfig;
 
-	qboolean doGammaCorrectionWithShaders;
 	qboolean doStencilShadowsInOneDrawcall;
 	const char *originalExtensionString;
 };
@@ -1151,15 +1145,12 @@ extern cvar_t	*r_windPointY;
 
 extern cvar_t	*r_fullscreen;
 extern cvar_t	*r_centerWindow;		// override vid_x/ypos and center the window
-extern cvar_t	*r_gamma;
 extern cvar_t	*r_displayRefresh;		// optional display refresh option
-extern cvar_t	*r_ignorehwgamma;		// overrides hardware gamma capabilities
 
 extern cvar_t	*r_allowExtensions;				// global enable/disable of OpenGL extensions
 extern cvar_t	*r_ext_compressed_textures;		// these control use of specific extensions
 extern cvar_t	*r_ext_compressed_lightmaps;	// turns on compression of lightmaps, off by default
 extern cvar_t	*r_ext_preferred_tc_method;
-extern cvar_t	*r_ext_gamma_control;
 extern cvar_t	*r_ext_texenv_op;
 extern cvar_t	*r_ext_multitexture;
 extern cvar_t	*r_ext_compiled_vertex_array;
@@ -1167,14 +1158,6 @@ extern cvar_t	*r_ext_texture_env_add;
 extern cvar_t	*r_ext_texture_filter_anisotropic;
 
 extern cvar_t	*r_environmentMapping;
-
-extern cvar_t	*r_DynamicGlow;
-extern cvar_t	*r_DynamicGlowPasses;
-extern cvar_t	*r_DynamicGlowDelta;
-extern cvar_t	*r_DynamicGlowIntensity;
-extern cvar_t	*r_DynamicGlowSoft;
-extern cvar_t	*r_DynamicGlowWidth;
-extern cvar_t	*r_DynamicGlowHeight;
 
 extern	cvar_t	*r_nobind;						// turns off binding to appropriate textures
 extern	cvar_t	*r_singleShader;				// make most world faces use default shader
@@ -1356,8 +1339,6 @@ image_t		*R_CreateImage( const char *name, const byte *pic, int width, int heigh
 qboolean	R_GetModeInfo( int *width, int *height, int mode );
 
 void		R_SetColorMappings( void );
-void		R_SetGammaCorrectionLUT();
-void		R_GammaCorrect( byte *buffer, int bufSize );
 
 void	R_ImageList_f( void );
 void	R_SkinList_f( void );

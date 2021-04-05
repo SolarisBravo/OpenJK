@@ -387,7 +387,6 @@ typedef struct glconfig_s {
 
 	int						colorBits, depthBits, stencilBits;
 
-	qboolean				deviceSupportsGamma;
 	textureCompression_t	textureCompression;
 	qboolean				textureEnvAddAvailable;
 	qboolean				clampToEdgeAvailable;

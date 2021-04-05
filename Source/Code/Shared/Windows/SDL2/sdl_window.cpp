@@ -55,7 +55,6 @@ cvar_t	*r_displayRefresh;
 cvar_t	*r_stencilbits;
 cvar_t	*r_depthbits;
 cvar_t	*r_colorbits;
-cvar_t	*r_ignorehwgamma;
 cvar_t  *r_ext_multisample;
 
 /*
@@ -607,7 +606,6 @@ window_t WIN_Init( const windowDesc_t *windowDesc, glconfig_t *glConfig )
 	r_stencilbits		= Cvar_Get( "r_stencilbits",		"8",		CVAR_ARCHIVE_ND|CVAR_LATCH );
 	r_depthbits			= Cvar_Get( "r_depthbits",			"0",		CVAR_ARCHIVE_ND|CVAR_LATCH );
 	r_colorbits			= Cvar_Get( "r_colorbits",			"0",		CVAR_ARCHIVE_ND|CVAR_LATCH );
-	r_ignorehwgamma		= Cvar_Get( "r_ignorehwgamma",		"0",		CVAR_ARCHIVE_ND|CVAR_LATCH );
 	r_ext_multisample	= Cvar_Get( "r_ext_multisample",	"0",		CVAR_ARCHIVE_ND|CVAR_LATCH );
 	Cvar_Get( "r_availableModes", "", CVAR_ROM );
 
@@ -616,9 +614,6 @@ window_t WIN_Init( const windowDesc_t *windowDesc, glconfig_t *glConfig )
 	{
 		Com_Error( ERR_FATAL, "GLimp_Init() - could not load OpenGL subsystem" );
 	}
-
-	glConfig->deviceSupportsGamma =
-		(qboolean)(!r_ignorehwgamma->integer && SDL_SetWindowBrightness( screen, 1.0f ) >= 0);
 
 	// This depends on SDL_INIT_VIDEO, hence having it here
 	IN_Init( screen );
@@ -670,60 +665,6 @@ void GLimp_EnableLogging( qboolean enable )
 
 void GLimp_LogComment( char *comment )
 {
-}
-
-void WIN_SetGamma( glconfig_t *glConfig, byte red[256], byte green[256], byte blue[256] )
-{
-	Uint16 table[3][256];
-	int i, j;
-
-	if( !glConfig->deviceSupportsGamma || r_ignorehwgamma->integer > 0 )
-		return;
-
-	for (i = 0; i < 256; i++)
-	{
-		table[0][i] = ( ( ( Uint16 ) red[i] ) << 8 ) | red[i];
-		table[1][i] = ( ( ( Uint16 ) green[i] ) << 8 ) | green[i];
-		table[2][i] = ( ( ( Uint16 ) blue[i] ) << 8 ) | blue[i];
-	}
-
-#if defined(_WIN32)
-	// Win2K and newer put this odd restriction on gamma ramps...
-	{
-		OSVERSIONINFO	vinfo;
-
-		vinfo.dwOSVersionInfoSize = sizeof( vinfo );
-		GetVersionEx( &vinfo );
-		if( vinfo.dwMajorVersion >= 5 && vinfo.dwPlatformId == VER_PLATFORM_WIN32_NT )
-		{
-			Com_DPrintf( "performing gamma clamp.\n" );
-			for( j = 0 ; j < 3 ; j++ )
-			{
-				for( i = 0 ; i < 128 ; i++ )
-				{
-					table[j][i] = Q_min(table[j][i], (128 + i) << 8);
-				}
-
-				table[j][127] = Q_min(table[j][127], 254 << 8);
-			}
-		}
-	}
-#endif
-
-	// enforce constantly increasing
-	for (j = 0; j < 3; j++)
-	{
-		for (i = 1; i < 256; i++)
-		{
-			if (table[j][i] < table[j][i-1])
-				table[j][i] = table[j][i-1];
-		}
-	}
-
-	if ( SDL_SetWindowGammaRamp( screen, table[0], table[1], table[2] ) < 0 )
-	{
-		Com_DPrintf( "SDL_SetWindowGammaRamp() failed: %s\n", SDL_GetError() );
-	}
 }
 
 void *WIN_GL_GetProcAddress( const char *proc )
