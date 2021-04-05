@@ -314,13 +314,6 @@ static rserr_t GLimp_SetMode(glconfig_t *glConfig, const windowDesc_t *windowDes
 		y = ( desktopMode.h / 2 ) - ( glConfig->vidHeight / 2 );
 	}
 
-	//Center fullscreen
-	if(fullscreen)
-	{
-		x = 0;
-		y = 0;
-	}
-
 	// Destroy existing state if it exists
 	if( opengl_context != NULL )
 	{
@@ -336,17 +329,16 @@ static rserr_t GLimp_SetMode(glconfig_t *glConfig, const windowDesc_t *windowDes
 		screen = NULL;
 	}
 
-	//Fullscreen is always borderless
-	if( fullscreen )
+	//Disable exclusive fullscreen
+	glConfig->isFullscreen = qfalse;
+
+	//Setup borderless fullscreen
+	if(fullscreen)
 	{
 		flags |= SDL_WINDOW_BORDERLESS;
-		glConfig->isFullscreen = qfalse;
 		glConfig->vidWidth = desktopMode.w;
 		glConfig->vidHeight = desktopMode.h;
-	}
-	else
-	{
-		glConfig->isFullscreen = qfalse;
+		displayAspect = (float)desktopMode.w / (float)desktopMode.h;
 	}
 
 	colorBits = r_colorbits->integer;
