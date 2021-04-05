@@ -157,7 +157,11 @@ void Sys_Init( void ) {
 
 	com_unfocused = Cvar_Get( "com_unfocused", "0", CVAR_ROM );
 	com_minimized = Cvar_Get( "com_minimized", "0", CVAR_ROM );
+#ifdef _JK2EXE
+	com_maxfps = Cvar_Get ("com_maxfps", "125", CVAR_ARCHIVE );
+#else
 	com_maxfps = Cvar_Get( "com_maxfps", "125", CVAR_ARCHIVE, "Maximum frames per second" );
+#endif
 	com_maxfpsUnfocused = Cvar_Get( "com_maxfpsUnfocused", "0", CVAR_ARCHIVE_ND );
 	com_maxfpsMinimized = Cvar_Get( "com_maxfpsMinimized", "50", CVAR_ARCHIVE_ND );
 }
@@ -462,7 +466,12 @@ void *Sys_LoadLegacyGameDll( const char *name, VMMainProc **vmMain, SystemCallPr
 	void	*libHandle = NULL;
 	char	filename[MAX_OSPATH];
 
-	Com_sprintf (filename, sizeof(filename), "%s" DLL_EXT, name);
+	Com_sprintf (filename, sizeof(filename), "%s" ARCH_STRING DLL_EXT, name);
+
+#if defined(_DEBUG)
+	libHandle = Sys_LoadLibrary( filename );
+	if ( !libHandle )
+#endif
 	{
 		UnpackDLLResult unpackResult = Sys_UnpackDLL(filename);
 		if ( !unpackResult.succeeded )
@@ -483,14 +492,26 @@ void *Sys_LoadLegacyGameDll( const char *name, VMMainProc **vmMain, SystemCallPr
 
 		if ( !libHandle )
 		{
+#if defined(MACOS_X) && !defined(_JK2EXE)
+			//First, look for the old-style mac .bundle that's inside a pk3
+			//It's actually zipped, and the zipfile has the same name as 'name'
+			libHandle = Sys_LoadMachOBundle( name );
+#endif
+
 			if (!libHandle) {
 				char *basepath = Cvar_VariableString( "fs_basepath" );
 				char *homepath = Cvar_VariableString( "fs_homepath" );
 				char *cdpath = Cvar_VariableString( "fs_cdpath" );
 				char *gamedir = Cvar_VariableString( "fs_game" );
+		#ifdef MACOS_X
+				char *apppath = Cvar_VariableString( "fs_apppath" );
+		#endif
 
 				const char *searchPaths[] = {
 					homepath,
+		#ifdef MACOS_X
+					apppath,
+		#endif
 					basepath,
 					cdpath,
 				};
@@ -527,29 +548,42 @@ void *Sys_LoadSPGameDll( const char *name, GetGameAPIProc **GetGameAPI )
 
 	assert( GetGameAPI );
 
-	Com_sprintf (filename, sizeof(filename), "%s" DLL_EXT, name);
+	Com_sprintf (filename, sizeof(filename), "%s" ARCH_STRING DLL_EXT, name);
+
+#if defined(MACOS_X) && !defined(_JK2EXE)
+    //First, look for the old-style mac .bundle that's inside a pk3
+    //It's actually zipped, and the zipfile has the same name as 'name'
+    libHandle = Sys_LoadMachOBundle( filename );
+#endif
 
 	if (!libHandle) {
 		char *basepath = Cvar_VariableString( "fs_basepath" );
 		char *homepath = Cvar_VariableString( "fs_homepath" );
 		char *cdpath = Cvar_VariableString( "fs_cdpath" );
 		char *gamedir = Cvar_VariableString( "fs_game" );
+#ifdef MACOS_X
+        char *apppath = Cvar_VariableString( "fs_apppath" );
+#endif
 
 		const char *searchPaths[] = {
 			homepath,
+#ifdef MACOS_X
+			apppath,
+#endif
 			basepath,
 			cdpath,
 		};
 		size_t numPaths = ARRAY_LEN( searchPaths );
 
-		libHandle = Sys_LoadDllFromPaths(filename, gamedir, searchPaths, numPaths, SEARCH_PATH_BASE | SEARCH_PATH_MOD | SEARCH_PATH_OPENJK | SEARCH_PATH_ROOT, __FUNCTION__ );
-		if (!libHandle)
+		libHandle = Sys_LoadDllFromPaths( filename, gamedir, searchPaths, numPaths,
+											SEARCH_PATH_BASE | SEARCH_PATH_MOD | SEARCH_PATH_OPENJK | SEARCH_PATH_ROOT,
+											__FUNCTION__ );
+		if ( !libHandle )
 			return NULL;
 	}
 
-	*GetGameAPI = (GetGameAPIProc *)Sys_LoadFunction(libHandle, "GetGameAPI");
-	if (!*GetGameAPI)
-	{
+	*GetGameAPI = (GetGameAPIProc *)Sys_LoadFunction( libHandle, "GetGameAPI" );
+	if ( !*GetGameAPI ) {
 		Com_DPrintf ( "%s(%s) failed to find GetGameAPI function:\n...%s!\n", __FUNCTION__, name, Sys_LibraryError() );
 		Sys_UnloadLibrary( libHandle );
 		return NULL;
@@ -563,7 +597,12 @@ void *Sys_LoadGameDll( const char *name, GetModuleAPIProc **moduleAPI )
 	void	*libHandle = NULL;
 	char	filename[MAX_OSPATH];
 
-	Com_sprintf (filename, sizeof(filename), "%s" DLL_EXT, name);
+	Com_sprintf (filename, sizeof(filename), "%s" ARCH_STRING DLL_EXT, name);
+
+#if defined(_DEBUG)
+	libHandle = Sys_LoadLibrary( filename );
+	if ( !libHandle )
+#endif
 	{
 		UnpackDLLResult unpackResult = Sys_UnpackDLL(filename);
 		if ( !unpackResult.succeeded )
@@ -584,14 +623,26 @@ void *Sys_LoadGameDll( const char *name, GetModuleAPIProc **moduleAPI )
 
 		if ( !libHandle )
 		{
+#if defined(MACOS_X) && !defined(_JK2EXE)
+			//First, look for the old-style mac .bundle that's inside a pk3
+			//It's actually zipped, and the zipfile has the same name as 'name'
+			libHandle = Sys_LoadMachOBundle( name );
+#endif
+
 			if (!libHandle) {
 				char *basepath = Cvar_VariableString( "fs_basepath" );
 				char *homepath = Cvar_VariableString( "fs_homepath" );
 				char *cdpath = Cvar_VariableString( "fs_cdpath" );
 				char *gamedir = Cvar_VariableString( "fs_game" );
+#ifdef MACOS_X
+				char *apppath = Cvar_VariableString( "fs_apppath" );
+#endif
 
 				const char *searchPaths[] = {
 					homepath,
+#ifdef MACOS_X
+					apppath,
+#endif
 					basepath,
 					cdpath,
 				};
